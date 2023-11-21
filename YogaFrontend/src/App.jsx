@@ -1,7 +1,7 @@
+import Eventpage from "./components/Eventpage.jsx";
 import Homepage from "./components/Homepage.jsx";
 import { Route, Routes } from "react-router-dom";
-import "./homepage.css";
-import Eventpage from "./components/Eventpage.jsx";
+// import "./homepage.css";
 
 function App() {
   return (
