@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import enUS from 'date-fns/locale/en-US'
 import { useState } from 'react'
+import 'react-datepicker/dist/react-datepicker.css'
 
 //format of the dates is in US format
 const locales = {
@@ -48,13 +49,48 @@ const events = [
 export default function EventCalendar() {
     const [newEvent, setNewEvent] = useState({
         title: '',
-        start: '',
-        end: '',
+        startDate: '',
+        endDate: '',
     })
     const [allEvents, setAllEvents] = useState(events)
 
+    function handleAddEvent() {
+        setAllEvents([...allEvents, newEvent])
+    }
+
     return (
         <>
+            <h2>Add new event</h2>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Add title"
+                    style={{ width: '20%', marginRight: '10px' }}
+                    value={newEvent.title}
+                    onChange={(event) =>
+                        setNewEvent({ ...newEvent, title: event.target.value })
+                    }
+                />
+                <DatePicker
+                    placeholderText="Start Date"
+                    style={{ marginRight: '10px' }}
+                    selected={newEvent.startDate}
+                    onChange={(startDate) =>
+                        setNewEvent({ ...newEvent, startDate })
+                    }
+                />
+                <DatePicker
+                    placeholderText="End Date"
+                    style={{ marginRight: '10px' }}
+                    selected={newEvent.endDate}
+                    onChange={(endDate) =>
+                        setNewEvent({ ...newEvent, endDate })
+                    }
+                />
+                <button style={{ marginTop: '10px' }} onClick={handleAddEvent}>
+                    Add event
+                </button>
+            </div>
             <Calendar
                 localizer={localizer}
                 events={allEvents}
