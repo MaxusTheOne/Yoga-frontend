@@ -1,7 +1,16 @@
+import Homepage from "./Homepage.jsx";
+import { Route, Routes } from "react-router-dom";
 import "./homepage.css";
 
 function App() {
-  return <div>tis</div>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="*" element={<Homepage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
