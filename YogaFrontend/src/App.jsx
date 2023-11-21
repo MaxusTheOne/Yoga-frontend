@@ -1,4 +1,4 @@
-import Homepage from "./Homepage.jsx";
+import Homepage from "./components/Homepage.jsx";
 import { Route, Routes } from "react-router-dom";
 import "./homepage.css";
 import Eventpage from "./components/Eventpage.jsx";
