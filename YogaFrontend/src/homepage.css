@@ -5,6 +5,7 @@
 
 body {
     min-height: 100vh;
+    overflow-x: auto;
     font-family: Just Another Hand;
     font-weight: lighter;
     background-color: rgba(219, 237, 237, 1);
@@ -75,4 +76,89 @@ footer ul {
 #root > footer > div > ul > li:nth-child(4) > a {
     text-decoration: underline;
     color: rgba(99, 154, 154, 1);
+}
+
+/* Quote Changer */
+
+.grid-testimonials {
+    color: rgba(73, 89, 89, 1);
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+}
+
+.quote-container-title {
+    font-weight: lighter;
+    text-align: center;
+    height: 12vh;
+}
+
+.grid-item-testimonials {
+    margin: 40px;
+    width: 50%;
+    /* min-width: auto; */
+    min-height: auto;
+    min-width: 100px;
+}
+
+.quote-fade-in {
+    font-weight: lighter;
+    text-align: center;
+    height: 48vh;
+
+    padding: 2px;
+    max-width: 600px;
+
+    /* width: min-content 200px;
+    width: max-content 300px; */
+}
+
+.aboutMe-grid-item {
+    max-width: 50%;
+    margin: 40px;
+    /* min-width: auto; */
+}
+
+.aboutMe-img {
+    margin: 40px;
+    min-height: auto;
+    min-width: 10px;
+    max-width: 800px;
+}
+
+#root > div > div.aboutMe-grid > p > h3 {
+    font-weight: lighter;
+}
+
+.aboutMe-grid {
+    background-color: rgba(99, 154, 154, 1);
+    color: rgba(219, 237, 237, 1);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.benefits-grid-item {
+    max-width: 50%;
+    margin: 40px;
+}
+
+#root > div > div.benefits-grid > p > h3 {
+    font-weight: lighter;
+}
+
+.benefits-grid {
+    color: rgba(63, 80, 80, 1);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 400px) {
+    .grid-testimonials {
+        display: flex;
+        /* display: none; */
+    }
 }

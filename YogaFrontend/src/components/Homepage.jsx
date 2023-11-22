@@ -1,11 +1,16 @@
 import Header from './Header'
 import Footer from './Footer'
+import Testimonials from './Homepage/Testimonials'
+import AboutMe from './Homepage/AboutMe'
+import BenefitsYoga from './Homepage/BenefitsYoga'
 
 export default function Homepage() {
     return (
         <div>
             <Header />
-            <h1>yoga yoga</h1>
+            <Testimonials />
+            <AboutMe />
+            <BenefitsYoga />
             <Footer />
         </div>
     )
