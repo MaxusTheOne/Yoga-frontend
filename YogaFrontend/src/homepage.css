@@ -81,16 +81,18 @@ footer ul {
 /* Quote Changer */
 
 .grid-testimonials {
+    justify-content: space-evenly;
     color: rgba(73, 89, 89, 1);
     font-size: xx-large;
     display: flex;
     align-items: center;
+    padding: 10px;
 }
 
 .quote-container-title {
     font-weight: lighter;
     text-align: center;
-    height: 12vh;
+    height: 13vh;
 }
 
 .grid-item-testimonials {
@@ -104,7 +106,7 @@ footer ul {
 .quote-fade-in {
     font-weight: lighter;
     text-align: center;
-    height: 48vh;
+    height: 53vh;
 
     padding: 2px;
     max-width: 600px;
@@ -131,6 +133,7 @@ footer ul {
 }
 
 .aboutMe-grid {
+    justify-content: space-evenly;
     background-color: rgba(99, 154, 154, 1);
     color: rgba(219, 237, 237, 1);
     font-size: 40px;
@@ -149,6 +152,7 @@ footer ul {
 }
 
 .benefits-grid {
+    justify-content: space-evenly;
     color: rgba(63, 80, 80, 1);
     font-size: 40px;
     display: flex;
