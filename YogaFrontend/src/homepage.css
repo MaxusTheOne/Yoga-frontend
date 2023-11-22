@@ -54,3 +54,16 @@ a:focus {
 .active {
     color: rgba(99, 154, 154, 1);
 }
+
+/* STYLING FOR EVENT CALENDAR PAGE */
+
+.datePicker {
+    z-index: 100;
+}
+
+.event-calendar {
+    z-index: 0;
+}
+.rbc-toolbar-label {
+    font-size: xxx-large;
+}
