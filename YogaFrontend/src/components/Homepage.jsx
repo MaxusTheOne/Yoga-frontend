@@ -3,6 +3,7 @@ import Footer from './Footer'
 import Testimonials from './Homepage/Testimonials'
 import AboutMe from './Homepage/AboutMe'
 import BenefitsYoga from './Homepage/BenefitsYoga'
+import Practice from './Homepage/Practice'
 
 export default function Homepage() {
     return (
@@ -11,6 +12,7 @@ export default function Homepage() {
             <Testimonials />
             <AboutMe />
             <BenefitsYoga />
+            <Practice />
             <Footer />
         </div>
     )
