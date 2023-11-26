@@ -214,15 +214,62 @@ footer ul {
 
 .onlinepage-grid-item {
     max-width: 100%;
+    margin: 20px;
     font-weight: lighter;
 }
 
 .onlinepage-grid {
-    flex-direction: row-reverse;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-around;
     color: rgba(63, 80, 80, 1);
     font-size: 40px;
     display: flex;
     margin: 20px;
-    align-items: flex-start;
+    text-align: center;
+}
+
+.onlinepage-grid-item > a {
+    text-decoration: underline;
+}
+
+.online-grid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 30px;
+    display: flex;
+    margin: 20px;
+}
+
+.online-grid-item {
+    max-width: 100%;
+    margin: 20px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.investment-grid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 30px;
+    display: flex;
+    margin: 20px;
+}
+
+.investment-grid-item {
+    margin: 10px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#root > div.investment-grid > p:nth-child(6) {
+    font-size: 20px;
+}
+
+#root > div.online-grid > img {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
