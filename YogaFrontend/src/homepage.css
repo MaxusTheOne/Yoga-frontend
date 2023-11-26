@@ -196,6 +196,7 @@ footer ul {
 
 .faceyoga-grid-item {
     max-width: 100%;
+
     margin: 40px;
 }
 
@@ -209,4 +210,19 @@ footer ul {
 
 .img-faceyoga {
     margin: 20px;
+}
+
+.onlinepage-grid-item {
+    max-width: 100%;
+    font-weight: lighter;
+}
+
+.onlinepage-grid {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 40px;
+    display: flex;
+    margin: 20px;
+    align-items: flex-start;
 }
