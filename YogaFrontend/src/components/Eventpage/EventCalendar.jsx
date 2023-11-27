@@ -10,23 +10,6 @@ import { useState } from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import '/Users/dajac/Desktop/Datamatiker/Semester 2/Eksamen/kode/Yoga-frontend/YogaFrontend/src/homepage.css'
 
-const components = {
-    event: (props) => {
-        console.log(props)
-        const eventType = props?.event?.data?.type
-        switch (eventType) {
-            case 'signup':
-                return (
-                    <div>
-                        {props} <p>asdas</p>
-                    </div>
-                )
-            default:
-                return <p>poopy</p>
-        }
-    },
-}
-
 //format of the dates is in US format
 const locales = {
     'en-US': enUS,
@@ -41,6 +24,7 @@ const localizer = dateFnsLocalizer({
     locales,
 })
 
+//This is only testing data
 //Months start at 0 so that would be january
 //format goes new Date(year, month, day, hour, minutes)
 const events = [
@@ -49,6 +33,7 @@ const events = [
         allDay: false,
         start: new Date(2023, 10, 23, 18, 30),
         end: new Date(2023, 10, 23, 20, 0),
+        description: 'other',
         data: { type: 'signup' },
     },
     {
@@ -56,7 +41,7 @@ const events = [
         allDay: true,
         start: new Date(2023, 10, 21),
         end: new Date(2023, 10, 22),
-        desription: 'all day event',
+        description: 'all day event',
         data: { type: 'signup' },
     },
     {
@@ -64,11 +49,24 @@ const events = [
         allDay: false,
         start: new Date(2023, 10, 26, 12, 30),
         end: new Date(2023, 10, 26, 13, 30),
+        description: 'more other',
         data: { type: 'signup' },
     },
 ]
 
+const EventComponent = ({ event }) => (
+    <div>
+        <strong>{event.title}</strong>
+        {event.description && <p>{event.description}</p>}
+    </div>
+)
+
+//This is the actual component starting here and going down
+
 export default function EventCalendar() {
+    //controls the state for the dialog for adding an event
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
+
     //Sets the state of a new event thru the datepicker component
     const [newEvent, setNewEvent] = useState({
         title: '',
@@ -85,6 +83,7 @@ export default function EventCalendar() {
 
     //this function is called when the add event button is clicked and it calls the set function in allEvents
     function handleAddEvent() {
+        console.log(newEvent)
         // Check if required fields are filled
         if (!newEvent.title || !newEvent.start || !newEvent.end) {
             setError('Please fill in all required fields.')
@@ -103,59 +102,92 @@ export default function EventCalendar() {
             start: '',
             end: '',
         })
+
+        //closes the dialog after event is added
+        setIsDialogOpen(false)
+    }
+
+    //this function handles the opening of the add event dialog
+    function handleOpenDialog() {
+        setIsDialogOpen(true)
+    }
+
+    //this function handles the opening of the add event dialog
+    function handleCloseDialog() {
+        setIsDialogOpen(false)
     }
 
     return (
         <>
-            <h2>Add new event</h2>
-            <dialog className="add-new-event-dialog" open>
-                <div>
-                    {/* The below is to validate some input and send and error to the user if there is no input */}
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
-                    <input
-                        required
-                        type="text"
-                        placeholder="Add title"
-                        style={{ width: '20%', marginRight: '10px' }}
-                        value={newEvent.title}
-                        onChange={(event) =>
-                            setNewEvent({
-                                ...newEvent,
-                                title: event.target.value,
-                            })
-                        }
-                    />
-                    <DatePicker
-                        ClassName="datePicker"
-                        required
-                        placeholderText="Start Date"
-                        style={{ marginRight: '10px' }}
-                        selected={newEvent.start}
-                        onChange={(start) =>
-                            setNewEvent({ ...newEvent, start })
-                        }
-                        showTimeSelect
-                        dateFormat="dd/MM/yyyy h:mm aa"
-                        isClearable
-                    />
-                    <DatePicker
-                        required
-                        placeholderText="End Date"
-                        style={{ marginRight: '10px' }}
-                        selected={newEvent.end}
-                        onChange={(end) => setNewEvent({ ...newEvent, end })}
-                        showTimeSelect
-                        dateFormat="dd/MM/yyyy h:mm aa"
-                        isClearable
-                    />
-                    <button
-                        style={{ marginTop: '10px' }}
-                        onClick={handleAddEvent}
-                    >
-                        Add event
-                    </button>
-                </div>
-            </dialog>
+            <button onClick={handleOpenDialog}>Add new event</button>
+            {isDialogOpen && (
+                <dialog className="add-new-event-dialog" open>
+                    <button onClick={handleCloseDialog}>X</button>
+                    <div>
+                        {/* The below is to validate some input and send and error to the user if there is no input */}
+                        {error && <p style={{ color: 'red' }}>{error}</p>}
+                        <input
+                            required
+                            type="text"
+                            placeholder="Add title"
+                            style={{ width: '20%', marginRight: '10px' }}
+                            value={newEvent.title}
+                            onChange={(event) =>
+                                setNewEvent({
+                                    ...newEvent,
+                                    title: event.target.value,
+                                })
+                            }
+                        />
+                        <DatePicker
+                            ClassName="datePicker"
+                            required
+                            placeholderText="Start Date"
+                            style={{ marginRight: '10px' }}
+                            selected={newEvent.start}
+                            onChange={(start) =>
+                                setNewEvent({ ...newEvent, start })
+                            }
+                            showTimeSelect
+                            dateFormat="dd/MM/yyyy h:mm aa"
+                            isClearable
+                        />
+                        <DatePicker
+                            required
+                            placeholderText="End Date"
+                            style={{ marginRight: '10px' }}
+                            selected={newEvent.end}
+                            onChange={(end) =>
+                                setNewEvent({ ...newEvent, end })
+                            }
+                            showTimeSelect
+                            dateFormat="dd/MM/yyyy h:mm aa"
+                            isClearable
+                        />
+                        <textarea
+                            placeholder="Add description"
+                            style={{
+                                marginTop: '10px',
+                                width: '100%',
+                                resize: 'vertical',
+                            }}
+                            value={newEvent.description}
+                            onChange={(event) =>
+                                setNewEvent({
+                                    ...newEvent,
+                                    description: event.target.value,
+                                })
+                            }
+                        />
+                        <button
+                            style={{ marginTop: '10px' }}
+                            onClick={handleAddEvent}
+                        >
+                            Add event
+                        </button>
+                    </div>
+                </dialog>
+            )}
 
             <Calendar
                 views={['month', 'week', 'day']}
@@ -165,8 +197,10 @@ export default function EventCalendar() {
                 events={allEvents}
                 startAccessor="start"
                 endAccessor="end"
+                components={{
+                    event: EventComponent,
+                }}
                 style={{ height: 500, margin: '50px' }}
-                components={components}
             />
         </>
     )
