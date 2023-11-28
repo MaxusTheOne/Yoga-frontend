@@ -1,4 +1,5 @@
 import Header from '../Header'
+import Footer from '../Footer'
 import EventCalendar from './EventCalendar'
 
 export default function Eventpage() {
@@ -9,6 +10,7 @@ export default function Eventpage() {
                 <h1>Upcoming events</h1>
                 <EventCalendar />
             </div>
+            <Footer />
         </>
     )
 }

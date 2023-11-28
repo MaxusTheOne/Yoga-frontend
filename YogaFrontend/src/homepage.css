@@ -4,12 +4,14 @@
 }
 
 body {
+    min-height: 100vh;
+    overflow-x: auto;
     font-family: Just Another Hand;
     font-weight: lighter;
     background-color: rgba(219, 237, 237, 1);
 }
 
-/* HOMEPAGE */
+/* HEADER */
 
 header {
     font-size: 30px;
@@ -43,27 +45,231 @@ a {
 
 a:hover,
 a:focus {
-    color: rgba(
-        99,
-        154,
-        154,
-        1
-    ); /* Set the text color to blue for hover/focused links */
+    color: rgba(99, 154, 154, 1);
 }
 
 .active {
     color: rgba(99, 154, 154, 1);
 }
 
-/* STYLING FOR EVENT CALENDAR PAGE */
+/* FOOTER */
 
-.datePicker {
-    z-index: 100;
+footer {
+    font-size: 15px;
+    font-weight: lighter;
+    padding: 20px;
+    color: rgba(99, 154, 154, 1);
+    background-color: rgba(251, 250, 250, 1);
+}
+footer div {
+    display: flex;
+    justify-content: center;
 }
 
-.event-calendar {
-    z-index: 0;
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
 }
-.rbc-toolbar-label {
-    font-size: xxx-large;
+
+#root > div > footer > div > ul > li > a,
+#root > footer > div > ul > li:nth-child(4) > a {
+    text-decoration: underline;
+    color: rgba(99, 154, 154, 1);
+}
+
+/* Quote Changer */
+
+.grid-testimonials {
+    justify-content: space-evenly;
+    color: rgba(73, 89, 89, 1);
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.quote-container-title {
+    font-weight: lighter;
+    text-align: center;
+    height: 13vh;
+}
+
+.grid-item-testimonials {
+    margin: 40px;
+    width: 50%;
+    /* min-width: auto; */
+    min-height: auto;
+    min-width: 100px;
+}
+
+.quote-fade-in {
+    font-weight: lighter;
+    text-align: center;
+    height: 53vh;
+
+    padding: 2px;
+    max-width: 600px;
+
+    /* width: min-content 200px;
+    width: max-content 300px; */
+}
+
+.aboutMe-grid-item {
+    max-width: 50%;
+    margin: 40px;
+    /* min-width: auto; */
+}
+
+.aboutMe-img {
+    margin: 40px;
+    min-height: auto;
+    min-width: 10px;
+    max-width: 800px;
+}
+
+#root > div > div.aboutMe-grid > p > h3 {
+    font-weight: lighter;
+}
+
+.aboutMe-grid {
+    justify-content: space-evenly;
+    background-color: rgba(99, 154, 154, 1);
+    color: rgba(219, 237, 237, 1);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.benefits-grid-item {
+    max-width: 50%;
+    margin: 40px;
+}
+
+#root > div > div.benefits-grid > p > h3 {
+    font-weight: lighter;
+}
+
+.benefits-grid {
+    justify-content: space-evenly;
+    color: rgba(63, 80, 80, 1);
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 400px) {
+    .grid-testimonials {
+        display: flex;
+        /* display: none; */
+    }
+}
+
+.practice-grid {
+    background-color: rgba(99, 154, 154, 1);
+    justify-content: space-evenly;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.practice-grid-item {
+    max-width: 350px;
+    min-width: 50px;
+    min-height: 50px;
+    margin: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.faceyoga-grid {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 40px;
+    display: flex;
+    margin: 20px;
+    align-items: flex-start;
+}
+
+.faceyoga-grid-item {
+    max-width: 100%;
+
+    margin: 40px;
+}
+
+.faceyoga-title {
+    margin: 20px;
+    font-weight: lighter;
+    font-size: 60px;
+    color: rgba(63, 80, 80, 1);
+    text-align: center;
+}
+
+.img-faceyoga {
+    margin: 20px;
+}
+
+.onlinepage-grid-item {
+    max-width: 100%;
+    margin: 20px;
+    font-weight: lighter;
+}
+
+.onlinepage-grid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 40px;
+    display: flex;
+    margin: 20px;
+    text-align: center;
+}
+
+.onlinepage-grid-item > a {
+    text-decoration: underline;
+}
+
+.online-grid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 30px;
+    display: flex;
+    margin: 20px;
+}
+
+.online-grid-item {
+    max-width: 100%;
+    margin: 20px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.investment-grid {
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(63, 80, 80, 1);
+    font-size: 30px;
+    display: flex;
+    margin: 20px;
+}
+
+.investment-grid-item {
+    margin: 10px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#root > div.investment-grid > p:nth-child(6) {
+    font-size: 20px;
+}
+
+#root > div.online-grid > img {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
