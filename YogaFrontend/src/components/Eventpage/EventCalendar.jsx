@@ -6,9 +6,10 @@ import getDay from 'date-fns/getDay'
 import DatePicker from 'react-datepicker'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import enUS from 'date-fns/locale/en-US'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
 import '/Users/dajac/Desktop/Datamatiker/Semester 2/Eksamen/kode/Yoga-frontend/YogaFrontend/src/homepage.css'
+import { da } from 'date-fns/locale'
 
 //format of the dates is in US format
 const locales = {
@@ -56,7 +57,7 @@ const events = [
 
 const EventComponent = ({ event }) => (
     <div>
-        <strong>{event.title}</strong>
+        {event.title}
         {event.description && <p>{event.description}</p>}
     </div>
 )
@@ -64,31 +65,64 @@ const EventComponent = ({ event }) => (
 //This is the actual component starting here and going down
 
 export default function EventCalendar() {
+    // New state to store events fetched from the database
+    const [dbEvents, setDbEvents] = useState([])
+
+    // Function to fetch events from the database
+    async function fetchEventsFromDatabase() {
+        try {
+            const response = await fetch('http://localhost:3000/events')
+            const data = await response.json()
+            setDbEvents(data)
+        } catch (error) {
+            console.error('Error fetching events:', error)
+        }
+    }
+
     //controls the state for the dialog for adding an event
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     //Sets the state of a new event thru the datepicker component
     const [newEvent, setNewEvent] = useState({
         title: '',
-        allDay: '',
         start: '',
         end: '',
     })
 
+    // useEffect to fetch events when the component mounts
+    useEffect(() => {
+        fetchEventsFromDatabase()
+    }, [newEvent])
+
     //is used to update all events with the newEvent to show on the calendar
-    const [allEvents, setAllEvents] = useState(events)
+    const [allEvents, setAllEvents] = useState(dbEvents)
 
     //used for checking the input datepicker for empty values
     const [error, setError] = useState('')
 
     //this function is called when the add event button is clicked and it calls the set function in allEvents
     function handleAddEvent() {
-        console.log(newEvent)
         // Check if required fields are filled
         if (!newEvent.title || !newEvent.start || !newEvent.end) {
             setError('Please fill in all required fields.')
             return
         }
+
+        // Make a POST request to add the new event on the server
+        fetch('http://localhost:3000/events', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newEvent),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data) // Log the response from the server
+            })
+            .catch((error) => {
+                console.error('Error adding event:', error)
+            })
 
         // Reset error
         setError('')
@@ -190,11 +224,11 @@ export default function EventCalendar() {
             )}
 
             <Calendar
-                views={['month', 'week', 'day']}
-                defaultView={'week'}
+                views={['month', 'week']}
+                defaultView={'month'}
                 className="event-calendar"
                 localizer={localizer}
-                events={allEvents}
+                events={dbEvents}
                 startAccessor="start"
                 endAccessor="end"
                 components={{
