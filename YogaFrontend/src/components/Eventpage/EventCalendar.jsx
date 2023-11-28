@@ -55,12 +55,12 @@ const events = [
     },
 ]
 
-const EventComponent = ({ event }) => (
-    <div>
-        {event.title}
-        {event.description && <p>{event.description}</p>}
-    </div>
-)
+// const EventComponent = ({ event }) => (
+//     <div>
+//         {event.title}
+//         {event.description && <p>{event.description}</p>}
+//     </div>
+// )
 
 //This is the actual component starting here and going down
 
@@ -231,9 +231,9 @@ export default function EventCalendar() {
                 events={dbEvents}
                 startAccessor="start"
                 endAccessor="end"
-                components={{
-                    event: EventComponent,
-                }}
+                // components={{
+                //     event: EventComponent,
+                // }}
                 style={{ height: 500, margin: '50px' }}
             />
         </>

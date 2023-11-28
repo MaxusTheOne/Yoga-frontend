@@ -274,15 +274,26 @@ footer ul {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+/* MEDIA PAGE STYLING */
+
+.mediaPage-title {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: xx-large;
+}
+
 /* MEDIA CARD STYLING */
 
+.mediaCard-linkDescription > a {
+    color: rgba(99, 154, 154, 1);
+}
+
 .card-container {
-    color: black;
-    border: blue solid 2px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 50px;
 }
 
@@ -291,14 +302,20 @@ footer ul {
     width: 40%;
     min-width: 500px;
     margin: 50px;
-    background-color: lightblue;
+    background-color: rgba(251, 250, 250, 1);
     border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px lightblue;
 }
 
 .mediaCard-img {
     width: 200px;
-    height: 100%;
+    height: 200px;
     border-radius: 20px;
+    margin-bottom: -6px;
+}
+
+.mediaCard-title {
+    font-size: xx-large;
 }
 
 .mediaCard-text-container {
@@ -309,4 +326,25 @@ footer ul {
 
 .mediaCard-img-container {
     margin-left: auto;
+}
+
+.mediaCard-titleAndLinkDescription {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.mediaCard-description {
+    font-size: x-large;
+    margin-top: 30px;
+}
+
+.mediaCard-deleteBtn-container {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 0;
+    padding: 0;
+    color: red;
+    font-size: x-large;
+    cursor: pointer;
 }

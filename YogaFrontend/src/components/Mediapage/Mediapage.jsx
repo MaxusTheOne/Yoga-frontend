@@ -1,40 +1,81 @@
+import { useEffect, useState } from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 import MediaCard from './MediaCard'
 
 export default function MediaPage() {
+    const [dbMedia, setDbMedia] = useState([])
+
+    async function fetchMediaFromDatabase() {
+        try {
+            const response = await fetch('http://localhost:3000/media')
+            const data = await response.json()
+            setDbMedia(data)
+        } catch (error) {
+            console.error('Error fetching events:', error)
+        }
+    }
+
+    // til backend
+
+    // CREATE PROCEDURE deleteMedia(IN mediaId INT)
+    // BEGIN
+    //         DELETE FROM media
+    //         WHERE id = mediaId;
+    // end;
+
+    async function handleDelete(item) {
+        if (item.id) {
+            try {
+                await fetch(`http://localhost:3000/media/${item.id}`, {
+                    method: 'DELETE',
+                })
+                fetchMediaFromDatabase()
+            } catch (error) {
+                console.error('Error deleting media:', error)
+            }
+        } else {
+            console.log('this is hardcoded and cannot be deleted')
+        }
+    }
+
+    useEffect(() => {
+        fetchMediaFromDatabase()
+    }, [])
+
     const yogaMedia = [
         {
             title: 'Flow video class',
-            description: 'This is a class about flow.',
+            description:
+                'This is an online video class about flow yoga that was recorded',
             img: 'https://www.stockvault.net/data/2018/06/24/252636/preview16.jpg',
             link: 'https://youtu.be/ke9XLlSvbjk?feature=shared',
             linkDescription: 'See media',
         },
         {
             title: 'Sleeping Yoga',
-            description: 'this is an article about sleeping yoga',
+            description: 'Read about sleeping yoga and all the benefits',
             img: 'https://www.stockvault.net/data/2018/06/24/252636/preview16.jpg',
             link: 'https://en.wikipedia.org/wiki/Yoga',
             linkDescription: 'See media',
         },
         {
             title: 'Jumping Yoga',
-            description: 'this is an article about jumping yoga',
+            description: 'Read about jumping yoga and all the benefits',
             img: 'https://www.stockvault.net/data/2018/06/24/252636/preview16.jpg',
             link: 'https://en.wikipedia.org/wiki/Yoga',
             linkDescription: 'See media',
         },
         {
             title: 'Talking Yoga',
-            description: 'this is an article about talking yoga',
+            description: 'Read about talking yoga and all the benefits',
             img: 'https://www.stockvault.net/data/2018/06/24/252636/preview16.jpg',
             link: 'https://en.wikipedia.org/wiki/Yoga',
             linkDescription: 'See media',
         },
     ]
 
-    const yogaCardList = yogaMedia.map((item) => (
+    const testDataList = yogaMedia.map((item) => (
         <MediaCard
             key={item.title}
             title={item.title}
@@ -42,14 +83,34 @@ export default function MediaPage() {
             img={item.img}
             link={item.link}
             linkDescription={item.linkDescription}
+            item={item}
+            handleDelete={handleDelete}
+        />
+    ))
+
+    const yogaCardList = dbMedia.map((item) => (
+        <MediaCard
+            key={item.id}
+            title={item.title}
+            description={item.description}
+            img={item.img}
+            link={item.link}
+            linkDescription={item.linkDescription}
+            item={item}
+            handleDelete={handleDelete}
         />
     ))
 
     return (
         <>
             <Header />
-            <h1>Testing for media page</h1>
-            <div className="card-container">{yogaCardList}</div>
+            <div className="mediaPage-title">
+                <h1>Free content</h1>
+            </div>
+            <div className="card-container">
+                {yogaCardList}
+                {testDataList}
+            </div>
             <Footer />
         </>
     )
