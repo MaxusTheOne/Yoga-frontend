@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 
 export default function CalendarCard({ day, fullDate, events }) {
     CalendarCard.propTypes
-
     const [matchingEvent, setMatchingEvent] = useState(null)
 
     useEffect(() => {
