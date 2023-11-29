@@ -7,7 +7,6 @@ export default function Eventpage() {
         <>
             <Header />
             <div className="event-calendar-container">
-                <h1>Upcoming events</h1>
                 <EventCalendar />
             </div>
             <Footer />

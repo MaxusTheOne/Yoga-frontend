@@ -348,3 +348,62 @@ footer ul {
     font-size: x-large;
     cursor: pointer;
 }
+
+/* STYLING FOR CALENDAR AND EVENTS */
+
+/* Calendar Container */
+.day-number {
+    display: flex;
+}
+
+.event-calendar-container {
+    margin: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+/* Individual Day Styles */
+.calendarCard-container {
+    background-color: rgba(99, 154, 154, 1);
+    border-radius: 10px;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Calendar Grid */
+.calendar-grid-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+/* Month buttons styling */
+.month-buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Month Header */
+.monthName-container {
+    text-align: center;
+    font-size: xxx-large;
+}
+
+/* Month Buttons Container */
+.month-buttons-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .calendar-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
