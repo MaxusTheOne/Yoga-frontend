@@ -351,7 +351,6 @@ footer ul {
 
 /* STYLING FOR CALENDAR */
 
-/* Calendar Container */
 .day-number {
     display: flex;
 }
@@ -364,7 +363,6 @@ footer ul {
     margin-bottom: 100px;
 }
 
-/* Individual Day Styles */
 .calendarCard-container {
     background-color: rgba(99, 154, 154, 1);
     border-radius: 10px;
@@ -374,7 +372,6 @@ footer ul {
     box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
 }
 
-/* Calendar Grid */
 .calendar-grid-container {
     margin-top: 30px;
     display: grid;
@@ -382,7 +379,6 @@ footer ul {
     gap: 20px;
 }
 
-/* Month buttons styling */
 .month-buttons-container {
     display: flex;
     gap: 10px;
@@ -390,13 +386,11 @@ footer ul {
     margin-top: 20px;
 }
 
-/* Month Header */
 .monthName-container {
     text-align: center;
     font-size: xxx-large;
 }
 
-/* Month Buttons Container */
 .month-buttons-container {
     text-align: center;
     margin-bottom: 20px;
@@ -462,6 +456,7 @@ footer ul {
 .eventCard-title {
     cursor: pointer;
     transition: transform 0.5s;
+    text-decoration: underline;
 }
 
 .eventCard-title:hover {
@@ -481,4 +476,30 @@ footer ul {
     margin-top: 15px;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.eventCards-container {
+    max-height: 90px;
+    overflow-y: auto;
+}
+
+.eventCards-container::-webkit-scrollbar {
+    width: 0;
+    .eventCards-container::-webkit-scrollbar {
+        width: 0; /* Hide scrollbar on Chrome, Safari, and newer Edge */
+    }
+
+    .eventCards-container {
+        scrollbar-width: none; /* Hide scrollbar on Firefox */
+    }
+}
+
+.eventCards-container {
+    scrollbar-width: none; /* Firefox */
+}
+
+/* RANDOM STYLING */
+
+.explanation {
+    color: red;
 }

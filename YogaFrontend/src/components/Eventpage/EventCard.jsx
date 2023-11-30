@@ -14,8 +14,12 @@ export default function EventCard({ matchingEvent }) {
         setDialogStatus(false)
     }
 
+    function showMatchingEvent() {
+        console.log(matchingEvent)
+    }
+
     return (
-        <div className="eventCard">
+        <div onClick={showMatchingEvent} className="eventCard">
             <h3 onClick={openEventDialog} className="eventCard-title">
                 {matchingEvent.title}
             </h3>

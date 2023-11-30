@@ -13,7 +13,8 @@ export default function EventDialog({ matchingEvent, closeEventDialog }) {
                     </div>
                     <h1 className="eventDialog-title">{matchingEvent.title}</h1>
                     <p className="eventDialog-time">
-                        {matchingEvent.startTime} until {matchingEvent.endTime}{' '}
+                        {matchingEvent.startTime} <br /> until <br />{' '}
+                        {matchingEvent.endTime} {matchingEvent.end}{' '}
                     </p>
                     <p className="eventDialog-description">
                         {matchingEvent.description}

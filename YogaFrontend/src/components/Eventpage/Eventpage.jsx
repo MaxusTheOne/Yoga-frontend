@@ -7,6 +7,9 @@ export default function Eventpage() {
         <>
             <Header />
             <div className="event-calendar-container">
+                <div className="explanation">
+                    Scroll on date for all events{' '}
+                </div>
                 <EventCalendar />
             </div>
             <Footer />
