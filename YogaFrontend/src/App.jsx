@@ -5,7 +5,8 @@ import Online from './components/Homepage/Online.jsx'
 import PrivateSessions from './components/Homepage/PrivateSessions.jsx'
 import { Route, Routes } from 'react-router-dom'
 import MediaPage from './components/Mediapage/Mediapage.jsx'
-import AdminPage from './components/Adminpage/AdminPage.jsx'
+import AdminPage from './components/Adminpage/Adminpage.jsx'
+
 // import "./homepage.css";
 
 function App() {
