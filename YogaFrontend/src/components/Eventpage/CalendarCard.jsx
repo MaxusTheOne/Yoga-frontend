@@ -3,16 +3,18 @@ import EventCard from './EventCard'
 
 export default function CalendarCard({ day, fullDate, events }) {
     CalendarCard.propTypes
-    const [matchingEvent, setMatchingEvent] = useState(null)
+    const [matchingEvent, setMatchingEvent] = useState([])
 
     useEffect(() => {
         const formattedDate = fullDate.toDateString()
-        const foundEvent = events.find((event) => event.start === formattedDate)
+        const foundEvent = events.filter(
+            (event) => event.start === formattedDate
+        )
 
         if (foundEvent) {
             setMatchingEvent(foundEvent)
         } else {
-            setMatchingEvent(null)
+            setMatchingEvent([])
         }
     }, [fullDate, events])
 
@@ -20,27 +22,10 @@ export default function CalendarCard({ day, fullDate, events }) {
         <div className="calendarCard-container">
             <p className="day-number">{day}</p>
             <div className="eventCards-container">
-                {matchingEvent && <EventCard matchingEvent={matchingEvent} />}
+                {matchingEvent.map((event) => (
+                    <EventCard key={event.id} matchingEvent={event} />
+                ))}
             </div>
         </div>
     )
 }
-
-// {
-//     matchingEvent && (
-//         <div className="eventCard">
-//             <h3>{matchingEvent.title}</h3>
-//             <p>{matchingEvent.description}</p>
-//             <p>
-//                 {matchingEvent.startTime} until{' '}
-//                 {matchingEvent.endTime}
-//             </p>
-//             <div className="calendarCard-button-container">
-//                 <button>Sign up</button>
-//                 <button onClick={openEventDialog}>
-//                     See more
-//                 </button>
-//             </div>
-//         </div>
-//     )
-// }
