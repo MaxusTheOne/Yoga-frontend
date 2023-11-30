@@ -396,6 +396,10 @@ footer ul {
     margin-bottom: 20px;
 }
 
+.signUpButton {
+    display: flex;
+    align-items: end;
+}
 /* Responsive Styles */
 @media (max-width: 600px) {
     .calendar-grid-container {
