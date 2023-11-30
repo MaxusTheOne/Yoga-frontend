@@ -399,7 +399,7 @@ footer ul {
 .signUpButton {
     display: flex;
     align-items: start;
-    background-color: rgba(99, 154, 154, 1); /* Green */
+    background-color: rgba(99, 154, 154, 1);
     border: none;
     color: white;
     padding: 12px 22px;
