@@ -8,7 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import enUS from 'date-fns/locale/en-US'
 import { useEffect, useState } from 'react'
 import 'react-datepicker/dist/react-datepicker.css'
-import '/Users/dajac/Desktop/Datamatiker/Semester 2/Eksamen/kode/Yoga-frontend/YogaFrontend/src/homepage.css'
+import '.../homepage.css'
 import { da } from 'date-fns/locale'
 
 //format of the dates is in US format
