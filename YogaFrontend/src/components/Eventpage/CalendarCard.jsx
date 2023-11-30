@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import EventCard from './EventCard'
 
 export default function CalendarCard({ day, fullDate, events }) {
     CalendarCard.propTypes
@@ -19,18 +20,27 @@ export default function CalendarCard({ day, fullDate, events }) {
         <div className="calendarCard-container">
             <p className="day-number">{day}</p>
             <div className="eventCards-container">
-                {matchingEvent && (
-                    <div className="eventCard">
-                        <h3>{matchingEvent.title}</h3>
-                        <p>{matchingEvent.description}</p>
-                        <p>
-                            {matchingEvent.startTime} until{' '}
-                            {matchingEvent.endTime}
-                        </p>
-                        <button>Sign up</button>
-                    </div>
-                )}
+                {matchingEvent && <EventCard matchingEvent={matchingEvent} />}
             </div>
         </div>
     )
 }
+
+// {
+//     matchingEvent && (
+//         <div className="eventCard">
+//             <h3>{matchingEvent.title}</h3>
+//             <p>{matchingEvent.description}</p>
+//             <p>
+//                 {matchingEvent.startTime} until{' '}
+//                 {matchingEvent.endTime}
+//             </p>
+//             <div className="calendarCard-button-container">
+//                 <button>Sign up</button>
+//                 <button onClick={openEventDialog}>
+//                     See more
+//                 </button>
+//             </div>
+//         </div>
+//     )
+// }
