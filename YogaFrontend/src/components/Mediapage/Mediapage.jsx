@@ -12,7 +12,7 @@ export default function MediaPage() {
             const data = await response.json()
             setDbMedia(data)
         } catch (error) {
-            console.error('Error fetching events:', error)
+            console.log('Error fetching events:', error)
         }
     }
 
