@@ -27,7 +27,10 @@ export default function CalendarCard({ day, fullDate, events }) {
                             {matchingEvent.startTime} until{' '}
                             {matchingEvent.endTime}
                         </p>
-                        <button>Sign up</button>
+                        <div className="calendarCard-button-container">
+                            <button>Sign up</button>
+                            <button>See more</button>
+                        </div>
                     </div>
                 )}
             </div>

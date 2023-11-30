@@ -408,3 +408,8 @@ footer ul {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
+
+.calendarCard-button-container {
+    display: flex;
+    justify-content: space-between;
+}
