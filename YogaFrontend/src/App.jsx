@@ -5,6 +5,7 @@ import Online from './components/Homepage/Online.jsx'
 import PrivateSessions from './components/Homepage/PrivateSessions.jsx'
 import { Route, Routes } from 'react-router-dom'
 import MediaPage from './components/Mediapage/Mediapage.jsx'
+import AdminPage from './components/Adminpage/AdminPage.jsx'
 // import "./homepage.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="*" element={<Homepage />} />
+                <Route path="admin" element={<AdminPage />} />
                 <Route path="events" element={<Eventpage />} />
                 <Route path="media" element={<MediaPage />} />
                 <Route path="faceyoga" element={<FaceYoga />} />
