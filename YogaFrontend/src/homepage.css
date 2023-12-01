@@ -351,6 +351,21 @@ footer ul {
 
 /* STYLING FOR CALENDAR */
 
+.month-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
+}
+
+.month-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+}
+
 .day-number {
     display: flex;
 }
@@ -484,11 +499,23 @@ footer ul {
 }
 
 .eventDialog-sign-up-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 10px;
+}
+
+.eventDialog-sign-up-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
 }
 
 .eventDialog-description {
@@ -590,4 +617,68 @@ button:hover {
     text-align: center;
     font-size: 35px;
     margin-top: 15px;
+}
+
+.menu-container {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: xx-large;
+}
+
+.adminMenu-li {
+    padding: 20px;
+    list-style: none;
+}
+
+.logout-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+}
+
+.logout-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
+}
+
+/* MEMBER MANAGEMENT STYLES */
+.memberManagement-container {
+    margin-top: 100px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
+}
+
+/* EVENT MANAGEMENT STYLES */
+.eventManagement-container {
+    margin-top: 100px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
+}
+
+/* CONTENT MANAGEMENT STYLES */
+.contentManagement-container {
+    margin-top: 100px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
 }
