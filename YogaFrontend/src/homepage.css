@@ -584,3 +584,10 @@ footer ul {
 button:hover {
     background-color: #0056b3;
 }
+
+.login-error-text {
+    color: rgb(205, 23, 23);
+    text-align: center;
+    font-size: 35px;
+    margin-top: 15px;
+}

@@ -1,13 +1,37 @@
 import { useState } from 'react'
 
-export default function Login() {
+export default function Login({ checkLogin }) {
+    Login.propTypes
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState(null)
 
-    function handleLogin() {
-        console.log('Logging in with:', { username, password })
-        setUsername('')
-        setPassword('')
+    async function handleLogin() {
+        try {
+            const response = await fetch('http://localhost:3000/admin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+
+            if (response.ok) {
+                // Login successful
+                checkLogin()
+                setUsername('')
+                setPassword('')
+            } else {
+                // Login failed
+                setErrors('Invalid username or password')
+                setUsername('')
+                setPassword('')
+            }
+        } catch (error) {
+            console.error('Error during login:', error)
+            setErrors('An error occurred during login')
+        }
     }
 
     return (
@@ -40,6 +64,7 @@ export default function Login() {
             <button className="login-button" onClick={handleLogin}>
                 Login
             </button>
+            {errors && <p className="login-error-text">Invalid login</p>}
         </div>
     )
 }
