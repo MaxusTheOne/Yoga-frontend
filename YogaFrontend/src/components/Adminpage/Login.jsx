@@ -7,6 +7,13 @@ export default function Login({ checkLogin }) {
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState(null)
 
+    function handleEnterKeyPress(event) {
+        if (event.key === 'Enter') {
+            // Call the handleLogin function when Enter key is pressed
+            handleLogin()
+        }
+    }
+
     async function handleLogin() {
         try {
             const response = await fetch('http://localhost:3000/admin', {
@@ -59,6 +66,7 @@ export default function Login({ checkLogin }) {
                     value={password}
                     className="login-input"
                     onChange={(event) => setPassword(event.target.value)}
+                    onKeyDown={handleEnterKeyPress}
                 />
             </div>
             <button className="login-button" onClick={handleLogin}>

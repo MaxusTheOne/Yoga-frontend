@@ -41,11 +41,13 @@ header > h1 {
 a {
     text-decoration: none;
     color: rgba(63, 80, 80, 1);
+    transition: transform 0.5s;
 }
 
 a:hover,
 a:focus {
     color: rgba(99, 154, 154, 1);
+    transform: scale(1.1);
 }
 
 .active {
@@ -359,11 +361,13 @@ footer ul {
     box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
     font-family: Just Another Hand;
     font-size: 20px;
+    transition: transform 0.5s;
 }
 
 .month-button:hover {
     background-color: rgba(99, 154, 154, 1);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .day-number {
@@ -671,11 +675,13 @@ button:hover {
 .adminMenu-li {
     padding: 20px;
     list-style: none;
+    transition: transform 0.5s;
 }
 
 .adminMenu-li:hover {
     color: rgba(99, 154, 154, 1);
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .logout-button-container {
