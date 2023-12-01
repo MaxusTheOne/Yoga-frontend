@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
 
 export default function AdminMenu() {
+    AdminMenu.propTypes
+
     return (
         <div className="menu-container">
             <div className="menu-header">

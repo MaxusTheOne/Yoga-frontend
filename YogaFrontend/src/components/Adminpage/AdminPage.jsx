@@ -21,7 +21,7 @@ export default function AdminPage() {
                         <Login checkLogin={checkLogin} />
                     ) : (
                         <AnimatedPage>
-                            <AdminMenu />
+                            <AdminMenu isLoggedIn={isLoggedIn} />
                         </AnimatedPage>
                     )}
                 </div>

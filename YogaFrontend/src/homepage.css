@@ -553,6 +553,46 @@ footer ul {
 
 /* ADMIN STYLES */
 
+.addEvent-submit-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.addEvent-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 1000;
+    border: none;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    border: none;
+    background-color: rgba(219, 237, 237, 1);
+}
+
+.addEvent-dialog-content {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.addEvent-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.addEvent-input-container > label {
+    font-size: 25px;
+}
+
 .adminPage-container {
     height: 500px;
     display: flex;
@@ -661,6 +701,19 @@ button:hover {
 
 .menu-header {
     margin-bottom: 50px;
+}
+
+.addEventDialog-close-button {
+    color: red;
+    font-size: 25px;
+}
+
+.addEventDialog-close-button:hover {
+    cursor: pointer;
+}
+
+.addEvent-dialog > textarea {
+    resize: none;
 }
 
 /* MEMBER MANAGEMENT STYLES */

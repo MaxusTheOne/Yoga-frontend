@@ -4,6 +4,8 @@ import Header from '../Header'
 import AnimatedPage from '../AnimatedPage'
 
 export default function ContentManagement() {
+    ContentManagement.propTypes
+
     return (
         <>
             <Header />
