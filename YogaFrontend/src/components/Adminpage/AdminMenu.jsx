@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom'
 export default function AdminMenu() {
     return (
         <div className="menu-container">
-            <h2>Menu</h2>
+            <div className="menu-header">
+                <h2>Menu</h2>
+            </div>
             <ul>
                 <NavLink to="/memberManagement">
                     <li className="adminMenu-li">Manage members</li>
@@ -13,11 +15,6 @@ export default function AdminMenu() {
                 </NavLink>
                 <NavLink to="/eventManagement">
                     <li className="adminMenu-li">Manage Events</li>
-                </NavLink>
-                <NavLink to="/">
-                    <div className="logout-button-container">
-                        <button className="logout-button">Logout</button>
-                    </div>
                 </NavLink>
             </ul>
         </div>

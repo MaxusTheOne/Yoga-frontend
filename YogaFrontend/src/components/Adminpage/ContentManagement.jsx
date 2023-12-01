@@ -9,18 +9,23 @@ export default function ContentManagement() {
             <Header />
             <AnimatedPage>
                 <div className="contentManagement-container">
-                    <h2>Content management</h2>
+                    <div className="menu-header">
+                        <h2>Content management</h2>
+                    </div>
                     <ul>
                         <li className="adminMenu-li">Add Content</li>
+                        <li className="adminMenu-li">See all Content</li>
 
                         <NavLink to="/adminMenu">
                             <li className="adminMenu-li">To menu</li>
                         </NavLink>
                     </ul>
-                    <NavLink to="/">
-                        <button className="logout-button">Logout</button>
-                    </NavLink>
                 </div>
+                <NavLink to="/admin">
+                    <div className="logout-button-container">
+                        <button className="logout-button">Logout</button>
+                    </div>
+                </NavLink>
             </AnimatedPage>
             <Footer />
         </>

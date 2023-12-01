@@ -9,18 +9,23 @@ export default function MemberManagement() {
             <Header />
             <AnimatedPage>
                 <div className="memberManagement-container">
-                    <h2>Member management</h2>
+                    <div className="menu-header">
+                        <h2>Member management</h2>
+                    </div>
                     <ul>
                         <li className="adminMenu-li">Edit member</li>
+                        <li className="adminMenu-li">See all members</li>
 
                         <NavLink to="/adminMenu">
                             <li className="adminMenu-li">To menu</li>
                         </NavLink>
                     </ul>
-                    <NavLink to="/">
-                        <button className="logout-button">Logout</button>
-                    </NavLink>
                 </div>
+                <NavLink to="/admin">
+                    <div className="logout-button-container">
+                        <button className="logout-button">Logout</button>
+                    </div>
+                </NavLink>
             </AnimatedPage>
             <Footer />
         </>

@@ -620,10 +620,10 @@ button:hover {
 }
 
 .menu-container {
+    margin-top: 50px;
     height: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     font-size: xx-large;
 }
@@ -633,9 +633,15 @@ button:hover {
     list-style: none;
 }
 
+.adminMenu-li:hover {
+    color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+}
+
 .logout-button-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .logout-button:hover {
@@ -653,9 +659,13 @@ button:hover {
     font-size: 20px;
 }
 
+.menu-header {
+    margin-bottom: 50px;
+}
+
 /* MEMBER MANAGEMENT STYLES */
 .memberManagement-container {
-    margin-top: 100px;
+    margin-top: 50px;
     height: 500px;
     display: flex;
     align-items: center;
@@ -665,7 +675,7 @@ button:hover {
 
 /* EVENT MANAGEMENT STYLES */
 .eventManagement-container {
-    margin-top: 100px;
+    margin-top: 50px;
     height: 500px;
     display: flex;
     align-items: center;
@@ -675,7 +685,7 @@ button:hover {
 
 /* CONTENT MANAGEMENT STYLES */
 .contentManagement-container {
-    margin-top: 100px;
+    margin-top: 50px;
     height: 500px;
     display: flex;
     align-items: center;

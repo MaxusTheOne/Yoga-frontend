@@ -9,7 +9,9 @@ export default function ExtendedMenu() {
             <Header />
             <AnimatedPage>
                 <div className="menu-container">
-                    <h2>Menu</h2>
+                    <div className="menu-header">
+                        <h2>Menu</h2>
+                    </div>
                     <ul>
                         <NavLink to="/memberManagement">
                             <li className="adminMenu-li">Manage members</li>
@@ -20,15 +22,13 @@ export default function ExtendedMenu() {
                         <NavLink to="/eventManagement">
                             <li className="adminMenu-li">Manage Events</li>
                         </NavLink>
-                        <NavLink to="/">
-                            <div className="logout-button-container">
-                                <button className="logout-button">
-                                    Logout
-                                </button>
-                            </div>
-                        </NavLink>
                     </ul>
                 </div>
+                <NavLink to="/admin">
+                    <div className="logout-button-container">
+                        <button className="logout-button">Logout</button>
+                    </div>
+                </NavLink>
             </AnimatedPage>
             <Footer />
         </>
