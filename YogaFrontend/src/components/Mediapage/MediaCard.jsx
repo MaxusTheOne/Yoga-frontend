@@ -4,23 +4,25 @@ export default function MediaCard({
     img,
     link,
     linkDescription,
-    handleDelete,
-    item,
+    // handleDelete,
+    // item,
 }) {
     MediaCard.propTypes
 
     return (
         <div className="mediaCard-container">
             {
-                <div className="mediaCard-deleteBtn-container">
-                    <p onClick={() => handleDelete(item)}>X</p>
-                </div>
+                // <div className="mediaCard-deleteBtn-container">
+                //     <p onClick={() => handleDelete(item)}>X</p>
+                // </div>
             }
             <div className="mediaCard-text-container">
                 <div className="mediaCard-titleAndLinkDescription">
                     <h2 className="mediaCard-title">{title}</h2>
                     <p className="mediaCard-linkDescription">
-                        <a href={link}>{linkDescription}</a>
+                        <a className="mediaCard-linkDescription-a" href={link}>
+                            {linkDescription}
+                        </a>
                     </p>
                 </div>
                 <p className="mediaCard-description">{description}</p>
