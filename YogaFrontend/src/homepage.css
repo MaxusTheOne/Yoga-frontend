@@ -503,6 +503,7 @@ footer ul {
 
 .eventCard-title:hover {
     transform: scale(1.1);
+    color: green;
 }
 
 .eventDialog-sign-up-button {
@@ -555,7 +556,8 @@ footer ul {
 /* RANDOM STYLING */
 
 .explanation {
-    color: red;
+    color: rgba(99, 154, 154, 1);
+    font-size: 22px;
 }
 
 /* ADMIN STYLES */
