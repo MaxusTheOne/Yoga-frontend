@@ -11,53 +11,7 @@ export default function AddEventForm({ handleCloseDialog }) {
     const [endTime, setEndTime] = useState('')
     const [description, setDescription] = useState('')
 
-    // async function handleFormSubmit(event) {
-    //     event.preventDefault()
-
-    //     // Combine date and time for start and end
-    //     const startDateTime = `${startDate} ${startTime}:00`
-    //     const endDateTime = `${endDate} ${endTime}:00`
-
-    //     // Create the event object
-    //     const newEvent = {
-    //         title,
-    //         description,
-    //         start: startDateTime,
-    //         end: endDateTime,
-    //     }
-
-    //     try {
-    //         // Make a fetch request to your server endpoint
-    //         const response = await fetch('http://localhost:3000/events', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(newEvent),
-    //         })
-
-    //         if (response.ok) {
-    //             console.log('Event added successfully')
-    //             // Optionally, you can handle success (event.g., show a message)
-    //         } else {
-    //             console.error('Error adding event:', response.statusText)
-    //             // Optionally, you can handle errors (event.g., show an error message)
-    //         }
-    //     } catch (error) {
-    //         console.error('Error during fetch:', error)
-    //         // Handle other errors as needed
-    //     }
-
-    //     // Clear the form fields
-    //     setTitle('')
-    //     setStartDate('')
-    //     setStartTime('')
-    //     setEndDate('')
-    //     setEndTime('')
-    //     setDescription('')
-    // }
-
-    function check(event) {
+    async function handleFormSubmit(event) {
         event.preventDefault()
 
         // Combine date and time for start and end
@@ -72,8 +26,29 @@ export default function AddEventForm({ handleCloseDialog }) {
             end: endDateTime,
         }
 
-        console.log(newEvent)
+        try {
+            // Make a fetch request to your server endpoint
+            const response = await fetch('http://localhost:3000/events', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newEvent),
+            })
 
+            if (response.ok) {
+                console.log('Event added successfully')
+                // Optionally, you can handle success (event.g., show a message)
+            } else {
+                console.error('Error adding event:', response.statusText)
+                // Optionally, you can handle errors (event.g., show an error message)
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error)
+            // Handle other errors as needed
+        }
+
+        // Clear the form fields
         setTitle('')
         setStartDate('')
         setStartTime('')
@@ -98,8 +73,8 @@ export default function AddEventForm({ handleCloseDialog }) {
 
                         <form
                             className="event-form"
-                            // onSubmit={handleFormSubmit}
-                            onSubmit={check}
+                            onSubmit={handleFormSubmit}
+                            // onSubmit={check}
                         >
                             <div className="addEvent-dialog-content">
                                 <div className="input-column">
