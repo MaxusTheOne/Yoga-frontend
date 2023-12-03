@@ -90,9 +90,15 @@ export default function EventCalendar() {
         <div className="calendar-container">
             <h1 className="monthName-container">{monthName}</h1>
             <div className="month-buttons-container">
-                <button onClick={handlePrevMonth}>Previous Month</button>
-                <button onClick={handleCurrentMonth}>Current Month</button>
-                <button onClick={handleNextMonth}>Next Month</button>
+                <button className="month-button" onClick={handlePrevMonth}>
+                    Previous Month
+                </button>
+                <button className="month-button" onClick={handleCurrentMonth}>
+                    Current Month
+                </button>
+                <button className="month-button" onClick={handleNextMonth}>
+                    Next Month
+                </button>
             </div>
             <div className="calendar-grid-container">{mappedDaysArray}</div>
         </div>

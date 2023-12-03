@@ -41,11 +41,13 @@ header > h1 {
 a {
     text-decoration: none;
     color: rgba(63, 80, 80, 1);
+    transition: transform 0.5s;
 }
 
 a:hover,
 a:focus {
     color: rgba(99, 154, 154, 1);
+    transform: scale(1.1);
 }
 
 .active {
@@ -284,9 +286,15 @@ footer ul {
 }
 
 /* MEDIA CARD STYLING */
+.mediaCard-linkDescription-a {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+}
 
-.mediaCard-linkDescription > a {
-    color: rgba(99, 154, 154, 1);
+.mediaCard-linkDescription-a:hover {
+    color: green;
+    font-size: 21px;
 }
 
 .card-container {
@@ -331,7 +339,7 @@ footer ul {
 .mediaCard-titleAndLinkDescription {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .mediaCard-description {
@@ -350,6 +358,23 @@ footer ul {
 }
 
 /* STYLING FOR CALENDAR */
+
+.month-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
+    transition: transform 0.5s;
+}
+
+.month-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
 .day-number {
     display: flex;
@@ -399,7 +424,7 @@ footer ul {
 .signUpButton {
     display: flex;
     align-items: start;
-    background-color: rgba(99, 154, 154, 1); /* Green */
+    background-color: rgba(99, 154, 154, 1);
     border: none;
     color: white;
     padding: 12px 22px;
@@ -422,10 +447,6 @@ footer ul {
     .calendar-grid-container {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
-}
-
-.mediaCard-linkDescription > a {
-    color: black;
 }
 
 .calendarCard-button-container {
@@ -478,18 +499,32 @@ footer ul {
     cursor: pointer;
     transition: transform 0.5s;
     text-decoration: underline;
+    font-size: 25px;
 }
 
 .eventCard-title:hover {
     transform: scale(1.1);
+    color: green;
 }
 
 .eventDialog-sign-up-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 10px;
+}
+
+.eventDialog-sign-up-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
 }
 
 .eventDialog-description {
@@ -501,26 +536,232 @@ footer ul {
 
 .eventCards-container {
     max-height: 90px;
-    overflow-y: auto;
+    overflow-y: overlay; /* Use 'overlay' instead of 'auto' */
 }
 
+/* WebKit browsers */
 .eventCards-container::-webkit-scrollbar {
-    width: 0;
-    .eventCards-container::-webkit-scrollbar {
-        width: 0; /* Hide scrollbar on Chrome, Safari, and newer Edge */
-    }
-
-    .eventCards-container {
-        scrollbar-width: none; /* Hide scrollbar on Firefox */
-    }
+    width: 12px; /* Width of the vertical scrollbar */
+    height: 0px; /* Height of the horizontal scrollbar */
 }
 
+.eventCards-container::-webkit-scrollbar-thumb {
+    background-color: rgba(99, 154, 154, 0.7); /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners of the thumb */
+}
+
+.eventCards-container::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Color of the track */
+    border-radius: 8px; /* Rounded corners of the track */
+    margin-bottom: 35px;
+}
+
+/* Hide the bottom scrollbar */
 .eventCards-container {
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: thin; /* Firefox scrollbar width */
+    scrollbar-color: transparent transparent; /* Firefox thumb and track color */
 }
 
 /* RANDOM STYLING */
 
 .explanation {
+    color: rgba(99, 154, 154, 1);
+    font-size: 22px;
+}
+
+/* ADMIN STYLES */
+
+.addEvent-submit-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.addEvent-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 1000;
+    border: none;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    border: none;
+    background-color: rgba(219, 237, 237, 1);
+}
+
+.addEvent-dialog-content {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.addEvent-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.addEvent-input-container > label {
+    font-size: 25px;
+}
+
+.adminPage-container {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-container {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    background-color: rgba(99, 154, 154, 1);
+}
+
+.login-container-title {
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+    font-size: 24px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.login-error-text {
+    color: rgb(205, 23, 23);
+    text-align: center;
+    font-size: 35px;
+    margin-top: 15px;
+}
+
+.menu-container {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: xx-large;
+}
+
+.adminMenu-li {
+    padding: 20px;
+    list-style: none;
+    transition: transform 0.5s;
+}
+
+.adminMenu-li:hover {
+    color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.logout-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logout-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+}
+
+.logout-button {
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
+}
+
+.menu-header {
+    margin-bottom: 50px;
+}
+
+.addEventDialog-close-button {
     color: red;
+    font-size: 25px;
+}
+
+.addEventDialog-close-button:hover {
+    cursor: pointer;
+}
+
+.addEvent-dialog > textarea {
+    resize: none;
+}
+
+/* MEMBER MANAGEMENT STYLES */
+.memberManagement-container {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
+}
+
+/* EVENT MANAGEMENT STYLES */
+.eventManagement-container {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
+}
+
+/* CONTENT MANAGEMENT STYLES */
+.contentManagement-container {
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    flex-direction: column;
 }

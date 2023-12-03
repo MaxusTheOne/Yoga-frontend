@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 import MediaCard from './MediaCard'
+import AnimatedPage from '../AnimatedPage'
 
 export default function MediaPage() {
     const [dbMedia, setDbMedia] = useState([])
@@ -15,14 +16,6 @@ export default function MediaPage() {
             console.log('Error fetching events:', error)
         }
     }
-
-    // til backend
-
-    // CREATE PROCEDURE deleteMedia(IN mediaId INT)
-    // BEGIN
-    //         DELETE FROM media
-    //         WHERE id = mediaId;
-    // end;
 
     async function handleDelete(item) {
         if (item.id) {
@@ -104,13 +97,15 @@ export default function MediaPage() {
     return (
         <>
             <Header />
-            <div className="mediaPage-title">
-                <h1>Free content</h1>
-            </div>
-            <div className="card-container">
-                {yogaCardList}
-                {testDataList}
-            </div>
+            <AnimatedPage>
+                <div className="mediaPage-title">
+                    <h1>Free content</h1>
+                </div>
+                <div className="card-container">
+                    {yogaCardList}
+                    {testDataList}
+                </div>
+            </AnimatedPage>
             <Footer />
         </>
     )
