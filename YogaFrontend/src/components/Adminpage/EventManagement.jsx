@@ -35,7 +35,9 @@ export default function EventManagement() {
                             />
                         )}
                         <NavLink to="/adminMenu">
-                            <li className="adminMenu-li">To menu</li>
+                            <li className="adminMenu-li">
+                                &#8594;To menu &#8592;
+                            </li>
                         </NavLink>
                     </ul>
                 </div>
