@@ -765,3 +765,21 @@ button:hover {
     font-size: xx-large;
     flex-direction: column;
 }
+
+/* SIGN UP DIALOG */
+
+.signup-dialog {
+    width: 50%;
+    margin: 2em auto 0;
+    background-color: rgba(99, 154, 154, 1);
+    padding: 1em 1em 2em;
+    text-align: center;
+}
+
+input {
+    margin: 1em auto;
+    width: 80%;
+    max-width: 350px;
+    padding: 1em;
+    display: block;
+}
