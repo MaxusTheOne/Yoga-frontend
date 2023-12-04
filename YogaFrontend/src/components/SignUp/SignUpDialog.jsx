@@ -137,10 +137,9 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         required
                     />
 
-                        <button type="submit">Submit</button>
-                    </form>
-                </dialog>
-            </div>
-        </AnimatedPage>
+                    <button type="submit">Submit</button>
+                </form>
+            </dialog>
+        </div>
     )
 }
