@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AnimatedPage from '../AnimatedPage'
 
 export default function SignUpDialog({ handleCloseDialog }) {
     SignUpDialog.propTypes
@@ -136,9 +137,10 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         required
                     />
 
-                    <button type="submit">Submit</button>
-                </form>
-            </dialog>
-        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </dialog>
+            </div>
+        </AnimatedPage>
     )
 }
