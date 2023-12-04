@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import AnimatedPage from '../AnimatedPage'
 
-export default function EventSignUp({ closeEventDialog, matchingEvent }) {
+export default function EventSignUp({ matchingEvent }) {
     EventSignUp.propTypes
 
     const [email, setEmail] = useState('')
     const [noMatch, setNoMatch] = useState(false)
+    const [signedUp, setSignedUp] = useState(false)
 
     async function associateUserWithEvent(userSignedUp) {
         const data = userSignedUp
@@ -24,18 +25,9 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
                 }
             )
 
-            const responseData = await response.json()
-
             if (response.ok) {
-                console.log(
-                    'User associated with event successfully:',
-                    responseData
-                )
-            } else {
-                console.error(
-                    'Error associating user with event:',
-                    responseData.error
-                )
+                console.log('User associated with event successfully')
+                setSignedUp(true)
             }
         } catch (error) {
             console.error('Error during fetch:', error)
@@ -102,6 +94,11 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
                         <p className="event-signup-error">
                             No user found, sign up as user or type correct
                             email.
+                        </p>
+                    )}
+                    {signedUp && (
+                        <p className="event-signup-success">
+                            Sign up done, you can close this window now.
                         </p>
                     )}
                 </form>

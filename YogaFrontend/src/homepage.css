@@ -461,6 +461,11 @@ footer ul {
     font-size: 20px;
 }
 
+.event-signup-success {
+    color: green;
+    font-size: 20px;
+}
+
 .eventDialog-title {
     margin-bottom: 15px;
 }
