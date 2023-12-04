@@ -456,6 +456,15 @@ footer ul {
 
 /* EVENT STYLING */
 
+.event-signup-error {
+    color: red;
+    font-size: 20px;
+}
+
+.eventDialog-title {
+    margin-bottom: 15px;
+}
+
 .eventDialog-overlay {
     position: fixed;
     top: 0;

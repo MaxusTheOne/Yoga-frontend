@@ -1,27 +1,54 @@
 import { useState } from 'react'
 import AnimatedPage from '../AnimatedPage'
 
-export default function SignUpForm({ onClose, onSignUp }) {
-    SignUpForm.propTypes
+export default function EventSignUp({ closeEventDialog, matchingEvent }) {
+    EventSignUp.propTypes
 
-    const [name, setName] = useState('')
+    // const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [noMatch, setNoMatch] = useState(false)
 
-    const handleSubmit = (event) => {
+    async function getUserIdByEmail(email) {
+        try {
+            const response = await fetch(
+                `http://localhost:3000/users/userIdByEmail?email=${email}`
+            )
+            const data = await response.json()
+
+            if (response.ok) {
+                return data.userId
+            } else {
+                console.error('Error retrieving user ID:', data.error)
+                return null
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error)
+            setNoMatch(true)
+            return null
+        }
+    }
+
+    async function handleSubmit(event) {
         event.preventDefault()
-        // Validate input if needed
-        // Call the onSignUp function with the entered data
-        onSignUp({ name, email })
-        // Close the form
-        onClose()
+
+        const user = await getUserIdByEmail(email)
+
+        const userSignedUp = {
+            userId: user,
+            eventId: matchingEvent.id,
+        }
+
+        console.log('user signup details:', userSignedUp)
     }
 
     return (
         <>
             <AnimatedPage>
-                <h1 className="event-signup-title">Sign up</h1>
+                <h1 className="event-signup-title">
+                    Sign up: <br></br>- {matchingEvent.title} -
+                </h1>
                 <form onSubmit={handleSubmit}>
-                    <label className="event-signup-input-label" htmlFor="name">
+                    {/* <label className="event-signup-input-label" htmlFor="name">
                         Name:
                     </label>
                     <input
@@ -30,7 +57,7 @@ export default function SignUpForm({ onClose, onSignUp }) {
                         value={name}
                         onChange={(event) => setName(event.target.value)}
                         required
-                    />
+                    /> */}
                     <label className="event-signup-input-label" htmlFor="email">
                         Email:
                     </label>
@@ -39,6 +66,7 @@ export default function SignUpForm({ onClose, onSignUp }) {
                         id="email"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
+                        onClick={() => setNoMatch(false)}
                         required
                     />
                     <button
@@ -47,6 +75,12 @@ export default function SignUpForm({ onClose, onSignUp }) {
                     >
                         Submit
                     </button>
+                    {noMatch && (
+                        <p className="event-signup-error">
+                            No user found, sign up as user or type correct
+                            email.
+                        </p>
+                    )}
                 </form>
             </AnimatedPage>
         </>

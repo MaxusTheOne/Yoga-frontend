@@ -21,13 +21,6 @@ export default function EventCard({ matchingEvent }) {
         setShowSignUpForm(true)
     }
 
-    function handleSignUp(userData) {
-        // Handle the sign-up logic, e.g., send data to the server
-        console.log('Sign-up data:', userData)
-        // You can also close the form here if needed
-        setShowSignUpForm(false)
-    }
-
     return (
         <div className="eventCard">
             <h3 onClick={openEventDialog} className="eventCard-title">
@@ -36,7 +29,6 @@ export default function EventCard({ matchingEvent }) {
             <div className="calendarCard-button-container"></div>
             {dialogStatus && (
                 <EventDialog
-                    handleSignUp={handleSignUp}
                     showSignUpForm={showSignUpForm}
                     setShowSignUpForm={setShowSignUpForm}
                     handleSignUpClick={handleSignUpClick}

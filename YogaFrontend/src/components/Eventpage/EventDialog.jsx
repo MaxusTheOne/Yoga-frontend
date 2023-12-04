@@ -1,12 +1,10 @@
 import AnimatedPage from '../AnimatedPage'
-import SignUpForm from './EventSignup'
+import EventSignUp from './EventSignup'
 
 export default function EventDialog({
     handleSignUpClick,
-    setShowSignUpForm,
     matchingEvent,
     closeEventDialog,
-    handleSignUp,
     showSignUpForm,
 }) {
     EventDialog.propTypes
@@ -46,9 +44,9 @@ export default function EventDialog({
                             )}
 
                             {showSignUpForm && (
-                                <SignUpForm
-                                    onClose={() => setShowSignUpForm(false)}
-                                    onSignUp={handleSignUp}
+                                <EventSignUp
+                                    matchingEvent={matchingEvent}
+                                    closeEventDialog={closeEventDialog}
                                 />
                             )}
                         </dialog>
