@@ -7,10 +7,10 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
     const [email, setEmail] = useState('')
     const [noMatch, setNoMatch] = useState(false)
 
-    async function associateUserWithEvent(eventId, userId) {
-        const data = { eventId, userId }
+    async function associateUserWithEvent(userSignedUp) {
+        const data = userSignedUp
 
-        console.log(data)
+        console.log('this is my object:', data)
 
         try {
             const response = await fetch(
@@ -66,11 +66,12 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
         event.preventDefault()
 
         const user = await getUserIdByEmail(email)
+        const userSignedUp = {
+            eventId: matchingEvent.id,
+            userId: user,
+        }
 
-        const userId = user
-        const eventId = matchingEvent.id
-
-        associateUserWithEvent(eventId, userId)
+        associateUserWithEvent(userSignedUp)
     }
 
     return (
