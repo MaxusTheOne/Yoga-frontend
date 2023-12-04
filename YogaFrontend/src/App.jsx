@@ -10,6 +10,7 @@ import MemberManagement from './components/Adminpage/MemberManagement.jsx'
 import ContentManagement from './components/Adminpage/ContentManagement.jsx'
 import EventManagement from './components/Adminpage/EventManagement.jsx'
 import ExtendedMenu from './components/Adminpage/ExtendedMenu.jsx'
+import SeeAllMembers from './components/Adminpage/Memberpage/SeeAllMembers.jsx'
 
 // import "./homepage.css";
 
@@ -32,6 +33,10 @@ function App() {
                 <Route path="faceyoga" element={<FaceYoga />} />
                 <Route path="online" element={<Online />} />
                 <Route path="privatesessions" element={<PrivateSessions />} />
+                <Route
+                    path="memberManagement/memberOverview"
+                    element={<SeeAllMembers />}
+                />
             </Routes>
         </>
     )

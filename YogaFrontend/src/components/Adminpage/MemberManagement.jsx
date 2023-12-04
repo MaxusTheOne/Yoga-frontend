@@ -14,7 +14,9 @@ export default function MemberManagement() {
                     </div>
                     <ul>
                         <li className="adminMenu-li">Edit member</li>
-                        <li className="adminMenu-li">See all members</li>
+                        <NavLink to="/memberManagement/memberOverview">
+                            <li className="adminMenu-li">See all members</li>
+                        </NavLink>
 
                         <NavLink to="/adminMenu">
                             <li className="adminMenu-li">
