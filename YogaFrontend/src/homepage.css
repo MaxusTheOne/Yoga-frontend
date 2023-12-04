@@ -571,6 +571,14 @@ footer ul {
 
 /* ADMIN STYLES */
 
+.event-signup-input-label {
+    font-size: 25px;
+}
+
+.event-signup-title {
+    margin-bottom: 30px;
+}
+
 .addEvent-submit-button {
     display: flex;
     justify-content: center;
