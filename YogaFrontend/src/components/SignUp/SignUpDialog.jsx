@@ -4,27 +4,28 @@ import AnimatedPage from '../AnimatedPage'
 export default function SignUpDialog({ handleCloseDialog }) {
     SignUpDialog.propTypes
 
-    const [formData, setFormData] = useState({
-        age: '',
-        firstName: '',
-        lastName: '',
-        activityLevel: 'Low',
-        phone: '',
-        email: '',
-    })
-
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        setFormData({
-            ...formData,
-            [name]: value,
-        })
-    }
+    const [age, setAge] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [activityLevel, setActivityLevel] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
 
     async function handleSubmit(event) {
         event.preventDefault()
 
+        // Create the user object
+        const newUser = {
+            age,
+            firstName,
+            lastName,
+            activityLevel,
+            phone,
+            email,
+        }
+
         try {
+            // Make a fetch request to your server endpoint
             const response = await fetch(
                 'http://localhost:3000/users/userSignup',
                 {
@@ -32,19 +33,29 @@ export default function SignUpDialog({ handleCloseDialog }) {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify(newUser),
                 }
             )
 
             if (response.ok) {
-                const responseData = await response.json()
-                console.log('Server response:', responseData)
+                console.log('User added successfully')
             } else {
                 console.error('Failed to submit the form:', response.status)
             }
         } catch (error) {
-            console.error('Error submitting the form:', error)
+            console.error('Error during fetch:', error)
+            // Handle other errors as needed
         }
+
+        // Clear the form fieldss
+        setAge('')
+        setFirstName('')
+        setLastName('')
+        setActivityLevel('')
+        setPhone('')
+        setEmail('')
+
+        handleCloseDialog()
     }
 
     return (
@@ -64,8 +75,8 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             type="number"
                             id="age"
                             name="age"
-                            value={formData.age}
-                            onChange={handleChange}
+                            value={age}
+                            onChange={(event) => setAge(event.target.value)}
                             required
                         />
 
@@ -74,8 +85,10 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             type="text"
                             id="firstName"
                             name="firstName"
-                            value={formData.firstName}
-                            onChange={handleChange}
+                            value={firstName}
+                            onChange={(event) =>
+                                setFirstName(event.target.value)
+                            }
                             required
                         />
 
@@ -84,8 +97,10 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             type="text"
                             id="lastName"
                             name="lastName"
-                            value={formData.lastName}
-                            onChange={handleChange}
+                            value={lastName}
+                            onChange={(event) =>
+                                setLastName(event.target.value)
+                            }
                             required
                         />
 
@@ -94,8 +109,10 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         <select
                             id="activityLevel"
                             name="activityLevel"
-                            value={formData.activityLevel}
-                            onChange={handleChange}
+                            value={activityLevel}
+                            onChange={(event) =>
+                                setActivityLevel(event.target.value)
+                            }
                             required
                         >
                             <option value="Low">Low</option>
@@ -110,8 +127,8 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             name="phone"
                             pattern="[0-9]{10}"
                             placeholder="Enter a 10-digit phone number without spaces or dashes."
-                            value={formData.phone}
-                            onChange={handleChange}
+                            value={phone}
+                            onChange={(event) => setPhone(event.target.value)}
                             required
                         />
 
@@ -120,8 +137,8 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             type="email"
                             id="email"
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
                             required
                         />
 
