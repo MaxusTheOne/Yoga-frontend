@@ -813,8 +813,9 @@ input {
 
 .memberCard-container {
     display: flex;
-    width: fit-content;
-    min-width: 50px;
+    width: 15em;
+    height: 9em;
+
     margin: 50px;
     background-color: rgba(99, 154, 154, 1);
     border-radius: 20px;
