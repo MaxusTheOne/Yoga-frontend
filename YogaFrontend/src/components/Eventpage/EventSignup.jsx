@@ -4,9 +4,43 @@ import AnimatedPage from '../AnimatedPage'
 export default function EventSignUp({ closeEventDialog, matchingEvent }) {
     EventSignUp.propTypes
 
-    // const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [noMatch, setNoMatch] = useState(false)
+
+    async function associateUserWithEvent(eventId, userId) {
+        const data = { eventId, userId }
+
+        console.log(data)
+
+        try {
+            const response = await fetch(
+                'http://localhost:3000/users/eventSignup',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                }
+            )
+
+            const responseData = await response.json()
+
+            if (response.ok) {
+                console.log(
+                    'User associated with event successfully:',
+                    responseData
+                )
+            } else {
+                console.error(
+                    'Error associating user with event:',
+                    responseData.error
+                )
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error)
+        }
+    }
 
     async function getUserIdByEmail(email) {
         try {
@@ -33,12 +67,10 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
 
         const user = await getUserIdByEmail(email)
 
-        const userSignedUp = {
-            userId: user,
-            eventId: matchingEvent.id,
-        }
+        const userId = user
+        const eventId = matchingEvent.id
 
-        console.log('user signup details:', userSignedUp)
+        associateUserWithEvent(eventId, userId)
     }
 
     return (
@@ -48,16 +80,6 @@ export default function EventSignUp({ closeEventDialog, matchingEvent }) {
                     Sign up: <br></br>- {matchingEvent.title} -
                 </h1>
                 <form onSubmit={handleSubmit}>
-                    {/* <label className="event-signup-input-label" htmlFor="name">
-                        Name:
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                        required
-                    /> */}
                     <label className="event-signup-input-label" htmlFor="email">
                         Email:
                     </label>
