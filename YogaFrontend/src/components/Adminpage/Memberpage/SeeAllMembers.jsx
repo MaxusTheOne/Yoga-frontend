@@ -2,6 +2,7 @@ import Header from '../../Header'
 import Footer from '../../Footer'
 import { useEffect, useState } from 'react'
 import MemberCard from './MemberCard'
+import AnimatedPage from '../../AnimatedPage'
 
 export default function SeeAllMembers() {
     const [userInfo, SetUserInfo] = useState([])
@@ -56,10 +57,12 @@ export default function SeeAllMembers() {
     return (
         <>
             <Header />
-            <div className="mediaPage-title">
-                <h1>Users</h1>
-            </div>
-            <div className="card-container">{userList}</div>
+            <AnimatedPage>
+                <div className="mediaPage-title">
+                    <h1>Users</h1>
+                </div>
+                <div className="card-container">{userList}</div>
+            </AnimatedPage>
             <Footer />
         </>
     )
