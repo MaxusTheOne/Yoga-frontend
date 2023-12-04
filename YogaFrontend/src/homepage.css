@@ -456,6 +456,20 @@ footer ul {
 
 /* EVENT STYLING */
 
+.event-signup-error {
+    color: red;
+    font-size: 20px;
+}
+
+.event-signup-success {
+    color: green;
+    font-size: 20px;
+}
+
+.eventDialog-title {
+    margin-bottom: 15px;
+}
+
 .eventDialog-overlay {
     position: fixed;
     top: 0;
@@ -570,6 +584,14 @@ footer ul {
 }
 
 /* ADMIN STYLES */
+
+.event-signup-input-label {
+    font-size: 25px;
+}
+
+.event-signup-title {
+    margin-bottom: 30px;
+}
 
 .addEvent-submit-button {
     display: flex;

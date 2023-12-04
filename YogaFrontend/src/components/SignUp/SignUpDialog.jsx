@@ -1,8 +1,15 @@
 import { useState } from 'react'
+import AnimatedPage from '../AnimatedPage'
 
 export default function SignUpDialog({ handleCloseDialog }) {
     SignUpDialog.propTypes
 
+    const [age, setAge] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [activityLevel, setActivityLevel] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
     const [age, setAge] = useState('')
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -25,6 +32,18 @@ export default function SignUpDialog({ handleCloseDialog }) {
 
         try {
             // Make a fetch request to your server endpoint
+        // Create the user object
+        const newUser = {
+            age,
+            firstName,
+            lastName,
+            activityLevel,
+            phone,
+            email,
+        }
+
+        try {
+            // Make a fetch request to your server endpoint
             const response = await fetch(
                 'http://localhost:3000/users/userSignup',
                 {
@@ -33,10 +52,12 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(newUser),
+                    body: JSON.stringify(newUser),
                 }
             )
 
             if (response.ok) {
+                console.log('User added successfully')
                 console.log('User added successfully')
             } else {
                 console.error('Failed to submit the form:', response.status)
@@ -136,9 +157,10 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         required
                     />
 
-                    <button type="submit">Submit</button>
-                </form>
-            </dialog>
-        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </dialog>
+            </div>
+        </AnimatedPage>
     )
 }

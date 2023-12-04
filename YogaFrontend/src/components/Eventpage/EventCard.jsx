@@ -4,6 +4,8 @@ import EventDialog from './EventDialog'
 export default function EventCard({ matchingEvent }) {
     EventCard.propTypes
 
+    const [showSignUpForm, setShowSignUpForm] = useState(false)
+
     const [dialogStatus, setDialogStatus] = useState(false)
 
     function openEventDialog() {
@@ -12,6 +14,11 @@ export default function EventCard({ matchingEvent }) {
 
     function closeEventDialog() {
         setDialogStatus(false)
+        setShowSignUpForm(false)
+    }
+
+    function handleSignUpClick() {
+        setShowSignUpForm(true)
     }
 
     return (
@@ -22,6 +29,9 @@ export default function EventCard({ matchingEvent }) {
             <div className="calendarCard-button-container"></div>
             {dialogStatus && (
                 <EventDialog
+                    showSignUpForm={showSignUpForm}
+                    setShowSignUpForm={setShowSignUpForm}
+                    handleSignUpClick={handleSignUpClick}
                     matchingEvent={matchingEvent}
                     closeEventDialog={closeEventDialog}
                 />
