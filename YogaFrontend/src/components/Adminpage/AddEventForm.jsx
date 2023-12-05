@@ -92,6 +92,26 @@ export default function AddEventForm({ handleCloseDialog }) {
                                     </div>
 
                                     <div className="addEvent-input-container">
+                                        <label htmlFor="description">
+                                            Description:
+                                        </label>
+                                        <textarea
+                                            rows="15"
+                                            cols="23"
+                                            id="description"
+                                            value={description}
+                                            onChange={(event) =>
+                                                setDescription(
+                                                    event.target.value
+                                                )
+                                            }
+                                            required
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <div className="input-column">
+                                    <div className="addEvent-input-container">
                                         <label htmlFor="startDate">
                                             Start Date:
                                         </label>
@@ -107,23 +127,6 @@ export default function AddEventForm({ handleCloseDialog }) {
                                     </div>
 
                                     <div className="addEvent-input-container">
-                                        <label htmlFor="startTime">
-                                            Start Time:
-                                        </label>
-                                        <input
-                                            type="time"
-                                            id="startTime"
-                                            value={startTime}
-                                            onChange={(event) =>
-                                                setStartTime(event.target.value)
-                                            }
-                                            required
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="input-column">
-                                    <div className="addEvent-input-container">
                                         <label htmlFor="endDate">
                                             End Date:
                                         </label>
@@ -133,6 +136,23 @@ export default function AddEventForm({ handleCloseDialog }) {
                                             value={endDate}
                                             onChange={(event) =>
                                                 setEndDate(event.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="input-column">
+                                    <div className="addEvent-input-container">
+                                        <label htmlFor="startTime">
+                                            Start Time:
+                                        </label>
+                                        <input
+                                            type="time"
+                                            id="startTime"
+                                            value={startTime}
+                                            onChange={(event) =>
+                                                setStartTime(event.target.value)
                                             }
                                             required
                                         />
@@ -152,24 +172,6 @@ export default function AddEventForm({ handleCloseDialog }) {
                                             required
                                         />
                                         <div />
-                                    </div>
-
-                                    <div className="addEvent-input-container">
-                                        <label htmlFor="description">
-                                            Description:
-                                        </label>
-                                        <textarea
-                                            rows="10"
-                                            cols="23"
-                                            id="description"
-                                            value={description}
-                                            onChange={(event) =>
-                                                setDescription(
-                                                    event.target.value
-                                                )
-                                            }
-                                            required
-                                        ></textarea>
                                     </div>
                                 </div>
                             </div>

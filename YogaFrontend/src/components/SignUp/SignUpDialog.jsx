@@ -4,11 +4,10 @@ import AnimatedPage from '../AnimatedPage'
 export default function SignUpDialog({ handleCloseDialog }) {
     SignUpDialog.propTypes
 
-    const [age, setAge] = useState('')
+    const [userAdded, setUserAdded] = useState(false)
+    const [userNotAdded, setUserNotAdded] = useState(false)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [activityLevel, setActivityLevel] = useState('')
-    const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
 
     async function handleSubmit(event) {
@@ -16,11 +15,8 @@ export default function SignUpDialog({ handleCloseDialog }) {
 
         // Create the user object
         const newUser = {
-            age,
             firstName,
             lastName,
-            activityLevel,
-            phone,
             email,
         }
 
@@ -39,7 +35,9 @@ export default function SignUpDialog({ handleCloseDialog }) {
 
             if (response.ok) {
                 console.log('User added successfully')
+                setUserAdded(true)
             } else {
+                setUserNotAdded(true)
                 console.error('Failed to submit the form:', response.status)
             }
         } catch (error) {
@@ -48,38 +46,19 @@ export default function SignUpDialog({ handleCloseDialog }) {
         }
 
         // Clear the form fieldss
-        setAge('')
         setFirstName('')
         setLastName('')
-        setActivityLevel('')
-        setPhone('')
         setEmail('')
-
-        handleCloseDialog()
     }
 
     return (
         <AnimatedPage>
-            <div className="dialog">
+            <div className="signup-dialog-overlay">
                 <dialog className="signup-dialog" open>
-                    <button
-                        onClick={handleCloseDialog}
-                        className="close-dialog-button"
-                    >
-                        X
-                    </button>
-                    <h2>Sign up</h2>
+                    <div className="close-dialog-button">
+                        <p onClick={handleCloseDialog}>X</p>
+                    </div>
                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="age">Age:</label>
-                        <input
-                            type="number"
-                            id="age"
-                            name="age"
-                            value={age}
-                            onChange={(event) => setAge(event.target.value)}
-                            required
-                        />
-
                         <label htmlFor="firstName">First Name:</label>
                         <input
                             type="text"
@@ -104,34 +83,6 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             required
                         />
 
-                        <label htmlFor="activityLevel">Activity Level:</label>
-                        <br />
-                        <select
-                            id="activityLevel"
-                            name="activityLevel"
-                            value={activityLevel}
-                            onChange={(event) =>
-                                setActivityLevel(event.target.value)
-                            }
-                            required
-                        >
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                        <br />
-                        <label htmlFor="phone">Phone Number:</label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            pattern="[0-9]{10}"
-                            placeholder="Enter a 10-digit phone number without spaces or dashes."
-                            value={phone}
-                            onChange={(event) => setPhone(event.target.value)}
-                            required
-                        />
-
                         <label htmlFor="email">Email:</label>
                         <input
                             type="email"
@@ -142,7 +93,19 @@ export default function SignUpDialog({ handleCloseDialog }) {
                             required
                         />
 
-                        <button type="submit">Submit</button>
+                        <button className="logout-button" type="submit">
+                            Submit
+                        </button>
+                        {userAdded && (
+                            <p className="event-signup-success">
+                                Sign up sucucessful, you can close this window
+                            </p>
+                        )}
+                        {userNotAdded && (
+                            <p className="event-signup-error">
+                                This user already exists
+                            </p>
+                        )}
                     </form>
                 </dialog>
             </div>

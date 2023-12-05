@@ -3,6 +3,7 @@ import Footer from '../../Footer'
 import { useEffect, useState } from 'react'
 import MemberCard from './MemberCard'
 import AnimatedPage from '../../AnimatedPage'
+import { NavLink } from 'react-router-dom'
 
 export default function SeeAllMembers() {
     const [userInfo, SetUserInfo] = useState([])
@@ -38,8 +39,8 @@ export default function SeeAllMembers() {
 
     function handleMemberStatus(user) {
         if (user.memberStatus === 1) {
-            return <p className="paid-member">Full member</p>
-        } else return <p className="not-paid-member">Has not paid</p>
+            return <span className="paid-member">Full member</span>
+        } else return <span className="not-paid-member">Has not paid</span>
     }
 
     const userList = userInfo.map((user) => (
@@ -59,8 +60,11 @@ export default function SeeAllMembers() {
         <>
             <Header />
             <AnimatedPage>
-                <div className="mediaPage-title">
-                    <h1>Users</h1>
+                <div className="member-overview-title-container">
+                    <h1 className="member-overview-title">Users</h1>
+                    <NavLink to="/adminMenu">
+                        <li className="adminMenu-li">&#8594;To menu &#8592;</li>
+                    </NavLink>
                 </div>
                 <div className="card-container">{userList}</div>
             </AnimatedPage>

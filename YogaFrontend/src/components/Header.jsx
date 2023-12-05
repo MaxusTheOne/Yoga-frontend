@@ -16,11 +16,14 @@ export default function Header() {
     return (
         <header>
             <div className="header-div">
-                <h1> </h1>
-                <h1>Marcela Christjansen Yoga</h1>
-                <button className="signUpButton" onClick={handleOpenDialog}>
-                    Sign up
-                </button>
+                <div className="header-content">
+                    <div className="header-title">
+                        <h1>Marcela Christjansen Yoga</h1>
+                    </div>
+                    <div className="signUpButton">
+                        <p onClick={handleOpenDialog}>Sign up</p>
+                    </div>
+                </div>
                 {openDialog && (
                     <SignUpDialog handleCloseDialog={handleCloseDialog} />
                 )}

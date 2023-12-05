@@ -13,6 +13,17 @@ body {
 
 /* HEADER */
 
+.header-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+}
+
 header {
     font-size: 30px;
     font-weight: lighter;
@@ -301,7 +312,6 @@ footer ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
     margin-bottom: 50px;
 }
 
@@ -358,6 +368,14 @@ footer ul {
 }
 
 /* STYLING FOR CALENDAR */
+
+.event-signup-input-label {
+    font-size: 25px;
+}
+
+.event-signup-title {
+    margin-bottom: 30px;
+}
 
 .month-button {
     width: 100px;
@@ -421,27 +439,6 @@ footer ul {
     margin-bottom: 20px;
 }
 
-.signUpButton {
-    display: flex;
-    align-items: start;
-    background-color: rgba(99, 154, 154, 1);
-    border: none;
-    color: white;
-    padding: 12px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-family: Just Another Hand;
-    font-size: 25px;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-.header-div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 /* Responsive Styles */
 @media (max-width: 600px) {
     .calendar-grid-container {
@@ -585,12 +582,12 @@ footer ul {
 
 /* ADMIN STYLES */
 
-.event-signup-input-label {
-    font-size: 25px;
-}
-
-.event-signup-title {
-    margin-bottom: 30px;
+.member-overview-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-size: x-large;
 }
 
 .addEvent-submit-button {
@@ -608,10 +605,16 @@ footer ul {
     z-index: 1000;
     border: none;
     border-radius: 15px;
-    width: 500px;
+    width: 600px;
     box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
     border: none;
     background-color: rgba(219, 237, 237, 1);
+}
+.addEvent-input-container > input {
+    border: none;
+}
+.addEvent-input-container > textarea {
+    border: none;
 }
 
 .addEvent-dialog-content {
@@ -621,6 +624,7 @@ footer ul {
     padding-left: 50px;
     margin-bottom: 25px;
     margin-top: 25px;
+    gap: 10px;
 }
 
 .addEvent-input-container {
@@ -790,12 +794,53 @@ button:hover {
 
 /* SIGN UP DIALOG */
 
-.signup-dialog {
-    width: 50%;
-    margin: 2em auto 0;
+.signUpButton {
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    cursor: pointer;
+    color: black;
+    font-size: 20px;
+}
+
+.signUpButton:hover {
     background-color: rgba(99, 154, 154, 1);
-    padding: 1em 1em 2em;
-    text-align: center;
+}
+
+.signup-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    z-index: 1000;
+    border: none;
+    border-radius: 15px;
+    width: 600px;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    border: none;
+    background-color: rgba(219, 237, 237, 1);
+}
+
+.signup-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(169, 169, 169, 0.5);
+    z-index: 1000;
+}
+
+.close-dialog-button {
+    display: flex;
+    color: red;
+}
+
+.close-dialog-button > p {
+    cursor: pointer;
 }
 
 input {
@@ -804,6 +849,7 @@ input {
     max-width: 350px;
     padding: 1em;
     display: block;
+    border: none;
 }
 
 .memberCard-container {
