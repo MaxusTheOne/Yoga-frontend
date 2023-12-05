@@ -28,6 +28,7 @@ export default function EventSignUp({ matchingEvent }) {
             if (response.ok) {
                 console.log('User associated with event successfully')
                 setSignedUp(true)
+                setEmail('')
             }
         } catch (error) {
             console.error('Error during fetch:', error)
@@ -45,11 +46,13 @@ export default function EventSignUp({ matchingEvent }) {
                 return data.userId
             } else {
                 console.error('Error retrieving user ID:', data.error)
+                setNoMatch(true)
+                setEmail('')
                 return null
             }
         } catch (error) {
             console.error('Error during fetch:', error)
-            setNoMatch(true)
+
             return null
         }
     }
@@ -98,7 +101,7 @@ export default function EventSignUp({ matchingEvent }) {
                     )}
                     {signedUp && (
                         <p className="event-signup-success">
-                            Sign up done, you can close this window now.
+                            Sign up successful, you can close this window now.
                         </p>
                     )}
                 </form>

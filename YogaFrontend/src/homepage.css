@@ -806,38 +806,59 @@ input {
     display: block;
 }
 
-.memberCard-text {
-    font-size: 30px;
-    text-align: center;
-}
-
 .memberCard-container {
     display: flex;
+    flex-direction: column;
     width: 15em;
     height: 9em;
     margin: 50px;
     background-color: rgba(99, 154, 154, 1);
     border-radius: 20px;
     box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    padding-bottom: 20px;
+}
+
+.memberCard-status,
+.memberCard-email {
+    font-size: 22px;
+}
+
+.paid-member {
+    color: green;
+    display: inline;
+}
+
+.not-paid-member {
+    color: rgb(168, 55, 55);
+    display: inline;
 }
 
 .memberCard-text-container {
-    margin: 20px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.memberCard-margin {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
+.memberCard-name {
+    font-size: 35px;
 }
 
 .memberCard-deleteBtn {
+    display: flex;
+    justify-content: space-between;
     margin-left: 10px;
     margin-top: 10px;
     margin-right: 0;
     padding: 0;
     color: black;
     font-size: x-large;
+}
+
+.memberCard-deleteBtn > p {
+    color: red;
+    cursor: pointer;
+}
+
+.memberCard-deleteBtn > span {
+    margin-right: 10px;
     cursor: pointer;
 }

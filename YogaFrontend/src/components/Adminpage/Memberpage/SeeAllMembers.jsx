@@ -37,8 +37,9 @@ export default function SeeAllMembers() {
     }, [])
 
     function handleMemberStatus(user) {
-        const isMember = user.memberStatus === 1
-        return isMember ? 'is member' : ''
+        if (user.memberStatus === 1) {
+            return <p className="paid-member">Full member</p>
+        } else return <p className="not-paid-member">Has not paid</p>
     }
 
     const userList = userInfo.map((user) => (

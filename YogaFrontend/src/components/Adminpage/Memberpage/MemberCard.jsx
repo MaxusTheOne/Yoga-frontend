@@ -13,17 +13,18 @@ export default function MemberCard({
             {
                 <div className="memberCard-deleteBtn">
                     <p onClick={() => handleDelete(user)}>X</p>
+                    <span>Edit status</span>
                 </div>
             }
             <div className="memberCard-text-container">
                 <div className="memberCard-margin">
-                    <h2 className="memberCard-text">
+                    <h2 className="memberCard-name">
                         {firstName} {lastName}
                     </h2>
-                    <p className="memberCard-text">
-                        {handleMemberStatus(user)}
+                    <p className="memberCard-status">
+                        Status: {handleMemberStatus(user)}
                     </p>
-                    <p className="memberCard-text">{email}</p>
+                    <p className="memberCard-email">{email}</p>
                 </div>
             </div>
         </div>
