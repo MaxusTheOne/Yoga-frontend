@@ -18,6 +18,30 @@ export default function SeeAllMembers() {
         }
     }
 
+    async function handleEditMemberStatus(user) {
+        if (user.memberStatus == 0)
+            try {
+                await fetch(`http://localhost:3000/users/${user.id}/promote`, {
+                    method: 'PUT',
+                })
+
+                fetchMediaFromDatabase()
+            } catch (error) {
+                console.log('Error fetching events:', error)
+            }
+        else {
+            try {
+                await fetch(`http://localhost:3000/users/${user.id}/demote`, {
+                    method: 'PUT',
+                })
+
+                fetchMediaFromDatabase()
+            } catch (error) {
+                console.log('Error fetching events:', error)
+            }
+        }
+    }
+
     async function handleDelete(user) {
         if (user.id) {
             try {
@@ -53,6 +77,7 @@ export default function SeeAllMembers() {
             user={user}
             handleDelete={handleDelete}
             handleMemberStatus={handleMemberStatus}
+            handleEditMemberStatus={handleEditMemberStatus}
         />
     ))
 

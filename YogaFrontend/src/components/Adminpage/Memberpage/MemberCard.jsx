@@ -5,6 +5,7 @@ export default function MemberCard({
     handleMemberStatus,
     handleDelete,
     user,
+    handleEditMemberStatus,
 }) {
     MemberCard.propTypes
 
@@ -13,7 +14,9 @@ export default function MemberCard({
             {
                 <div className="memberCard-deleteBtn">
                     <p onClick={() => handleDelete(user)}>X</p>
-                    <span>Edit status</span>
+                    <span onClick={() => handleEditMemberStatus(user)}>
+                        Edit status
+                    </span>
                 </div>
             }
             <div className="memberCard-text-container">
