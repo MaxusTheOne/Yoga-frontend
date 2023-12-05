@@ -103,7 +103,7 @@ export default function SignUpDialog({ handleCloseDialog }) {
                         )}
                         {userNotAdded && (
                             <p className="event-signup-error">
-                                This user already exists
+                                An error occurred please try again
                             </p>
                         )}
                     </form>
