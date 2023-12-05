@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import AnimatedPage from '../AnimatedPage'
-import Footer from '../Footer'
-import Header from '../Header'
+import AnimatedPage from '../Homepage/AnimatedPage'
+import Footer from '../Homepage/Footer'
+import Header from '../Homepage/Header'
 import Login from './Login'
-import AdminMenu from './AdminMenu'
+import AdminMenu from './Menu overview/AdminMenu'
 
 export default function AdminPage() {
     const [isLoggedIn, setLoggedIn] = useState(false)

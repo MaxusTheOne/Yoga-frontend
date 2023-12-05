@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import Footer from '../Footer'
-import Header from '../Header'
-import AnimatedPage from '../AnimatedPage'
+import Footer from '../../Homepage/Footer'
+import Header from '../../Homepage/Header'
+import AnimatedPage from '../../Homepage/AnimatedPage'
 
 export default function ContentManagement() {
     ContentManagement.propTypes
@@ -15,8 +15,8 @@ export default function ContentManagement() {
                         <h2>Content management</h2>
                     </div>
                     <ul>
-                        <li className="adminMenu-li">Add Content</li>
-                        <li className="adminMenu-li">See all Content</li>
+                        <li className="adminMenu-li">Add content</li>
+                        <li className="adminMenu-li">See all content</li>
 
                         <NavLink to="/adminMenu">
                             <li className="adminMenu-li">

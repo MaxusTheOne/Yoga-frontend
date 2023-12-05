@@ -1,16 +1,16 @@
 import Eventpage from './components/Eventpage/Eventpage.jsx'
-import Homepage from './components/Homepage.jsx'
+import Homepage from './components/Homepage/Homepage.jsx'
 import FaceYoga from './components/Homepage/FaceYoga.jsx'
 import Online from './components/Homepage/Online.jsx'
 import PrivateSessions from './components/Homepage/PrivateSessions.jsx'
 import { Route, Routes } from 'react-router-dom'
-import MediaPage from './components/Mediapage/Mediapage.jsx'
+import MediaPage from './components/Contentpage/Mediapage.jsx'
 import AdminPage from './components/Adminpage/Adminpage.jsx'
-import MemberManagement from './components/Adminpage/MemberManagement.jsx'
-import ContentManagement from './components/Adminpage/ContentManagement.jsx'
-import EventManagement from './components/Adminpage/EventManagement.jsx'
-import ExtendedMenu from './components/Adminpage/ExtendedMenu.jsx'
-import SeeAllMembers from './components/Adminpage/Memberpage/SeeAllMembers.jsx'
+import MemberManagement from './components/Adminpage/Member overview/MemberManagement.jsx'
+import ContentManagement from './components/Adminpage/Content overview/ContentManagement.jsx'
+import EventManagement from './components/Adminpage/Event overview/EventManagement.jsx'
+import ExtendedMenu from './components/Adminpage/Menu overview/ExtendedMenu.jsx'
+import SeeAllMembers from './components/Adminpage/Member overview/SeeAllMembers.jsx'
 
 // import "./homepage.css";
 
@@ -33,10 +33,7 @@ function App() {
                 <Route path="faceyoga" element={<FaceYoga />} />
                 <Route path="online" element={<Online />} />
                 <Route path="privatesessions" element={<PrivateSessions />} />
-                <Route
-                    path="memberOverview"
-                    element={<SeeAllMembers />}
-                />
+                <Route path="memberOverview" element={<SeeAllMembers />} />
             </Routes>
         </>
     )

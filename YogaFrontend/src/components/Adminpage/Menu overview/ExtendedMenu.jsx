@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import Header from '../Header'
-import Footer from '../Footer'
-import AnimatedPage from '../AnimatedPage'
+import Header from '../../Homepage/Header'
+import Footer from '../../Homepage/Footer'
+import AnimatedPage from '../../Homepage/AnimatedPage'
 
 export default function ExtendedMenu() {
     return (

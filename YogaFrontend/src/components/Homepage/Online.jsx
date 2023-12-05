@@ -1,6 +1,6 @@
-import Header from '../Header'
-import Footer from '../Footer'
-import AnimatedPage from '../AnimatedPage'
+import Header from './Header'
+import Footer from './Footer'
+import AnimatedPage from './AnimatedPage'
 
 export default function Online() {
     return (

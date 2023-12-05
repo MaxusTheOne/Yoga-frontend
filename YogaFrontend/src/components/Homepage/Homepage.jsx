@@ -1,9 +1,9 @@
 import Header from './Header'
 import Footer from './Footer'
-import Testimonials from './Homepage/Testimonials'
-import AboutMe from './Homepage/AboutMe'
-import BenefitsYoga from './Homepage/BenefitsYoga'
-import Practice from './Homepage/Practice'
+import Testimonials from './Testimonials'
+import AboutMe from './AboutMe'
+import BenefitsYoga from './BenefitsYoga'
+import Practice from './Practice'
 import AnimatedPage from './AnimatedPage'
 
 export default function Homepage() {

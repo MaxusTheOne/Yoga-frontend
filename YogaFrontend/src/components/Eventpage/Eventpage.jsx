@@ -1,7 +1,7 @@
-import Header from '../Header'
-import Footer from '../Footer'
+import Header from '../Homepage/Header'
+import Footer from '../Homepage/Footer'
 import EventCalendar from './EventCalendar'
-import AnimatedPage from '../AnimatedPage'
+import AnimatedPage from '../Homepage/AnimatedPage'
 
 export default function Eventpage() {
     return (

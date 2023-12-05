@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import Footer from '../Footer'
-import Header from '../Header'
-import AnimatedPage from '../AnimatedPage'
+import Footer from '../../Homepage/Footer'
+import Header from '../../Homepage/Header'
+import AnimatedPage from '../../Homepage/AnimatedPage'
 import { useState } from 'react'
 import AddEventForm from './AddEventForm'
 
@@ -26,9 +26,9 @@ export default function EventManagement() {
                     </div>
                     <ul>
                         <li onClick={handleOpenDialog} className="adminMenu-li">
-                            Add Event
+                            Add event
                         </li>
-                        <li className="adminMenu-li">See all Events</li>
+                        <li className="adminMenu-li">See event signups</li>
                         {openDialog && (
                             <AddEventForm
                                 handleCloseDialog={handleCloseDialog}

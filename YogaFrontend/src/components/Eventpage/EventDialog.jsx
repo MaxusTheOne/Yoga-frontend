@@ -1,4 +1,4 @@
-import AnimatedPage from '../AnimatedPage'
+import AnimatedPage from '../Homepage/AnimatedPage'
 import EventSignUp from './EventSignup'
 
 export default function EventDialog({

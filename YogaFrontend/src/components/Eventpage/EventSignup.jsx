@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import AnimatedPage from '../AnimatedPage'
+import AnimatedPage from '../Homepage/AnimatedPage'
 
 export default function EventSignUp({ matchingEvent }) {
     EventSignUp.propTypes
