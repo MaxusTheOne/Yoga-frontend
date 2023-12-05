@@ -9,7 +9,7 @@ export default function AdminMenu() {
                 <h2>Menu</h2>
             </div>
             <ul>
-                <NavLink to="/memberManagement">
+                <NavLink to="/memberOverview">
                     <li className="adminMenu-li">Manage members</li>
                 </NavLink>
                 <NavLink to="/contentManagement">

@@ -61,7 +61,7 @@ export default function SeeAllMembers() {
             <Header />
             <AnimatedPage>
                 <div className="member-overview-title-container">
-                    <h1 className="member-overview-title">Users</h1>
+                    <h1 className="member-overview-title">Members</h1>
                     <NavLink to="/adminMenu">
                         <li className="adminMenu-li">&#8594;To menu &#8592;</li>
                     </NavLink>

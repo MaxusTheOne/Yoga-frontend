@@ -34,7 +34,7 @@ function App() {
                 <Route path="online" element={<Online />} />
                 <Route path="privatesessions" element={<PrivateSessions />} />
                 <Route
-                    path="memberManagement/memberOverview"
+                    path="memberOverview"
                     element={<SeeAllMembers />}
                 />
             </Routes>

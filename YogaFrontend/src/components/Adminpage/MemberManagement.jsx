@@ -3,6 +3,8 @@ import Footer from '../Footer'
 import Header from '../Header'
 import AnimatedPage from '../AnimatedPage'
 
+//After meeting with customer this was changed and is not currently in use
+
 export default function MemberManagement() {
     return (
         <>
