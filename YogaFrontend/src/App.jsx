@@ -11,6 +11,7 @@ import ContentManagement from './components/Adminpage/Content overview/ContentMa
 import EventManagement from './components/Adminpage/Event overview/EventManagement.jsx'
 import ExtendedMenu from './components/Adminpage/Menu overview/ExtendedMenu.jsx'
 import SeeAllMembers from './components/Adminpage/Member overview/SeeAllMembers.jsx'
+import EventSignups from './components/Adminpage/Event overview/EventSignups.jsx'
 
 // import "./homepage.css";
 
@@ -20,6 +21,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="*" element={<Homepage />} />
+                <Route path="eventSignups" element={<EventSignups />} />{' '}
                 <Route path="adminMenu" element={<ExtendedMenu />} />
                 <Route path="memberManagement" element={<MemberManagement />} />
                 <Route
