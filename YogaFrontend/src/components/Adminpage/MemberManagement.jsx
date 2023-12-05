@@ -12,7 +12,7 @@ export default function MemberManagement() {
             <AnimatedPage>
                 <div className="memberManagement-container">
                     <div className="menu-header">
-                        <h2>Member management</h2>
+                        <h2>Member managements</h2>
                     </div>
                     <ul>
                         <li className="adminMenu-li">Edit member</li>
