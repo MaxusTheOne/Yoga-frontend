@@ -15,7 +15,7 @@ export default function MemberCard({
                 <div className="memberCard-deleteBtn">
                     <p onClick={() => handleDelete(user)}>X</p>
                     <span onClick={() => handleEditMemberStatus(user)}>
-                        Edit status
+                        Change status
                     </span>
                 </div>
             }
