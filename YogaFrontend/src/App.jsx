@@ -21,7 +21,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />} />
                 <Route path="*" element={<Homepage />} />
-                <Route path="eventSignups" element={<EventSignups />} />{' '}
+                <Route path="eventSignups" element={<EventSignups />} />
                 <Route path="adminMenu" element={<ExtendedMenu />} />
                 <Route path="memberManagement" element={<MemberManagement />} />
                 <Route

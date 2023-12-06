@@ -1,10 +1,10 @@
 import AnimatedPage from '../../Homepage/AnimatedPage'
 import SignedupUser from './SignedupUser'
 
-export default function SignupsDialog({ list }) {
+export default function SignupsDialog({ list, event }) {
     SignupsDialog.propTypes
 
-    const toShow = list.map((item) => (
+    let toShow = list.map((item) => (
         <SignedupUser
             key={item.id}
             firstName={item.firstName}
@@ -13,6 +13,15 @@ export default function SignupsDialog({ list }) {
         />
     ))
 
+    if (list.length === 0) {
+        toShow = (
+            <div className="no-signups-text">
+                {' '}
+                <p>No sign ups yet</p>
+            </div>
+        )
+    }
+
     return (
         <>
             <AnimatedPage>
@@ -20,7 +29,7 @@ export default function SignupsDialog({ list }) {
                     <dialog className="signups-dialog" open>
                         <p className="close-button-signups">X</p>
                         <div className="signups-title">
-                            <h1>Member sign ups</h1>
+                            <h1>{event.title} - sign ups</h1>
                         </div>
                         <div className="signups-dialog-container">{toShow}</div>
                     </dialog>

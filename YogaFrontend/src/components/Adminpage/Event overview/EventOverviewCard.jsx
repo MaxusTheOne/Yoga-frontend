@@ -40,17 +40,23 @@ export default function EventOverviewCard({
 
     return (
         <>
-            {show && <SignupsDialog list={list} />}
             <div
                 onClick={() => {
                     showEventSignUps()
                     setShow(true)
-                    console.log(data)
                 }}
                 className="eventOverview-card-container"
             >
-                <h2 className="eventOverview-card-title">{title}</h2>
+                <div className="eventOverview-card-title">
+                    <h2>{title}</h2>
+                </div>
+                <div className="eventOverview-card-start">
+                    start: {event.start}
+                </div>
+                <div className="eventOverview-card-end">end: {event.end}</div>
             </div>
+
+            {show && <SignupsDialog event={event} list={list} />}
         </>
     )
 }

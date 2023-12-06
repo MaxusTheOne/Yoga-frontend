@@ -72,7 +72,7 @@ export default function EventSignups() {
             <Header />
             <AnimatedPage>
                 <div className="event-signups-container">
-                    <h1 className="event-signups-title">Event sign ups</h1>
+                    <h1 className="event-signups-title">Events overview</h1>
                     <NavLink to="/adminMenu">
                         <li className="event-signups-container-li">
                             &#8594;To menu &#8592;
