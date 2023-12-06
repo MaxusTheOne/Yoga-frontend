@@ -47,13 +47,17 @@ export default function EventOverviewCard({
                 }}
                 className="eventOverview-card-container"
             >
-                <div className="eventOverview-card-title">
-                    <h2>{title}</h2>
+                <div className="eventOverview-card-text">
+                    <div className="eventOverview-card-title">
+                        <h2>{title}</h2>
+                    </div>
+                    <div className="eventOverview-card-start">
+                        start: {event.start}
+                    </div>
+                    <div className="eventOverview-card-end">
+                        end: {event.end}
+                    </div>
                 </div>
-                <div className="eventOverview-card-start">
-                    start: {event.start}
-                </div>
-                <div className="eventOverview-card-end">end: {event.end}</div>
             </div>
 
             {show && <SignupsDialog event={event} list={list} />}

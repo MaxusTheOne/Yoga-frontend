@@ -939,6 +939,16 @@ input {
     padding: 20px;
 }
 
+.eventOverview-card-text {
+    transition: transform 0.5s;
+}
+
+.eventOverview-card-text:hover {
+    cursor: pointer;
+
+    transform: scale(1.1);
+}
+
 .eventOverview-cards-container {
     display: flex;
     flex-wrap: wrap;
