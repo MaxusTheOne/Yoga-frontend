@@ -1,8 +1,8 @@
-import Header from '../../Header'
-import Footer from '../../Footer'
+import Header from '../../Homepage/Header'
+import Footer from '../../Homepage/Footer'
 import { useEffect, useState } from 'react'
 import MemberCard from './MemberCard'
-import AnimatedPage from '../../AnimatedPage'
+import AnimatedPage from '../../Homepage/AnimatedPage'
 import { NavLink } from 'react-router-dom'
 
 export default function SeeAllMembers() {

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import Footer from '../Footer'
-import Header from '../Header'
-import AnimatedPage from '../AnimatedPage'
+import Footer from '../../Homepage/Footer'
+import Header from '../../Homepage/Header'
+import AnimatedPage from '../../Homepage/AnimatedPage'
 
 //After meeting with customer this was changed and is not currently in use
 

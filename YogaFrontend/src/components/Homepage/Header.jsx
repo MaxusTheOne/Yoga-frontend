@@ -20,10 +20,8 @@ export default function Header() {
                     <div className="header-title">
                         <h1>Marcela Christjansen Yoga</h1>
                     </div>
-                    <div className="signUpButton">
-                        <p onClick={handleOpenDialog}>
-                            Wanna stay in the loop?
-                        </p>
+                    <div onClick={handleOpenDialog} className="signUpButton">
+                        <p>Wanna stay in the loop?</p>
                     </div>
                 </div>
                 {openDialog && (

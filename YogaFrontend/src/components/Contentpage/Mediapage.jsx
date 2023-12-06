@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Footer from '../Footer'
-import Header from '../Header'
+import Footer from '../Homepage/Footer'
+import Header from '../Homepage/Header'
 import MediaCard from './MediaCard'
-import AnimatedPage from '../AnimatedPage'
+import AnimatedPage from '../Homepage/AnimatedPage'
 
 export default function MediaPage() {
     const [dbMedia, setDbMedia] = useState([])

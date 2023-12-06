@@ -1,6 +1,6 @@
-import AnimatedPage from '../AnimatedPage'
-import Footer from '../Footer'
-import Header from '../Header'
+import AnimatedPage from './AnimatedPage'
+import Footer from './Footer'
+import Header from './Header'
 
 export default function FaceYoga() {
     return (
