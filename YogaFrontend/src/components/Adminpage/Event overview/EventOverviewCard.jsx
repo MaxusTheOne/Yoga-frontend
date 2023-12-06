@@ -9,51 +9,47 @@ export default function EventOverviewCard({
 }) {
     EventOverviewCard.propTypes
 
-    const [openDialog, setOpenDialog] = useState(false)
+    const [show, setShow] = useState(false)
+    const [data, setData] = useState([])
 
-    function handleOpenDialog() {
-        setOpenDialog(true)
-    }
-    function handleCloseDialog() {
-        setOpenDialog(false)
-    }
-
-    function showEventSignups() {
-        const signUpIds = []
-        const UsersSignedUp = []
+    function showEventSignUps() {
+        const signups = []
 
         eventSignups.forEach((item) => {
             if (item['event_id'] === event.id) {
-                signUpIds.push(item['user_id'])
+                signups.push(item)
             }
         })
 
-        signUpIds.forEach((id) => {
-            userData.forEach((user) => {
-                if (user.id === id) {
-                    UsersSignedUp.push(user)
-                }
+        if (signups.length === 0) {
+            console.log('no one signed up here')
+        } else {
+            signups.forEach((item) => {
+                userData.forEach((user) => {
+                    if (user.id === item['user_id']) {
+                        setData((prevData) => [...prevData, user])
+                    }
+                })
             })
-        })
-
-        UsersSignedUp.forEach((user) =>
-            console.log(user, 'signed up for the class')
-        )
+        }
     }
+
+    const list = data.map((item) => {
+        return item
+    })
 
     return (
         <>
+            {show && <SignupsDialog list={list} />}
             <div
-                onClick={handleOpenDialog}
+                onClick={() => {
+                    showEventSignUps()
+                    setShow(true)
+                    console.log(data)
+                }}
                 className="eventOverview-card-container"
             >
-                {openDialog && (
-                    <SignupsDialog
-                        handleCloseDialog={handleCloseDialog}
-                        showEventSignups={showEventSignups}
-                    />
-                )}
-                <h2 className="evenOverview-card-title">{title}</h2>
+                <h2 className="eventOverview-card-title">{title}</h2>
             </div>
         </>
     )
