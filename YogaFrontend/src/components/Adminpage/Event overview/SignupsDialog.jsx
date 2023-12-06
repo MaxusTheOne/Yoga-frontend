@@ -19,6 +19,9 @@ export default function SignupsDialog({ list }) {
                 <div className="signups-dialog-overlay">
                     <dialog className="signups-dialog" open>
                         <p className="close-button-signups">X</p>
+                        <div className="signups-title">
+                            <h1>Member sign ups</h1>
+                        </div>
                         <div className="signups-dialog-container">{toShow}</div>
                     </dialog>
                 </div>

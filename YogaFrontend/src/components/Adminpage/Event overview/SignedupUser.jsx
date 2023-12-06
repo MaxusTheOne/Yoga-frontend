@@ -3,8 +3,12 @@ export default function SignedupUser({ firstName, lastName, email }) {
 
     return (
         <>
-            <span>{firstName}</span> <span>{lastName}</span>
-            <p>{email}</p>
+            <div className="signedup-user-container">
+                <div>
+                    <span>{firstName}</span> <span>{lastName}</span>
+                </div>
+                <span>{email}</span>
+            </div>
         </>
     )
 }
