@@ -7,7 +7,9 @@ export default function EventCalendar() {
 
     async function fetchEventsFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/events')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events'
+            )
             const data = await response.json()
             setEventData(data)
         } catch (error) {

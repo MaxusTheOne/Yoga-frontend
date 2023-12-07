@@ -16,13 +16,16 @@ export default function Login({ checkLogin }) {
 
     async function handleLogin() {
         try {
-            const response = await fetch('http://localhost:3000/admin', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            })
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/admin',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                }
+            )
 
             if (response.ok) {
                 // Login successful

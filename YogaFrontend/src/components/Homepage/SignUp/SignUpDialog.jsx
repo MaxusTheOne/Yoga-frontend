@@ -23,7 +23,7 @@ export default function SignUpDialog({ handleCloseDialog }) {
         try {
             // Make a fetch request to your server endpoint
             const response = await fetch(
-                'http://localhost:3000/users/userSignup',
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/users/userSignup',
                 {
                     method: 'POST',
                     headers: {

@@ -12,7 +12,9 @@ export default function EventSignups() {
 
     async function fetchUsersFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/users')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/users'
+            )
             const data = await response.json()
             setUserData(data)
         } catch (error) {
@@ -22,7 +24,9 @@ export default function EventSignups() {
 
     async function fetchEventsFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/events')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events'
+            )
             const data = await response.json()
             setEventData(data)
         } catch (error) {
@@ -32,7 +36,9 @@ export default function EventSignups() {
 
     async function fetchEventSignups() {
         try {
-            const response = await fetch('http://localhost:3000/events/signups')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events/signups'
+            )
             const data = await response.json()
 
             if (response.ok) {
