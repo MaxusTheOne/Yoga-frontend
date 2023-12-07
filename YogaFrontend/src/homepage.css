@@ -304,7 +304,7 @@ footer ul {
 }
 
 .mediaCard-linkDescription-a:hover {
-    color: green;
+    color: black;
     font-size: 21px;
 }
 
@@ -483,8 +483,8 @@ footer ul {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     border-radius: 20px;
 }
 
@@ -515,7 +515,6 @@ footer ul {
 
 .eventCard-title:hover {
     transform: scale(1.1);
-    color: green;
 }
 
 .eventDialog-sign-up-button {
@@ -547,30 +546,6 @@ footer ul {
 
 .eventCards-container {
     max-height: 90px;
-    overflow-y: overlay; /* Use 'overlay' instead of 'auto' */
-}
-
-/* WebKit browsers */
-.eventCards-container::-webkit-scrollbar {
-    width: 12px; /* Width of the vertical scrollbar */
-    height: 0px; /* Height of the horizontal scrollbar */
-}
-
-.eventCards-container::-webkit-scrollbar-thumb {
-    background-color: rgba(99, 154, 154, 0.7); /* Color of the thumb */
-    border-radius: 6px; /* Rounded corners of the thumb */
-}
-
-.eventCards-container::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Color of the track */
-    border-radius: 8px; /* Rounded corners of the track */
-    margin-bottom: 35px;
-}
-
-/* Hide the bottom scrollbar */
-.eventCards-container {
-    scrollbar-width: thin; /* Firefox scrollbar width */
-    scrollbar-color: transparent transparent; /* Firefox thumb and track color */
 }
 
 /* RANDOM STYLING */
@@ -915,18 +890,44 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 500px;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.event-signups-container-li {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-size: x-large;
+}
+
+.event-signups-title {
+    font-size: 48px;
 }
 
 .eventOverview-card-container {
-    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: 25%;
+    padding: 20px;
+}
+
+.eventOverview-card-text {
+    transition: transform 0.5s;
+}
+
+.eventOverview-card-text:hover {
+    cursor: pointer;
+
+    transform: scale(1.1);
 }
 
 .eventOverview-cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    width: 75%;
+    width: 100%;
     justify-content: center;
 }
 
@@ -939,6 +940,17 @@ input {
     width: 400px;
     height: 400px;
     border-radius: 20px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+}
+
+.close-button-signups {
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+    width: 10px;
 }
 
 .signups-dialog-overlay {
@@ -949,4 +961,27 @@ input {
     height: 100%;
     background: rgba(169, 169, 169, 0.5);
     z-index: 1000;
+}
+
+.signups-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.signedup-user-container {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    margin: 4px;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 2px;
+}
+
+.no-signups-text {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    font-size: 30px;
 }

@@ -28,7 +28,35 @@ export default function EventSignups() {
                 import.meta.env.VITE_BACKEND_ENDPOINT + '/events'
             )
             const data = await response.json()
-            setEventData(data)
+            const sortedEvents = data.sort(
+                (a, b) => new Date(b.start) - new Date(a.start)
+            )
+            const formattedEvents = sortedEvents.map((event) => {
+                const formattedStartDate = new Date(event.start).toDateString()
+                const formattedEndDate = new Date(event.end).toDateString()
+                const formattedStartTime = new Date(
+                    event.start
+                ).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })
+                const formattedEndTime = new Date(event.end).toLocaleTimeString(
+                    [],
+                    {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    }
+                )
+
+                return {
+                    ...event,
+                    start: formattedStartDate,
+                    end: formattedEndDate,
+                    startTime: formattedStartTime,
+                    endTime: formattedEndTime,
+                }
+            })
+            setEventData(formattedEvents)
         } catch (error) {
             console.log('Error fetching events:', error)
         }
@@ -78,9 +106,11 @@ export default function EventSignups() {
             <Header />
             <AnimatedPage>
                 <div className="event-signups-container">
-                    <h1>Event sign ups</h1>
+                    <h1 className="event-signups-title">Events overview</h1>
                     <NavLink to="/adminMenu">
-                        <li>&#8594;To menu &#8592;</li>
+                        <li className="event-signups-container-li">
+                            &#8594;To menu &#8592;
+                        </li>
                     </NavLink>
                     <div className="eventOverview-cards-container">
                         {events}
