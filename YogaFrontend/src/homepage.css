@@ -483,7 +483,7 @@ footer ul {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
-    width: 400px;
+    width: 800px;
     height: 400px;
     border-radius: 20px;
 }
@@ -515,7 +515,6 @@ footer ul {
 
 .eventCard-title:hover {
     transform: scale(1.1);
-    color: green;
 }
 
 .eventDialog-sign-up-button {
@@ -547,30 +546,6 @@ footer ul {
 
 .eventCards-container {
     max-height: 90px;
-    overflow-y: overlay; /* Use 'overlay' instead of 'auto' */
-}
-
-/* WebKit browsers */
-.eventCards-container::-webkit-scrollbar {
-    width: 12px; /* Width of the vertical scrollbar */
-    height: 0px; /* Height of the horizontal scrollbar */
-}
-
-.eventCards-container::-webkit-scrollbar-thumb {
-    background-color: rgba(99, 154, 154, 0.7); /* Color of the thumb */
-    border-radius: 6px; /* Rounded corners of the thumb */
-}
-
-.eventCards-container::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Color of the track */
-    border-radius: 8px; /* Rounded corners of the track */
-    margin-bottom: 35px;
-}
-
-/* Hide the bottom scrollbar */
-.eventCards-container {
-    scrollbar-width: thin; /* Firefox scrollbar width */
-    scrollbar-color: transparent transparent; /* Firefox thumb and track color */
 }
 
 /* RANDOM STYLING */
