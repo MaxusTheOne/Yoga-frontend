@@ -12,7 +12,7 @@ import EventManagement from './components/Adminpage/Event overview/EventManageme
 import ExtendedMenu from './components/Adminpage/Menu overview/ExtendedMenu.jsx'
 import SeeAllMembers from './components/Adminpage/Member overview/SeeAllMembers.jsx'
 import EventSignups from './components/Adminpage/Event overview/EventSignups.jsx'
-
+import SeeAllContent from './components/Adminpage/Content overview/SeeAllContent.jsx'
 // import "./homepage.css";
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
                 <Route path="online" element={<Online />} />
                 <Route path="privatesessions" element={<PrivateSessions />} />
                 <Route path="memberOverview" element={<SeeAllMembers />} />
+                <Route path="contentOverview" element={<SeeAllContent />} />
             </Routes>
         </>
     )

@@ -16,7 +16,9 @@ export default function ContentManagement() {
                     </div>
                     <ul>
                         <li className="adminMenu-li">Add content</li>
-                        <li className="adminMenu-li">See all content</li>
+                        <NavLink to="/contentOverview">
+                            <li className="adminMenu-li">See all content</li>
+                        </NavLink>
 
                         <NavLink to="/adminMenu">
                             <li className="adminMenu-li">
