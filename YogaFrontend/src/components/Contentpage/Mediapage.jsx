@@ -54,12 +54,9 @@ export default function MediaPage() {
             <Header />
             <AnimatedPage>
                 <div className="mediaPage-title">
-                    <h1>Free content</h1>
+                    <h1>Content</h1>
                 </div>
-                <div className="card-container">
-                    {yogaCardList}
-                    {testDataList}
-                </div>
+                <div className="card-container">{yogaCardList}</div>
             </AnimatedPage>
             <Footer />
         </>
