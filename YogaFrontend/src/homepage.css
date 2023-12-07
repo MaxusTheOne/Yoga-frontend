@@ -483,8 +483,8 @@ footer ul {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1001;
-    width: 800px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
     border-radius: 20px;
 }
 
