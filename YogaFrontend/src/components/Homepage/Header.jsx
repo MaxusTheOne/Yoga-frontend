@@ -18,6 +18,11 @@ export default function Header() {
             <div className="header-div">
                 <div className="header-content">
                     <div className="header-title">
+                        {/* <img
+                            className="landing-page-image"
+                            src="public\yeah.jpg"
+                            alt=""
+                        /> */}
                         <h1>Marcela Christjansen Yoga</h1>
                     </div>
                     <div onClick={handleOpenDialog} className="signUpButton">

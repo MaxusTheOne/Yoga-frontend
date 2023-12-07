@@ -13,14 +13,19 @@ body {
 
 /* HEADER */
 
+.landing-page-image {
+    width: 100%;
+    border-radius: 15px;
+}
+
 .header-content {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
 .header-title {
     display: flex;
+    font-size: 25px;
     justify-content: center;
 }
 
@@ -42,6 +47,7 @@ header > h1 {
     color: black;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
 }
 .nav-items {
     list-style: none;
