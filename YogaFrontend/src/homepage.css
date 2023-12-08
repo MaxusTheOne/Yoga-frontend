@@ -1143,6 +1143,8 @@ input {
     display: flex;
     font-size: x-large;
     margin-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
 .service {
