@@ -2,7 +2,7 @@ export default function BenefitsYoga() {
     return (
         <div className="services-container">
             <div className="service">
-                <img src="public\publicyoga.jpg" alt="Service Image" />
+                <img src="\publicyoga.jpg" alt="Service Image" />
                 <h3>Public Teachings</h3>
                 <ul>
                     <li>Group Classes</li>
@@ -14,7 +14,7 @@ export default function BenefitsYoga() {
             </div>
 
             <div className="service">
-                <img src="public\privateyoga.jpg" alt="Service Image" />
+                <img src="\privateyoga.jpg" alt="Service Image" />
                 <h3>Private Teachings</h3>
                 <ul>
                     <li>Individual Sessions</li>
@@ -25,7 +25,7 @@ export default function BenefitsYoga() {
             </div>
 
             <div className="service">
-                <img src="public\coaching.jpg" alt="Service Image" />
+                <img src="\coaching.jpg" alt="Service Image" />
                 <h3>Personal Coaching</h3>
                 <ul>
                     <li>Stress Release</li>
