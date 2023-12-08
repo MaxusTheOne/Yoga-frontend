@@ -5,9 +5,9 @@ export default function NavBar() {
         <nav className="nav-container">
             <ul className="nav-items">
                 <NavLink to="/">home</NavLink>
-                <NavLink to="/media">content</NavLink>
-                <NavLink to="/events">events</NavLink>
-                <NavLink to="/admin">admin</NavLink>
+                <NavLink to="/media">how I help you</NavLink>
+                <NavLink to="/events">ask me a question</NavLink>
+                <NavLink to="/admin">contact</NavLink>
             </ul>
         </nav>
     )

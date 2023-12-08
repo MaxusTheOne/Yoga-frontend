@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import NavBar from './NavBar'
 import SignUpDialog from './SignUp/SignUpDialog'
+import DropdownMenu from './DropdownMenu'
 
 export default function Header() {
     const [openDialog, setOpenDialog] = useState(false)
@@ -18,11 +19,6 @@ export default function Header() {
             <div className="header-div">
                 <div className="header-content">
                     <div className="header-title">
-                        {/* <img
-                            className="landing-page-image"
-                            src="public\yeah.jpg"
-                            alt=""
-                        /> */}
                         <h1>Marcela Christjansen Yoga</h1>
                     </div>
                     <div onClick={handleOpenDialog} className="signUpButton">
@@ -34,6 +30,7 @@ export default function Header() {
                 )}
             </div>
             <NavBar />
+            <DropdownMenu />
         </header>
     )
 }

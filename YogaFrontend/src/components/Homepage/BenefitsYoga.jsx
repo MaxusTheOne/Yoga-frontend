@@ -1,24 +1,38 @@
 export default function BenefitsYoga() {
     return (
-        <div className="benefits-grid">
-            <img
-                src="lolz.png"
-                style={{
-                    height: 'auto',
-                    width: '700px',
-                    borderRadius: '20px',
-                }}
-                className="benefits-grid-item benefits-img"
-            />
-            <p className="benefits-grid-item">
-                The benfits of yoga <br /> <br /> Sed ut perspiciatis unde omnis
-                iste natus error sit voluptatem accusantium doloremque
-                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                voluptatem sequi nesciunt.
-            </p>
+        <div className="services-container">
+            <div className="service">
+                <img src="public\publicyoga.jpg" alt="Service Image" />
+                <h3>Public Teachings</h3>
+                <ul>
+                    <li>Group Classes</li>
+                    <li>Corporate Classes</li>
+                    <li>Teacher Trainings</li>
+                    <li>Workshops</li>
+                    <li>Face Yoga</li>
+                </ul>
+            </div>
+
+            <div className="service">
+                <img src="public\privateyoga.jpg" alt="Service Image" />
+                <h3>Private Teachings</h3>
+                <ul>
+                    <li>Individual Sessions</li>
+                    <li>Group Sessions</li>
+                    <li>Special Events</li>
+                    <li>(Bachelorettes, birthdays, wellness parties, etc.)</li>
+                </ul>
+            </div>
+
+            <div className="service">
+                <img src="public\coaching.jpg" alt="Service Image" />
+                <h3>Personal Coaching</h3>
+                <ul>
+                    <li>Stress Release</li>
+                    <li>Intention and Goal Setting</li>
+                    <li>Adapting to Life Changes</li>
+                </ul>
+            </div>
         </div>
     )
 }
