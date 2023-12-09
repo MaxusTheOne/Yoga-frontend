@@ -20,19 +20,28 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
 
     async function handleUpdate(post) {
         console.log(post)
-        await fetch(`http://localhost:3000/media/${post.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedData),
-        })
-            .then((response) => response.json())
-            .then((updatedPost) => {
-                // Handle the updated post data in UpdateContentDialog
-                onUpdate(updatedPost) // Invoke the onUpdate callback
-                onClose() // Close the update form dialog
-            })
+        if (post.id) {
+            const response = await fetch(
+                `http://localhost:3000/media/${post.id}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedData),
+                }
+            )
+            if (!response.ok) {
+                // Handle non-successful responses
+                console.error(`Failed to update media with ID ${post.id}`)
+            }
+
+            const data = await response.json()
+            console.log('Media updated successfully:', data)
+
+            onUpdate(data) // Invoke the onUpdate callback
+            onClose() // Close the update form dialog
+        }
     }
 
     return (
@@ -77,9 +86,9 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
                             onChange={handleInputChange}
                         />
                         <button type="submit">Update Post</button>
-                        <button type="button" onClick={onClose}>
+                        {/* <button type="button" onClick={onClose}>
                             Cancel
-                        </button>
+                        </button> */}
                     </form>
                 </dialog>
             </div>
