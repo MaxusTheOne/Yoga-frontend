@@ -6,6 +6,7 @@ export default function ContentCard({
     handleDelete,
     img,
     post,
+    openUpdateDialog,
 }) {
     ContentCard.propTypes
 
@@ -25,6 +26,12 @@ export default function ContentCard({
                     </p>
                 </div>
                 <p className="mediaCard-description">{description}</p>
+                <button
+                    className="admin-content-button"
+                    onClick={() => openUpdateDialog(post)}
+                >
+                    Edit post
+                </button>
             </div>
             <div className="mediaCard-img-container">
                 <img className="mediaCard-img" src={img} />

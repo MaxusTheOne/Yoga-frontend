@@ -4,9 +4,12 @@ import { useEffect, useState } from 'react'
 import ContentCard from './ContentCard'
 import AnimatedPage from '../../Homepage/AnimatedPage'
 import { NavLink } from 'react-router-dom'
+import UpdateContentDialog from './UpdateContentDialog'
 
 export default function SeeAllContent() {
     const [mediaInfo, SetMediaInfo] = useState([])
+    const [isUpdateDialogOpen, setIsUpdateDialogOpen] = useState(false)
+    const [selectedPost, setSelectedPost] = useState(null)
 
     async function fetchMediaFromDatabase() {
         try {
@@ -16,6 +19,19 @@ export default function SeeAllContent() {
         } catch (error) {
             console.log('Error fetching events:', error)
         }
+    }
+    async function openUpdateDialog(post) {
+        console.log(post)
+        setSelectedPost(post)
+        setIsUpdateDialogOpen(true)
+    }
+
+    async function handleUpdate(updatedPost) {
+        // Handle the updated post data as needed
+        console.log('Post updated:', updatedPost)
+        // You can update state or perform other actions
+        setIsUpdateDialogOpen(false)
+        fetchMediaFromDatabase()
     }
 
     async function handleDelete(post) {
@@ -47,12 +63,20 @@ export default function SeeAllContent() {
             img={post.img}
             post={post}
             handleDelete={handleDelete}
+            openUpdateDialog={() => openUpdateDialog(post)}
         />
     ))
 
     return (
         <>
             <Header />
+            {isUpdateDialogOpen && (
+                <UpdateContentDialog
+                    post={selectedPost}
+                    onClose={() => setIsUpdateDialogOpen(false)}
+                    onUpdate={handleUpdate}
+                />
+            )}
             <AnimatedPage>
                 <div className="member-overview-title-container">
                     <h1 className="member-overview-title">Content</h1>
