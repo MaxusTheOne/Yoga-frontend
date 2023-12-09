@@ -12,7 +12,9 @@ export default function EventSignups() {
 
     async function fetchUsersFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/users')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/users'
+            )
             const data = await response.json()
             setUserData(data)
         } catch (error) {
@@ -22,9 +24,39 @@ export default function EventSignups() {
 
     async function fetchEventsFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/events')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events'
+            )
             const data = await response.json()
-            setEventData(data)
+            const sortedEvents = data.sort(
+                (a, b) => new Date(b.start) - new Date(a.start)
+            )
+            const formattedEvents = sortedEvents.map((event) => {
+                const formattedStartDate = new Date(event.start).toDateString()
+                const formattedEndDate = new Date(event.end).toDateString()
+                const formattedStartTime = new Date(
+                    event.start
+                ).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })
+                const formattedEndTime = new Date(event.end).toLocaleTimeString(
+                    [],
+                    {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    }
+                )
+
+                return {
+                    ...event,
+                    start: formattedStartDate,
+                    end: formattedEndDate,
+                    startTime: formattedStartTime,
+                    endTime: formattedEndTime,
+                }
+            })
+            setEventData(formattedEvents)
         } catch (error) {
             console.log('Error fetching events:', error)
         }
@@ -32,7 +64,9 @@ export default function EventSignups() {
 
     async function fetchEventSignups() {
         try {
-            const response = await fetch('http://localhost:3000/events/signups')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events/signups'
+            )
             const data = await response.json()
 
             if (response.ok) {

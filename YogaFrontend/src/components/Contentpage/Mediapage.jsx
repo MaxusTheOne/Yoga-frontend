@@ -9,7 +9,9 @@ export default function MediaPage() {
 
     async function fetchMediaFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/media')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/media'
+            )
             const data = await response.json()
             setDbMedia(data)
         } catch (error) {
@@ -20,9 +22,12 @@ export default function MediaPage() {
     async function handleDelete(item) {
         if (item.id) {
             try {
-                await fetch(`http://localhost:3000/media/${item.id}`, {
-                    method: 'DELETE',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT + `/media/${item.id}`,
+                    {
+                        method: 'DELETE',
+                    }
+                )
                 fetchMediaFromDatabase()
             } catch (error) {
                 console.error('Error deleting media:', error)

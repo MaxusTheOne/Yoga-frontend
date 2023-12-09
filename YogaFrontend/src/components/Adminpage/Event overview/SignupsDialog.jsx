@@ -1,7 +1,7 @@
 import AnimatedPage from '../../Homepage/AnimatedPage'
 import SignedupUser from './SignedupUser'
 
-export default function SignupsDialog({ list, event }) {
+export default function SignupsDialog({ list, event, setShow }) {
     SignupsDialog.propTypes
 
     let toShow = list.map((item) => (
@@ -27,9 +27,14 @@ export default function SignupsDialog({ list, event }) {
             <AnimatedPage>
                 <div className="signups-dialog-overlay">
                     <dialog className="signups-dialog" open>
-                        <p className="close-button-signups">X</p>
+                        <p
+                            onClick={() => setShow(false)}
+                            className="close-button-signups"
+                        >
+                            X
+                        </p>
                         <div className="signups-title">
-                            <h1>{event.title} - sign ups</h1>
+                            <h1>{event.title}</h1>
                         </div>
                         <div className="signups-dialog-container">{toShow}</div>
                     </dialog>

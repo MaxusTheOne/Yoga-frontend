@@ -15,7 +15,7 @@ export default function EventSignUp({ matchingEvent }) {
 
         try {
             const response = await fetch(
-                'http://localhost:3000/users/eventSignup',
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/users/eventSignup',
                 {
                     method: 'POST',
                     headers: {
@@ -38,7 +38,8 @@ export default function EventSignUp({ matchingEvent }) {
     async function getUserIdByEmail(email) {
         try {
             const response = await fetch(
-                `http://localhost:3000/users/userIdByEmail?email=${email}`
+                import.meta.env.VITE_BACKEND_ENDPOINT +
+                    `/users/userIdByEmail?email=${email}`
             )
             const data = await response.json()
 

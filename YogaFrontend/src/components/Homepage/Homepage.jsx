@@ -1,18 +1,18 @@
 import Header from './Header'
 import Footer from './Footer'
-import Testimonials from './Testimonials'
-import AboutMe from './AboutMe'
-import BenefitsYoga from './BenefitsYoga'
-import Practice from './Practice'
 import AnimatedPage from './AnimatedPage'
+import Practice from './Practice'
+import Welcome from './Welcome'
+import Testimonials from './Testimonials'
+import BenefitsYoga from './BenefitsYoga'
 
 export default function Homepage() {
     return (
         <div>
             <Header />
             <AnimatedPage>
+                <Welcome />
                 <Testimonials />
-                <AboutMe />
                 <BenefitsYoga />
                 <Practice />
             </AnimatedPage>

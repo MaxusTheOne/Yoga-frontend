@@ -52,15 +52,17 @@ export default function EventOverviewCard({
                         <h2>{title}</h2>
                     </div>
                     <div className="eventOverview-card-start">
-                        start: {event.start}
+                        start: {event.start} {event.startTime}
                     </div>
                     <div className="eventOverview-card-end">
-                        end: {event.end}
+                        end: {event.end} {event.endTime}
                     </div>
                 </div>
             </div>
 
-            {show && <SignupsDialog event={event} list={list} />}
+            {show && (
+                <SignupsDialog event={event} list={list} setShow={setShow} />
+            )}
         </>
     )
 }

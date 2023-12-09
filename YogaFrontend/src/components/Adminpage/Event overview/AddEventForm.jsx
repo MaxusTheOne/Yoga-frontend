@@ -28,13 +28,16 @@ export default function AddEventForm({ handleCloseDialog }) {
 
         try {
             // Make a fetch request to your server endpoint
-            const response = await fetch('http://localhost:3000/events', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newEvent),
-            })
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/events',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newEvent),
+                }
+            )
 
             if (response.ok) {
                 console.log('Event added successfully')

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import NavBar from './NavBar'
 import SignUpDialog from './SignUp/SignUpDialog'
+import DropdownMenu from './DropdownMenu'
 
 export default function Header() {
     const [openDialog, setOpenDialog] = useState(false)
@@ -29,6 +30,7 @@ export default function Header() {
                 )}
             </div>
             <NavBar />
+            <DropdownMenu />
         </header>
     )
 }

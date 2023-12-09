@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function QuoteChanger() {
     const [quotes, setQuotes] = useState([
@@ -8,13 +8,17 @@ export default function QuoteChanger() {
         '“Thank you so much for making Mondays something to look forward to! Namaste” -  Alicia & Brandy',
     ])
 
+    if (quotes === 'test') {
+        setQuotes('test')
+    }
+
     const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0)
 
     useEffect(() => {
         // Function to change the quote every 3 seconds
         const intervalId = setInterval(() => {
             setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length)
-        }, 1000)
+        }, 10000)
 
         // Cleanup function to clear the interval when the component unmounts
         return () => clearInterval(intervalId)
@@ -22,7 +26,7 @@ export default function QuoteChanger() {
 
     return (
         <div className="quote-container">
-            <h1 className="quote-container-title">Testimonials</h1>
+            <h1 className="quote-container-title">What people are saying</h1>
             <p className="quote-fade-in">{quotes[currentQuoteIndex]}</p>
         </div>
     )

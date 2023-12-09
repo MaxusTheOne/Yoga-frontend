@@ -10,7 +10,9 @@ export default function SeeAllMembers() {
 
     async function fetchMediaFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/users')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/users'
+            )
             const data = await response.json()
             SetUserInfo(data)
         } catch (error) {
@@ -21,9 +23,13 @@ export default function SeeAllMembers() {
     async function handleEditMemberStatus(user) {
         if (user.memberStatus == 0)
             try {
-                await fetch(`http://localhost:3000/users/${user.id}/promote`, {
-                    method: 'PUT',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT +
+                        `/users/${user.id}/promote`,
+                    {
+                        method: 'PUT',
+                    }
+                )
 
                 fetchMediaFromDatabase()
             } catch (error) {
@@ -31,9 +37,13 @@ export default function SeeAllMembers() {
             }
         else {
             try {
-                await fetch(`http://localhost:3000/users/${user.id}/demote`, {
-                    method: 'PUT',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT +
+                        `users/${user.id}/demote`,
+                    {
+                        method: 'PUT',
+                    }
+                )
 
                 fetchMediaFromDatabase()
             } catch (error) {
@@ -45,9 +55,12 @@ export default function SeeAllMembers() {
     async function handleDelete(user) {
         if (user.id) {
             try {
-                await fetch(`http://localhost:3000/users/${user.id}`, {
-                    method: 'DELETE',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT + `/users/${user.id}`,
+                    {
+                        method: 'DELETE',
+                    }
+                )
                 fetchMediaFromDatabase()
             } catch (error) {
                 console.error('Error deleting media:', error)
