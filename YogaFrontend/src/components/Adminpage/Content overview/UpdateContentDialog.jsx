@@ -18,7 +18,8 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
         }))
     }
 
-    async function handleUpdate(post) {
+    async function handleUpdate(event) {
+        event.preventDefault()
         console.log(post)
         if (post.id) {
             const response = await fetch(
@@ -36,10 +37,7 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
                 console.error(`Failed to update media with ID ${post.id}`)
             }
 
-            const data = await response.json()
-            console.log('Media updated successfully:', data)
-
-            onUpdate(data) // Invoke the onUpdate callback
+            onUpdate() // Invoke the onUpdate callback
             onClose() // Close the update form dialog
         }
     }
@@ -86,9 +84,9 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
                             onChange={handleInputChange}
                         />
                         <button type="submit">Update Post</button>
-                        {/* <button type="button" onClick={onClose}>
+                        <button type="button" onClick={onClose}>
                             Cancel
-                        </button> */}
+                        </button>
                     </form>
                 </dialog>
             </div>

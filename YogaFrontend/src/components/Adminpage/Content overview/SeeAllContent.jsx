@@ -21,14 +21,11 @@ export default function SeeAllContent() {
         }
     }
     async function openUpdateDialog(post) {
-        console.log(post)
         setSelectedPost(post)
         setIsUpdateDialogOpen(true)
     }
 
-    async function handleUpdate(updatedPost) {
-        // Handle the updated post data as needed
-        console.log('Post updated:', updatedPost)
+    async function handleUpdate() {
         // You can update state or perform other actions
         setIsUpdateDialogOpen(false)
         fetchMediaFromDatabase()
