@@ -2,9 +2,21 @@ import { NavLink } from 'react-router-dom'
 import Footer from '../../Homepage/Footer'
 import Header from '../../Homepage/Header'
 import AnimatedPage from '../../Homepage/AnimatedPage'
+import { useState } from 'react'
+import AddContentDialog from './AddContentDialog'
 
 export default function ContentManagement() {
     ContentManagement.propTypes
+
+    const [openDialog, setOpenDialog] = useState(false)
+
+    function handleOpenDialog() {
+        setOpenDialog(true)
+    }
+
+    function handleCloseDialog() {
+        setOpenDialog(false)
+    }
 
     return (
         <>
@@ -15,7 +27,14 @@ export default function ContentManagement() {
                         <h2>Content management</h2>
                     </div>
                     <ul>
-                        <li className="adminMenu-li">Add content</li>
+                        <li onClick={handleOpenDialog} className="adminMenu-li">
+                            Add content
+                        </li>
+                        {openDialog && (
+                            <AddContentDialog
+                                handleCloseDialog={handleCloseDialog}
+                            />
+                        )}
                         <NavLink to="/contentOverview">
                             <li className="adminMenu-li">See all content</li>
                         </NavLink>
