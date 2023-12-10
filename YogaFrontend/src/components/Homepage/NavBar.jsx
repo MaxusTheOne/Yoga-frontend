@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom'
 
 export default function NavBar() {
+    NavBar.propTypes
+
     return (
         <nav className="nav-container">
             <ul className="nav-items">
                 <NavLink to="/">home</NavLink>
-                <NavLink to="/media">how I help you</NavLink>
-                <NavLink to="/events">FAQ</NavLink>
-                <NavLink to="/admin">contact</NavLink>
+                <NavLink to="/contact">contact</NavLink>
             </ul>
         </nav>
     )

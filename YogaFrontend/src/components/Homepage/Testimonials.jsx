@@ -20,10 +20,15 @@ export default function Testimonials() {
         },
     ]
 
-    const [selectedTestimonial, setSelectedTestimonial] = useState(null)
+    const [selectedTestimonials, setSelectedTestimonials] = useState([])
 
     const handleNameClick = (name) => {
-        setSelectedTestimonial(name)
+        // Toggle the selected testimonial
+        setSelectedTestimonials((prev) =>
+            prev.includes(name)
+                ? prev.filter((item) => item !== name)
+                : [...prev, name]
+        )
     }
 
     return (
@@ -36,9 +41,9 @@ export default function Testimonials() {
                             className="testimonial-name"
                             onClick={() => handleNameClick(testimonial.name)}
                         >
-                            {testimonial.name}
+                            <p>{testimonial.name}</p>
                         </div>
-                        {selectedTestimonial === testimonial.name && (
+                        {selectedTestimonials.includes(testimonial.name) && (
                             <div className="testimonial-quote">
                                 {testimonial.quote}
                             </div>

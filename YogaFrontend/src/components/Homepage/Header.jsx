@@ -4,6 +4,8 @@ import SignUpDialog from './SignUp/SignUpDialog'
 import DropdownMenu from './DropdownMenu'
 
 export default function Header() {
+    Header.propTypes
+
     const [openDialog, setOpenDialog] = useState(false)
 
     function handleOpenDialog() {

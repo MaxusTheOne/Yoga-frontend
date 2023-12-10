@@ -67,6 +67,18 @@ a:focus {
     transform: scale(1.1);
 }
 
+.navBar-li {
+    text-decoration: none;
+    color: rgba(63, 80, 80, 1);
+    transition: transform 0.5s;
+}
+
+.navBar-li:hover {
+    cursor: pointer;
+    color: rgba(99, 154, 154, 1);
+    transform: scale(1.1);
+}
+
 .active {
     color: rgba(99, 154, 154, 1);
 }
@@ -83,6 +95,14 @@ footer {
 footer div {
     display: flex;
     justify-content: center;
+}
+
+.socials-li {
+    transition: transform 0.5s;
+}
+
+.socials-li:hover {
+    transform: scale(1.1);
 }
 
 footer ul {
@@ -126,6 +146,22 @@ footer ul {
     font-weight: lighter;
 }
 
+.aboutMe-title {
+    text-decoration: underline;
+    font-size: 45px;
+    margin-bottom: 50px;
+}
+
+.aboutMe-text-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.aboutMe-text {
+    font-size: 25px;
+}
+
 .aboutMe-grid-item {
     max-width: 50%;
     margin: 40px;
@@ -146,7 +182,7 @@ footer ul {
 .aboutMe-grid {
     justify-content: space-evenly;
     background-color: rgba(99, 154, 154, 1);
-    color: rgba(219, 237, 237, 1);
+    color: black;
     font-size: 40px;
     display: flex;
     align-items: center;
@@ -179,7 +215,8 @@ footer ul {
 }
 
 .practice-grid {
-    background-color: rgba(99, 154, 154, 1);
+    /* background-color: rgba(99, 154, 154, 1); */
+    background-color: rgba(219, 237, 237, 1);
 }
 
 .practice-grid-items {
@@ -192,6 +229,7 @@ footer ul {
     width: 80%;
     display: flex;
     border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .faceyoga-grid {
@@ -1078,6 +1116,7 @@ input {
     width: 45%;
     margin-left: 20px;
     margin-right: 30px;
+    font-weight: lighter;
 }
 
 .welcome-title {
@@ -1118,6 +1157,10 @@ input {
     text-align: center;
     cursor: pointer;
     font-weight: bold;
+}
+
+.testimonial-name > p {
+    font-weight: lighter;
 }
 
 .testimonial-quote {
@@ -1173,6 +1216,71 @@ input {
 
 .service li {
     margin-bottom: 5px;
+}
+
+/* FAQ STYLING */
+
+.FAQ-container {
+    background-color: rgba(99, 154, 154, 1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: x-large;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.faq-a:hover {
+    color: black;
+}
+
+.faq-title {
+    text-decoration: underline;
+}
+
+.faq-answer {
+    color: #555;
+    padding: 20px;
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.faq-question > h3 {
+    font-weight: lighter;
+}
+
+/* CONTACT STYLING */
+
+.contact-item {
+    text-decoration: underline;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 45px;
+    margin-top: 30px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 35px;
+    margin-top: 30px;
 }
 
 .admin-content-button {
