@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function AddContentDialog({ handleCloseDialog }) {
     AddContentDialog.propTypes
-    const [contentAdded, setContentAdded] = useState(false)
+
     const [contentNotAdded, setContentNotAdded] = useState(false)
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
@@ -34,7 +34,6 @@ export default function AddContentDialog({ handleCloseDialog }) {
             )
             if (response.ok) {
                 console.log('content added successfully')
-                setContentAdded(true)
                 //Clear fields
                 setTitle('')
                 setLink('')
@@ -55,7 +54,7 @@ export default function AddContentDialog({ handleCloseDialog }) {
         <>
             <div>
                 <dialog className="update-form-dialog" open>
-                    <h2>Edit Post</h2>
+                    <h2>Create Post</h2>
 
                     <form onSubmit={handleCreate}>
                         <label>Title:</label>
@@ -100,12 +99,6 @@ export default function AddContentDialog({ handleCloseDialog }) {
                         <button type="button" onClick={handleCloseDialog}>
                             Cancel
                         </button>
-                        {contentAdded && (
-                            <p className="event-signup-success">
-                                Content added sucucessfully, you can close this
-                                window
-                            </p>
-                        )}
                         {contentNotAdded && (
                             <p className="event-signup-error">
                                 An error occurred please try again
