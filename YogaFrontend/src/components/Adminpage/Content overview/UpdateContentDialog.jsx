@@ -23,7 +23,7 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
         console.log(post)
         if (post.id) {
             const response = await fetch(
-                `http://localhost:3000/media/${post.id}`,
+                import.meta.env.VITE_BACKEND_ENDPOINT + `/media/${post.id}`,
                 {
                     method: 'PUT',
                     headers: {

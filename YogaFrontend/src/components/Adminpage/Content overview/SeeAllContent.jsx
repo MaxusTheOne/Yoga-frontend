@@ -13,7 +13,9 @@ export default function SeeAllContent() {
 
     async function fetchMediaFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/media')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/media'
+            )
             const data = await response.json()
             SetMediaInfo(data)
         } catch (error) {

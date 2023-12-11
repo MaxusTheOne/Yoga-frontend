@@ -22,13 +22,16 @@ export default function AddContentDialog({ handleCloseDialog }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/media/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newEvent),
-            })
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/media',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newEvent),
+                }
+            )
             if (response.ok) {
                 console.log('content added successfully')
                 setContentAdded(true)
