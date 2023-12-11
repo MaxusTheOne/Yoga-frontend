@@ -54,7 +54,7 @@ export default function AddContentDialog({ handleCloseDialog }) {
         <>
             <div>
                 <dialog className="update-form-dialog" open>
-                    <h2>Edit Post</h2>
+                    <h2>Create Post</h2>
 
                     <form onSubmit={handleCreate}>
                         <label>Title:</label>
