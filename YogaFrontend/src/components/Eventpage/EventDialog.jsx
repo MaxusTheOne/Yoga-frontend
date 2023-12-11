@@ -25,15 +25,15 @@ export default function EventDialog({
                                 <>
                                     <h1 className="eventDialog-title">
                                         {matchingEvent.title}
-                                        {(matchingEvent.linkUrl !== null ||
-                                            matchingEvent.linkUrl === '') && (
-                                            <a
-                                                className="breathe-link"
-                                                href={matchingEvent.linkUrl}
-                                            >
-                                                <br /> Link to Breathe
-                                            </a>
-                                        )}
+                                        {matchingEvent.linkUrl !== null &&
+                                            matchingEvent.linkUrl !== '' && (
+                                                <a
+                                                    className="breathe-link"
+                                                    href={matchingEvent.linkUrl}
+                                                >
+                                                    <br /> Link to Breathe
+                                                </a>
+                                            )}
                                     </h1>
                                     <p className="eventDialog-time">
                                         {matchingEvent.startTime} <br /> until{' '}
