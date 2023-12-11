@@ -34,12 +34,19 @@ export default function EventDialog({
                                     <p className="eventDialog-description">
                                         {matchingEvent.description}
                                     </p>
-                                    <button
-                                        onClick={handleSignUpClick}
-                                        className="eventDialog-sign-up-button"
-                                    >
-                                        Sign up
-                                    </button>{' '}
+                                    <div className="eventDialog-bottom">
+                                        <img
+                                            className="eventDialog-image"
+                                            src={matchingEvent.image}
+                                            alt=""
+                                        />
+                                        <button
+                                            onClick={handleSignUpClick}
+                                            className="eventDialog-sign-up-button"
+                                        >
+                                            Sign up
+                                        </button>{' '}
+                                    </div>
                                 </>
                             )}
 

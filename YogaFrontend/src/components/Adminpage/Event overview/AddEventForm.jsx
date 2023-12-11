@@ -10,6 +10,7 @@ export default function AddEventForm({ handleCloseDialog }) {
     const [endDate, setEndDate] = useState('')
     const [endTime, setEndTime] = useState('')
     const [description, setDescription] = useState('')
+    const [imageUrl, setImageUrl] = useState('')
 
     async function handleFormSubmit(event) {
         event.preventDefault()
@@ -24,6 +25,7 @@ export default function AddEventForm({ handleCloseDialog }) {
             description,
             start: startDateTime,
             end: endDateTime,
+            imageUrl,
         }
 
         try {
@@ -112,7 +114,6 @@ export default function AddEventForm({ handleCloseDialog }) {
                                         ></textarea>
                                     </div>
                                 </div>
-
                                 <div className="input-column">
                                     <div className="addEvent-input-container">
                                         <label htmlFor="startDate">
@@ -143,8 +144,22 @@ export default function AddEventForm({ handleCloseDialog }) {
                                             required
                                         />
                                     </div>
-                                </div>
 
+                                    <div className="addEvent-input-container">
+                                        <label htmlFor="imageUrl">
+                                            Image url:
+                                        </label>
+                                        <input
+                                            type="url"
+                                            id="imageUrl"
+                                            value={imageUrl}
+                                            onChange={(event) =>
+                                                setImageUrl(event.target.value)
+                                            }
+                                            required
+                                        />
+                                    </div>
+                                </div>
                                 <div className="input-column">
                                     <div className="addEvent-input-container">
                                         <label htmlFor="startTime">
@@ -174,9 +189,8 @@ export default function AddEventForm({ handleCloseDialog }) {
                                             }
                                             required
                                         />
-                                        <div />
                                     </div>
-                                </div>
+                                </div>{' '}
                             </div>
                             <div className="addEvent-submit-button">
                                 <button className="logout-button" type="submit">

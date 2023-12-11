@@ -3,6 +3,7 @@ import EventCard from './EventCard'
 
 export default function CalendarCard({ day, fullDate, events }) {
     CalendarCard.propTypes
+
     const [matchingEvent, setMatchingEvent] = useState([])
 
     useEffect(() => {
