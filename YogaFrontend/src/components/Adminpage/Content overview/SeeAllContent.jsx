@@ -36,9 +36,12 @@ export default function SeeAllContent() {
     async function handleDelete(post) {
         if (post.id) {
             try {
-                await fetch(`http://localhost:3000/media/${post.id}`, {
-                    method: 'DELETE',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT + `/media/${post.id}`,
+                    {
+                        method: 'DELETE',
+                    }
+                )
                 fetchMediaFromDatabase()
             } catch (error) {
                 console.error('Error deleting media:', error)
