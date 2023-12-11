@@ -502,6 +502,14 @@ footer ul {
     margin-bottom: 15px;
 }
 
+.breathe-link {
+    font-size: 25px;
+}
+
+.breathe-link:hover {
+    font-size: 30px;
+}
+
 .eventDialog-image {
     width: 200px;
     height: 150px;

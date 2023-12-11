@@ -25,9 +25,13 @@ export default function EventDialog({
                                 <>
                                     <h1 className="eventDialog-title">
                                         {matchingEvent.title}
-                                        {matchingEvent.linkUrl !== null && (
-                                            <a href={matchingEvent.linkUrl}>
-                                                <br /> See more
+                                        {(matchingEvent.linkUrl !== null ||
+                                            matchingEvent.linkUrl === '') && (
+                                            <a
+                                                className="breathe-link"
+                                                href={matchingEvent.linkUrl}
+                                            >
+                                                <br /> Link to Breathe
                                             </a>
                                         )}
                                     </h1>
