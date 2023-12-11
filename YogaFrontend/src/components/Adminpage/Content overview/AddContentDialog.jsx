@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export default function AddContentDialog({ handleCloseDialog }) {
     AddContentDialog.propTypes
-    const [contentAdded, setContentAdded] = useState(false)
+
     const [contentNotAdded, setContentNotAdded] = useState(false)
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
@@ -22,16 +22,18 @@ export default function AddContentDialog({ handleCloseDialog }) {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/media/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newEvent),
-            })
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/media',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newEvent),
+                }
+            )
             if (response.ok) {
                 console.log('content added successfully')
-                setContentAdded(true)
                 //Clear fields
                 setTitle('')
                 setLink('')
@@ -97,12 +99,7 @@ export default function AddContentDialog({ handleCloseDialog }) {
                         <button type="button" onClick={handleCloseDialog}>
                             Cancel
                         </button>
-                        {contentAdded && (
-                            <p className="event-signup-success">
-                                Content added sucucessfully, you can close this
-                                window
-                            </p>
-                        )}
+
                         {contentNotAdded && (
                             <p className="event-signup-error">
                                 An error occurred please try again
