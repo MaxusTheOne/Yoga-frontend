@@ -39,7 +39,7 @@ export default function SeeAllMembers() {
             try {
                 await fetch(
                     import.meta.env.VITE_BACKEND_ENDPOINT +
-                        `users/${user.id}/demote`,
+                        `/users/${user.id}/demote`,
                     {
                         method: 'PUT',
                     }

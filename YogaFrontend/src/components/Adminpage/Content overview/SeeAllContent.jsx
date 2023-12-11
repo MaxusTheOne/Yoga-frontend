@@ -13,7 +13,9 @@ export default function SeeAllContent() {
 
     async function fetchMediaFromDatabase() {
         try {
-            const response = await fetch('http://localhost:3000/media')
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + '/media'
+            )
             const data = await response.json()
             SetMediaInfo(data)
         } catch (error) {
@@ -34,9 +36,12 @@ export default function SeeAllContent() {
     async function handleDelete(post) {
         if (post.id) {
             try {
-                await fetch(`http://localhost:3000/media/${post.id}`, {
-                    method: 'DELETE',
-                })
+                await fetch(
+                    import.meta.env.VITE_BACKEND_ENDPOINT + `/media/${post.id}`,
+                    {
+                        method: 'DELETE',
+                    }
+                )
                 fetchMediaFromDatabase()
             } catch (error) {
                 console.error('Error deleting media:', error)
