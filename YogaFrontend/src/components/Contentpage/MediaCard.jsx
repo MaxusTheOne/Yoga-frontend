@@ -11,11 +11,6 @@ export default function MediaCard({
 
     return (
         <div className="mediaCard-container">
-            {
-                // <div className="mediaCard-deleteBtn-container">
-                //     <p onClick={() => handleDelete(item)}>X</p>
-                // </div>
-            }
             <div className="mediaCard-text-container">
                 <div className="mediaCard-titleAndLinkDescription">
                     <h2 className="mediaCard-title">{title}</h2>
