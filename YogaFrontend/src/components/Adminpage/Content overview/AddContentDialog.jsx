@@ -99,7 +99,6 @@ export default function AddContentDialog({ handleCloseDialog }) {
                         <button type="button" onClick={handleCloseDialog}>
                             Cancel
                         </button>
-
                         {contentNotAdded && (
                             <p className="event-signup-error">
                                 An error occurred please try again
