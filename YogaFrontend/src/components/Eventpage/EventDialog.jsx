@@ -25,6 +25,11 @@ export default function EventDialog({
                                 <>
                                     <h1 className="eventDialog-title">
                                         {matchingEvent.title}
+                                        {matchingEvent.linkUrl !== null && (
+                                            <a href={matchingEvent.linkUrl}>
+                                                <br /> See more
+                                            </a>
+                                        )}
                                     </h1>
                                     <p className="eventDialog-time">
                                         {matchingEvent.startTime} <br /> until{' '}

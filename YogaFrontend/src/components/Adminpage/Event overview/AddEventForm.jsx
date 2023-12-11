@@ -11,6 +11,7 @@ export default function AddEventForm({ handleCloseDialog }) {
     const [endTime, setEndTime] = useState('')
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const [linkUrl, setLinkUrl] = useState('')
 
     async function handleFormSubmit(event) {
         event.preventDefault()
@@ -26,7 +27,10 @@ export default function AddEventForm({ handleCloseDialog }) {
             start: startDateTime,
             end: endDateTime,
             imageUrl,
+            linkUrl,
         }
+
+        console.log(newEvent)
 
         try {
             // Make a fetch request to your server endpoint
@@ -46,6 +50,7 @@ export default function AddEventForm({ handleCloseDialog }) {
                 // Optionally, you can handle success (event.g., show a message)
             } else {
                 console.error('Error adding event:', response.statusText)
+
                 // Optionally, you can handle errors (event.g., show an error message)
             }
         } catch (error) {
@@ -60,6 +65,8 @@ export default function AddEventForm({ handleCloseDialog }) {
         setEndDate('')
         setEndTime('')
         setDescription('')
+        setImageUrl('')
+        setLinkUrl('')
 
         handleCloseDialog()
     }
@@ -188,6 +195,18 @@ export default function AddEventForm({ handleCloseDialog }) {
                                                 setEndTime(event.target.value)
                                             }
                                             required
+                                        />
+                                    </div>
+
+                                    <div className="addEvent-input-container">
+                                        <label htmlFor="link">Link url:</label>
+                                        <input
+                                            type="url"
+                                            id="linkUrl"
+                                            value={linkUrl}
+                                            onChange={(event) =>
+                                                setLinkUrl(event.target.value)
+                                            }
                                         />
                                     </div>
                                 </div>{' '}

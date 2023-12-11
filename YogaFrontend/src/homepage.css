@@ -507,7 +507,7 @@ footer ul {
     height: 150px;
     border-radius: 15px;
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
 }
