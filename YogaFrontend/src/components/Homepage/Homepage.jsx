@@ -63,7 +63,7 @@ export default function Homepage() {
         <div>
             <HeaderHomepage
                 scrollToFAQ={() => scrollByPercentage(67)} // Scroll to 30% of the page
-                scrollToHIH={() => scrollByPercentage(51)} // Scroll to 60% of the page
+                scrollToHIH={() => scrollByPercentage(49)} // Scroll to 60% of the page
             />
             <AnimatedPage>
                 <Welcome />
