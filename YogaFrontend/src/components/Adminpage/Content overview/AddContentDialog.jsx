@@ -3,6 +3,7 @@ import { useState } from 'react'
 export default function AddContentDialog({ handleCloseDialog }) {
     AddContentDialog.propTypes
 
+    // State variables for form fields and error handling
     const [contentNotAdded, setContentNotAdded] = useState(false)
     const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
@@ -10,9 +11,11 @@ export default function AddContentDialog({ handleCloseDialog }) {
     const [description, setDescription] = useState('')
     const [img, setImg] = useState('')
 
+    // Function to handle the creation of new content
     async function handleCreate(event) {
         event.preventDefault()
 
+        // Create a new content object from the form data
         const newEvent = {
             title,
             link,
@@ -22,6 +25,7 @@ export default function AddContentDialog({ handleCloseDialog }) {
         }
 
         try {
+            // Send a POST request to the backend endpoint to add new content
             const response = await fetch(
                 import.meta.env.VITE_BACKEND_ENDPOINT + '/media',
                 {
@@ -32,6 +36,7 @@ export default function AddContentDialog({ handleCloseDialog }) {
                     body: JSON.stringify(newEvent),
                 }
             )
+            // Check if the request was successful
             if (response.ok) {
                 console.log('content added successfully')
                 //Clear fields
@@ -40,12 +45,14 @@ export default function AddContentDialog({ handleCloseDialog }) {
                 setLinkDescription('')
                 setDescription('')
                 setImg('')
-                handleCloseDialog()
+                handleCloseDialog() // Close the dialog
             } else {
+                // Handle errors if the request was not successful
                 setContentNotAdded(true)
                 console.error('Failed to submit the form:', response.status)
             }
         } catch (error) {
+            // Handle errors during the fetch operation
             console.error('Error during fetch:', error)
         }
     }
