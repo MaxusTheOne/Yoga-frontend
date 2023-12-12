@@ -11,8 +11,6 @@ export default function EventSignUp({ matchingEvent }) {
     async function associateUserWithEvent(userSignedUp) {
         const data = userSignedUp
 
-        console.log('this is my object:', data)
-
         try {
             const response = await fetch(
                 import.meta.env.VITE_BACKEND_ENDPOINT + '/users/eventSignup',

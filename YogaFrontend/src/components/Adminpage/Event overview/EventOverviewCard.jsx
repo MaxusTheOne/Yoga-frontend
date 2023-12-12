@@ -12,6 +12,34 @@ export default function EventOverviewCard({
     const [show, setShow] = useState(false)
     const [data, setData] = useState([])
 
+    async function deleteEvent(event) {
+        const idToDelete = event.id
+
+        console.log('this is the event id to delete', idToDelete)
+
+        // try {
+        //     const response = await fetch(
+        //         import.meta.env.VITE_BACKEND_ENDPOINT + `/events/${event.id}`,
+        //         {
+        //             method: 'DELETE',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             },
+        //         }
+        //     )
+
+        //     if (!response.ok) {
+        //         console.log(`HTTP error! Status: ${response.status}`)
+        //     }
+
+        //     // Handle success, if needed
+        //     console.log('Event deleted successfully')
+        // } catch (error) {
+        //     // Handle errors
+        //     console.error('Error deleting event:', error.message)
+        // }
+    }
+
     function showEventSignUps() {
         const signups = []
 
@@ -40,14 +68,14 @@ export default function EventOverviewCard({
 
     return (
         <>
-            <div
-                onClick={() => {
-                    showEventSignUps()
-                    setShow(true)
-                }}
-                className="eventOverview-card-container"
-            >
-                <div className="eventOverview-card-text">
+            <div className="eventOverview-card-container">
+                <div
+                    className="eventOverview-card-text"
+                    onClick={() => {
+                        showEventSignUps()
+                        setShow(true)
+                    }}
+                >
                     <div className="eventOverview-card-title">
                         <h2>{title}</h2>
                     </div>
@@ -57,6 +85,14 @@ export default function EventOverviewCard({
                     <div className="eventOverview-card-end">
                         end: {event.end} {event.endTime}
                     </div>
+                </div>{' '}
+                <div className="delete-event-button-container">
+                    <button
+                        className="delete-event-button"
+                        onClick={() => deleteEvent(event)}
+                    >
+                        Delete event
+                    </button>
                 </div>
             </div>
 

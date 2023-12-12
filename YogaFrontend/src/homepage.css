@@ -960,17 +960,37 @@ input {
     font-size: 48px;
 }
 
+.delete-event-button {
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    font-size: 20px;
+    transition: transform 0.5s;
+}
+
+.delete-event-button:hover {
+    background-color: rgba(99, 154, 154, 1);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .eventOverview-card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 20%;
     margin: 10px;
-    width: 25%;
-    padding: 20px;
 }
 
 .eventOverview-card-text {
     transition: transform 0.5s;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    padding: 10px;
+    border-radius: 15px;
 }
 
 .eventOverview-card-text:hover {
