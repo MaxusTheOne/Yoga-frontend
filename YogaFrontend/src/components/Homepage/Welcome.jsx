@@ -19,8 +19,9 @@ export default function Welcome() {
                 <div className="welcome-img-container">
                     <img className="welcome-img" src="\me.webp" alt="" />
                     <p className="img-description">
-                        I’ve been teaching yoga, leading trainings & workshops,
-                        and business owner for nearly 15 years.
+                        &quot;I’ve been teaching yoga, leading trainings &
+                        workshops, and been a business owner for nearly 15
+                        years.&quot;
                     </p>
                 </div>
             </div>
