@@ -1251,6 +1251,10 @@ input {
     padding-bottom: 20px;
 }
 
+.services-title {
+    text-decoration: underline;
+}
+
 .service {
     flex: 1;
     padding: 20px;
@@ -1290,7 +1294,8 @@ input {
     font-size: x-large;
     padding-top: 80px;
     padding-bottom: 80px;
-    height: 350px;
+    min-height: 350px;
+    max-height: 100%;
 }
 
 .faq-a:hover {
@@ -1304,6 +1309,8 @@ input {
 .faq-answer {
     color: #555;
     padding: 20px;
+    max-width: 600px;
+    text-align: center;
 }
 
 .faq-question {

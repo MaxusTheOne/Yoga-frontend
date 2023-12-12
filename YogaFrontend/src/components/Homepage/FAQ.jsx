@@ -3,12 +3,16 @@ import { useState } from 'react'
 export default function FAQ() {
     const [isOpen1, setIsOpen1] = useState(false)
     const [isOpen2, setIsOpen2] = useState(false)
+    const [isOpen3, setIsOpen3] = useState(false) // Added state for new question
 
     function toggleAnswer(questionNumber) {
         if (questionNumber === 1) {
             setIsOpen1((prev) => !prev)
         } else if (questionNumber === 2) {
             setIsOpen2((prev) => !prev)
+        } else if (questionNumber === 3) {
+            // Added condition for new question
+            setIsOpen3((prev) => !prev)
         }
     }
 
@@ -16,6 +20,8 @@ export default function FAQ() {
         <>
             <div className="FAQ-container">
                 <h1 className="faq-title">FAQ</h1>
+
+                {/* Existing questions and answers */}
                 <div className="faq-question" onClick={() => toggleAnswer(1)}>
                     <h3>How can I practice with you?</h3>
                 </div>
@@ -49,6 +55,20 @@ export default function FAQ() {
                             Yes, we can have a talk together and figure out what
                             the best approach is for you and your wishes. You
                             can find my information on the contact page.
+                        </p>
+                    </div>
+                )}
+
+                {/* New question and answer */}
+                <div className="faq-question" onClick={() => toggleAnswer(3)}>
+                    <h3>How can I get more information on this site?</h3>
+                </div>
+                {isOpen3 && (
+                    <div className="faq-answer">
+                        <p>
+                            You can click the pictures below to see more or you
+                            can navigate to the menu, on the left, at the top of
+                            the page for upcoming events and content about yoga.
                         </p>
                     </div>
                 )}
