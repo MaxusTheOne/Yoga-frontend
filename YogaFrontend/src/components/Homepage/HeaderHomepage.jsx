@@ -4,6 +4,7 @@ import DropdownMenu from './DropdownMenu'
 import NavBarHomePage from './NavBarHomepage'
 
 export default function HeaderHomepage({ scrollToFAQ, scrollToHIH }) {
+    //This line below is simply to avoid error messages within the code
     HeaderHomepage.propTypes
 
     const [openDialog, setOpenDialog] = useState(false)

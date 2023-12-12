@@ -8,44 +8,7 @@ import FAQ from './FAQ'
 import HeaderHomepage from './HeaderHomepage'
 import AboutMe from './AboutMe'
 
-// export default function Homepage() {
-//     function scrollBySmooth(distanceX, distanceY) {
-//         const currentX = window.scrollX
-//         const currentY = window.scrollY
-
-//         window.scrollTo({
-//             left: currentX + distanceX,
-//             top: currentY + distanceY,
-//             behavior: 'smooth',
-//         })
-//     }
-
-//     function scrollToFAQ() {
-//         scrollBySmooth(0, 1800)
-//     }
-
-//     function scrollToHIH() {
-//         scrollBySmooth(0, 1200)
-//     }
-
-//     return (
-//         <div>
-//             <HeaderHomepage
-//                 scrollToFAQ={scrollToFAQ}
-//                 scrollToHIH={scrollToHIH}
-//             />
-//             <AnimatedPage>
-//                 <Welcome />
-//                 <Testimonials />
-//                 <BenefitsYoga />
-//                 <FAQ />
-//                 <Practice />
-//                 <AboutMe />
-//             </AnimatedPage>
-//             <Footer />
-//         </div>
-//     )
-// }
+//This function serves to scroll dynamically based on screensize so that it will work for different screens
 
 export default function Homepage() {
     function scrollByPercentage(percentage) {
@@ -62,8 +25,8 @@ export default function Homepage() {
     return (
         <div>
             <HeaderHomepage
-                scrollToFAQ={() => scrollByPercentage(67)} // Scroll to 30% of the page
-                scrollToHIH={() => scrollByPercentage(49)} // Scroll to 60% of the page
+                scrollToFAQ={() => scrollByPercentage(67)}
+                scrollToHIH={() => scrollByPercentage(49)}
             />
             <AnimatedPage>
                 <Welcome />
