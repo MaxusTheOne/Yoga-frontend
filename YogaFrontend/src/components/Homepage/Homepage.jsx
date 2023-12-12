@@ -8,31 +8,62 @@ import FAQ from './FAQ'
 import HeaderHomepage from './HeaderHomepage'
 import AboutMe from './AboutMe'
 
+// export default function Homepage() {
+//     function scrollBySmooth(distanceX, distanceY) {
+//         const currentX = window.scrollX
+//         const currentY = window.scrollY
+
+//         window.scrollTo({
+//             left: currentX + distanceX,
+//             top: currentY + distanceY,
+//             behavior: 'smooth',
+//         })
+//     }
+
+//     function scrollToFAQ() {
+//         scrollBySmooth(0, 1800)
+//     }
+
+//     function scrollToHIH() {
+//         scrollBySmooth(0, 1200)
+//     }
+
+//     return (
+//         <div>
+//             <HeaderHomepage
+//                 scrollToFAQ={scrollToFAQ}
+//                 scrollToHIH={scrollToHIH}
+//             />
+//             <AnimatedPage>
+//                 <Welcome />
+//                 <Testimonials />
+//                 <BenefitsYoga />
+//                 <FAQ />
+//                 <Practice />
+//                 <AboutMe />
+//             </AnimatedPage>
+//             <Footer />
+//         </div>
+//     )
+// }
+
 export default function Homepage() {
-    function scrollBySmooth(distanceX, distanceY) {
-        const currentX = window.scrollX
-        const currentY = window.scrollY
+    function scrollByPercentage(percentage) {
+        const windowHeight = window.innerHeight
+        const targetY =
+            (document.body.scrollHeight - windowHeight) * (percentage / 100)
 
         window.scrollTo({
-            left: currentX + distanceX,
-            top: currentY + distanceY,
+            top: targetY,
             behavior: 'smooth',
         })
-    }
-
-    function scrollToFAQ() {
-        scrollBySmooth(0, 1800)
-    }
-
-    function scrollToHIH() {
-        scrollBySmooth(0, 1200)
     }
 
     return (
         <div>
             <HeaderHomepage
-                scrollToFAQ={scrollToFAQ}
-                scrollToHIH={scrollToHIH}
+                scrollToFAQ={() => scrollByPercentage(67)} // Scroll to 30% of the page
+                scrollToHIH={() => scrollByPercentage(49)} // Scroll to 60% of the page
             />
             <AnimatedPage>
                 <Welcome />
