@@ -610,6 +610,25 @@ footer ul {
 }
 
 /* ADMIN STYLES */
+.span-button {
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
+    font-family: Just Another Hand;
+    margin-top: 10px;
+    font-size: 20px;
+    transition: transform 0.5s;
+    background-color: rgba(255, 255, 255, 0.637);
+    text-align: center;
+}
+
+.span-button:hover {
+    background-color: rgba(255, 255, 255, 0.304);
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
 .member-overview-title-container {
     display: flex;
@@ -880,6 +899,7 @@ input {
     padding: 1em;
     display: block;
     border: none;
+    border-radius: 15px;
 }
 
 .memberCard-container {
@@ -1323,13 +1343,21 @@ input {
 }
 
 .admin-content-button {
-    height: 1em;
-    width: 3em;
-    cursor: pointer;
+    width: 50px;
+    height: 30px;
     border-radius: 15px;
     border: none;
+    box-shadow: 0px 0px 10px 0px rgba(99, 154, 154, 1);
     font-family: Just Another Hand;
+    margin-top: 10px;
     font-size: 20px;
+    transition: transform 0.5s;
+}
+
+.admin-content-button:hover {
+    background-color: rgba(255, 255, 255, 0.304);
+    cursor: pointer;
+    transform: scale(1.1);
 }
 .update-form-dialog {
     position: fixed;
@@ -1345,4 +1373,39 @@ input {
 
     border: none;
     background-color: rgba(219, 237, 237, 1);
+}
+
+/* EDIT CONTENT DIALOG STYLING */
+
+.edit-content-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.edit-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.edit-content-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.edit-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+textarea {
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
 }

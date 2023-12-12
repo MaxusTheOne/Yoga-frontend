@@ -46,47 +46,74 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
         <>
             <div>
                 <dialog className="update-form-dialog" open>
-                    <h2>Edit Post</h2>
+                    <h2 className="edit-content-title">Edit Post</h2>
 
                     <form onSubmit={handleUpdate}>
-                        <label>Title:</label>
-                        <input
-                            type="text"
-                            name="title"
-                            value={updatedData.title}
-                            onChange={handleInputChange}
-                        />
-                        <label>Link:</label>
-                        <input
-                            type="text"
-                            name="link"
-                            value={updatedData.link}
-                            onChange={handleInputChange}
-                        />
-                        <label>Link Description:</label>
-                        <input
-                            type="text"
-                            name="linkDescription"
-                            value={updatedData.linkDescription}
-                            onChange={handleInputChange}
-                        />
-                        <label>Description:</label>
-                        <textarea
-                            name="description"
-                            value={updatedData.description}
-                            onChange={handleInputChange}
-                        />
-                        <label>Image URL:</label>
-                        <input
-                            type="text"
-                            name="img"
-                            value={updatedData.img}
-                            onChange={handleInputChange}
-                        />
-                        <button type="submit">Update Post</button>
-                        <button type="button" onClick={onClose}>
-                            Cancel
-                        </button>
+                        <div className="edit-content-container">
+                            <div className="edit-content-row">
+                                <div className="edit-content-input-container">
+                                    <label>Title:</label>
+                                    <input
+                                        type="text"
+                                        name="title"
+                                        value={updatedData.title}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div className="edit-content-input-container">
+                                    <label>Link:</label>
+                                    <input
+                                        type="text"
+                                        name="link"
+                                        value={updatedData.link}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div className="edit-content-input-container">
+                                    <label>Link Description:</label>
+                                    <input
+                                        type="text"
+                                        name="linkDescription"
+                                        value={updatedData.linkDescription}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="edit-content-row">
+                                <div className="edit-content-input-container">
+                                    <label>Description:</label>
+                                    <textarea
+                                        className="edit-content-textarea"
+                                        rows="5"
+                                        cols="23"
+                                        name="description"
+                                        value={updatedData.description}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                                <div className="edit-content-input-container">
+                                    <label>Image URL:</label>
+                                    <input
+                                        type="text"
+                                        name="img"
+                                        value={updatedData.img}
+                                        onChange={handleInputChange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="edit-buttons-container">
+                            <button className="logout-button" type="submit">
+                                Update Post
+                            </button>
+                            <button
+                                className="logout-button"
+                                type="button"
+                                onClick={onClose}
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     </form>
                 </dialog>
             </div>

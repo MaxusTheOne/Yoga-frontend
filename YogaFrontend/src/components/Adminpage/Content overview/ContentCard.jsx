@@ -30,7 +30,7 @@ export default function ContentCard({
                     className="admin-content-button"
                     onClick={() => openUpdateDialog(post)}
                 >
-                    Edit post
+                    Edit
                 </button>
             </div>
             <div className="mediaCard-img-container">

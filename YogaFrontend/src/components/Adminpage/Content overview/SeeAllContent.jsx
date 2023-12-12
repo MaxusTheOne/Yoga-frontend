@@ -82,10 +82,10 @@ export default function SeeAllContent() {
             <AnimatedPage>
                 <div className="member-overview-title-container">
                     <h1 className="member-overview-title">Content</h1>
-                    <div className="card-container">{contentList}</div>
                     <NavLink to="/adminMenu">
                         <li className="adminMenu-li">&#8594;To menu &#8592;</li>
                     </NavLink>
+                    <div className="card-container">{contentList}</div>
                 </div>
             </AnimatedPage>
             <Footer />
