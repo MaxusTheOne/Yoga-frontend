@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 export default function UpdateFormDialog({ post, onClose, onUpdate }) {
     UpdateFormDialog.propTypes
+    // State to store updated data with initial values from the post
     const [updatedData, setUpdatedData] = useState({
         title: post.title,
         link: post.link,
@@ -9,9 +10,10 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
         description: post.description,
         img: post.img,
     })
-
+    // Handle input changes in the form
     const handleInputChange = (event) => {
         const { name, value } = event.target
+        // Update the corresponding field in the updatedData state
         setUpdatedData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -20,8 +22,9 @@ export default function UpdateFormDialog({ post, onClose, onUpdate }) {
 
     async function handleUpdate(event) {
         event.preventDefault()
-        console.log(post)
+        // Check if the post has an ID (indicating it exists in the database)
         if (post.id) {
+            // Send a PUT request to update the content with the new data
             const response = await fetch(
                 import.meta.env.VITE_BACKEND_ENDPOINT + `/media/${post.id}`,
                 {

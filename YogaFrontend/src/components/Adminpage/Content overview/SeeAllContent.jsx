@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom'
 import UpdateContentDialog from './UpdateContentDialog'
 
 export default function SeeAllContent() {
+    // State to store media information, update dialog status, and selected post
     const [mediaInfo, SetMediaInfo] = useState([])
     const [isUpdateDialogOpen, setIsUpdateDialogOpen] = useState(false)
     const [selectedPost, setSelectedPost] = useState(null)
@@ -22,13 +23,13 @@ export default function SeeAllContent() {
             console.log('Error fetching events:', error)
         }
     }
+
     async function openUpdateDialog(post) {
         setSelectedPost(post)
         setIsUpdateDialogOpen(true)
     }
 
     async function handleUpdate() {
-        // You can update state or perform other actions
         setIsUpdateDialogOpen(false)
         fetchMediaFromDatabase()
     }
