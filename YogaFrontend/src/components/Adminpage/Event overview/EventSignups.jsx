@@ -10,6 +10,33 @@ export default function EventSignups() {
     const [eventSignups, setEventSignups] = useState([])
     const [userData, setUserData] = useState([])
 
+    async function deleteEvent(event) {
+        const idToDelete = event.id
+
+        try {
+            const response = await fetch(
+                import.meta.env.VITE_BACKEND_ENDPOINT + `/events/${idToDelete}`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            )
+
+            if (!response.ok) {
+                console.log(`HTTP error! Status: ${response.status}`)
+            }
+
+            // Handle success, if needed
+            fetchEventsFromDatabase()
+            console.log('Event deleted successfully')
+        } catch (error) {
+            // Handle errors
+            console.error('Error deleting event:', error.message)
+        }
+    }
+
     async function fetchUsersFromDatabase() {
         try {
             const response = await fetch(
@@ -98,6 +125,7 @@ export default function EventSignups() {
             event={event}
             eventSignups={eventSignups}
             userData={userData}
+            deleteEvent={deleteEvent}
         />
     ))
 

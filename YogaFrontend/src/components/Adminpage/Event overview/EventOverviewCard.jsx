@@ -6,39 +6,12 @@ export default function EventOverviewCard({
     event,
     eventSignups,
     userData,
+    deleteEvent,
 }) {
     EventOverviewCard.propTypes
 
     const [show, setShow] = useState(false)
     const [data, setData] = useState([])
-
-    async function deleteEvent(event) {
-        const idToDelete = event.id
-
-        console.log('this is the event id to delete', idToDelete)
-
-        // try {
-        //     const response = await fetch(
-        //         import.meta.env.VITE_BACKEND_ENDPOINT + `/events/${event.id}`,
-        //         {
-        //             method: 'DELETE',
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //             },
-        //         }
-        //     )
-
-        //     if (!response.ok) {
-        //         console.log(`HTTP error! Status: ${response.status}`)
-        //     }
-
-        //     // Handle success, if needed
-        //     console.log('Event deleted successfully')
-        // } catch (error) {
-        //     // Handle errors
-        //     console.error('Error deleting event:', error.message)
-        // }
-    }
 
     function showEventSignUps() {
         const signups = []
