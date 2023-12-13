@@ -3,6 +3,7 @@ import NavBar from './NavBar'
 import SignUpDialog from './SignUp/SignUpDialog'
 import DropdownMenu from './DropdownMenu'
 
+//Header for all pages, other then homepage, and only include home and contact buttons in the navbar
 export default function Header() {
     Header.propTypes
 

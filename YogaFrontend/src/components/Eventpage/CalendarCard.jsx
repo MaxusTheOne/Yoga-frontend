@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import EventCard from './EventCard'
 
-// CalendarCard component representing a day in the calendar
+// CalendarCard component representing a single day in the calendar
 export default function CalendarCard({ day, fullDate, events }) {
     //Line below is to avoid error messages
     CalendarCard.propTypes

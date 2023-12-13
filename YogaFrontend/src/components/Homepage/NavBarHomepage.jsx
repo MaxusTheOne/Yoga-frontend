@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
+//Navbar only for header on homepage as it includes scroll buttons that only work on homepage
 export default function NavBarHomePage({ scrollToFAQ, scrollToHIH }) {
     NavBarHomePage.propTypes
 

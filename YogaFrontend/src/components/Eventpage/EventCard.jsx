@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import EventDialog from './EventDialog'
 
+// EventCard component representing a single event within a given CalendarCard component
 export default function EventCard({ matchingEvent }) {
     EventCard.propTypes
 

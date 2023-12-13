@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import SignupsDialog from './SignupsDialog'
 
+// EventOverviewCard component for displaying event signup details
 export default function EventOverviewCard({
     title,
     event,
@@ -8,22 +9,27 @@ export default function EventOverviewCard({
     userData,
     deleteEvent,
 }) {
+    //This line to avoid error messages
     EventOverviewCard.propTypes
 
+    // State to manage the visibility of the signups dialog and sign up objects to be displayed
     const [show, setShow] = useState(false)
     const [data, setData] = useState([])
 
     function showEventSignUps() {
+        // Array to store signups for the event
         const signups = []
 
+        // Filter event signups matching the current event ID
         eventSignups.forEach((item) => {
             if (item['event_id'] === event.id) {
                 signups.push(item)
             }
         })
 
+        // Process signups and match with user data
         if (signups.length === 0) {
-            console.log('no one signed up here')
+            console.log('No one signed up for this event')
         } else {
             signups.forEach((item) => {
                 userData.forEach((user) => {
@@ -35,6 +41,7 @@ export default function EventOverviewCard({
         }
     }
 
+    // Mapping user data for rendering
     const list = data.map((item) => {
         return item
     })
@@ -44,6 +51,7 @@ export default function EventOverviewCard({
             <div className="eventOverview-card-container">
                 <div
                     className="eventOverview-card-text"
+                    // Click event to show signups and set visibility to true
                     onClick={() => {
                         showEventSignUps()
                         setShow(true)
@@ -62,6 +70,7 @@ export default function EventOverviewCard({
                 <div className="delete-event-button-container">
                     <button
                         className="delete-event-button"
+                        // Click event to delete the current event
                         onClick={() => deleteEvent(event)}
                     >
                         Delete event
@@ -69,6 +78,7 @@ export default function EventOverviewCard({
                 </div>
             </div>
 
+            {/* Conditionally render the SignupsDialog component when show state is true */}
             {show && (
                 <SignupsDialog event={event} list={list} setShow={setShow} />
             )}

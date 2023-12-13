@@ -1,6 +1,7 @@
 import AnimatedPage from '../Homepage/AnimatedPage'
 import EventSignUp from './EventSignup'
 
+// EventDialog component representing a dialog for displaying event details when the EventCard is clicked
 export default function EventDialog({
     handleSignUpClick,
     matchingEvent,
@@ -21,10 +22,12 @@ export default function EventDialog({
                             >
                                 X
                             </div>
+                            {/* Conditional rendering for showing the event information only if the signup form state is false */}
                             {!showSignUpForm && (
                                 <>
                                     <h1 className="eventDialog-title">
                                         {matchingEvent.title}
+                                        {/* Conditional rendering for showing a link only if it exists on the event component */}
                                         {matchingEvent.linkUrl !== null &&
                                             matchingEvent.linkUrl !== '' && (
                                                 <a
@@ -58,7 +61,7 @@ export default function EventDialog({
                                     </div>
                                 </>
                             )}
-
+                            {/* Rendering the EventSignUp component when showSignUpForm is true */}
                             {showSignUpForm && (
                                 <EventSignUp
                                     matchingEvent={matchingEvent}

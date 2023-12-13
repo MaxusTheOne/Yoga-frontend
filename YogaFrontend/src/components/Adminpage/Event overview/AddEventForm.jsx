@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import AnimatedPage from '../../Homepage/AnimatedPage'
 
+// AddEventForm component for creating new events
 export default function AddEventForm({ handleCloseDialog }) {
     AddEventForm.propTypes
 
+    // State to manage form inputs
     const [title, setTitle] = useState('')
     const [startDate, setStartDate] = useState('')
     const [startTime, setStartTime] = useState('')
@@ -30,10 +32,7 @@ export default function AddEventForm({ handleCloseDialog }) {
             linkUrl,
         }
 
-        console.log(newEvent)
-
         try {
-            // Make a fetch request to your server endpoint
             const response = await fetch(
                 import.meta.env.VITE_BACKEND_ENDPOINT + '/events',
                 {
@@ -47,18 +46,14 @@ export default function AddEventForm({ handleCloseDialog }) {
 
             if (response.ok) {
                 console.log('Event added successfully')
-                // Optionally, you can handle success (event.g., show a message)
             } else {
                 console.error('Error adding event:', response.statusText)
-
-                // Optionally, you can handle errors (event.g., show an error message)
             }
         } catch (error) {
             console.error('Error during fetch:', error)
-            // Handle other errors as needed
         }
 
-        // Clear the form fields
+        // Clear the form fields and close the dialog
         setTitle('')
         setStartDate('')
         setStartTime('')
@@ -67,7 +62,6 @@ export default function AddEventForm({ handleCloseDialog }) {
         setDescription('')
         setImageUrl('')
         setLinkUrl('')
-
         handleCloseDialog()
     }
 
@@ -76,6 +70,7 @@ export default function AddEventForm({ handleCloseDialog }) {
             <AnimatedPage>
                 <div className="eventDialog-overlay">
                     <dialog className="addEvent-dialog" open>
+                        {/* Close button for the form */}
                         <div
                             onClick={handleCloseDialog}
                             className="addEventDialog-close-button"
@@ -83,12 +78,13 @@ export default function AddEventForm({ handleCloseDialog }) {
                             X
                         </div>
 
+                        {/* Form for adding a new event */}
                         <form
                             className="event-form"
                             onSubmit={handleFormSubmit}
-                            // onSubmit={check}
                         >
                             <div className="addEvent-dialog-content">
+                                {/* Input fields for event details */}
                                 <div className="input-column">
                                     <div className="addEvent-input-container">
                                         <label htmlFor="title">Title:</label>
@@ -211,6 +207,8 @@ export default function AddEventForm({ handleCloseDialog }) {
                                     </div>
                                 </div>{' '}
                             </div>
+
+                            {/* Submit button for adding the event */}
                             <div className="addEvent-submit-button">
                                 <button className="logout-button" type="submit">
                                     Add Event

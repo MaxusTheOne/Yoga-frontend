@@ -4,8 +4,6 @@ export default function MediaCard({
     img,
     link,
     linkDescription,
-    // handleDelete,
-    // item,
 }) {
     MediaCard.propTypes
 

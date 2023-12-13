@@ -5,12 +5,15 @@ import Header from '../../Homepage/Header'
 import { useEffect, useState } from 'react'
 import EventOverviewCard from './EventOverviewCard'
 
+// EventSignups component for displaying an overview of events and their signups
 export default function EventSignups() {
+    // State to store event data, event signups, and user data
     const [eventData, setEventData] = useState([])
     const [eventSignups, setEventSignups] = useState([])
     const [userData, setUserData] = useState([])
 
     async function deleteEvent(event) {
+        // Extract the ID of the event to be deleted
         const idToDelete = event.id
 
         try {
@@ -24,15 +27,15 @@ export default function EventSignups() {
                 }
             )
 
+            // Check if the deletion was successful
             if (!response.ok) {
                 console.log(`HTTP error! Status: ${response.status}`)
             }
 
-            // Handle success, if needed
+            // Update page if successfull
             fetchEventsFromDatabase()
             console.log('Event deleted successfully')
         } catch (error) {
-            // Handle errors
             console.error('Error deleting event:', error.message)
         }
     }
@@ -45,7 +48,7 @@ export default function EventSignups() {
             const data = await response.json()
             setUserData(data)
         } catch (error) {
-            console.log('Error fetching events:', error)
+            console.log('Error fetching users:', error)
         }
     }
 
@@ -55,9 +58,13 @@ export default function EventSignups() {
                 import.meta.env.VITE_BACKEND_ENDPOINT + '/events'
             )
             const data = await response.json()
+
+            // Sort events by start date in descending order
             const sortedEvents = data.sort(
                 (a, b) => new Date(b.start) - new Date(a.start)
             )
+
+            // Format event data for display
             const formattedEvents = sortedEvents.map((event) => {
                 const formattedStartDate = new Date(event.start).toDateString()
                 const formattedEndDate = new Date(event.end).toDateString()
@@ -83,6 +90,8 @@ export default function EventSignups() {
                     endTime: formattedEndTime,
                 }
             })
+
+            // Update state with formatted event data
             setEventData(formattedEvents)
         } catch (error) {
             console.log('Error fetching events:', error)
@@ -106,18 +115,22 @@ export default function EventSignups() {
         }
     }
 
+    // useEffect hook to fetch event signups when the component mounts
     useEffect(() => {
         fetchEventSignups()
     }, [])
 
+    // useEffect hook to fetch events when the component mounts
     useEffect(() => {
         fetchEventsFromDatabase()
     }, [])
 
+    // useEffect hook to fetch users when the component mounts
     useEffect(() => {
         fetchUsersFromDatabase()
     }, [])
 
+    // Mapping events to EventOverviewCard components
     const events = eventData.map((event) => (
         <EventOverviewCard
             key={event.id}
@@ -140,6 +153,7 @@ export default function EventSignups() {
                             &#8594;To menu &#8592;
                         </li>
                     </NavLink>
+                    {/* Container for displaying EventOverviewCard components */}
                     <div className="eventOverview-cards-container">
                         {events}
                     </div>

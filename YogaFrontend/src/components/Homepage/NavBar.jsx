@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
+//Navbar for all other pages, except homepage, as it only includes home and contact buttons
 export default function NavBar() {
     NavBar.propTypes
 

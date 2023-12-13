@@ -6,7 +6,6 @@ import PrivateSessions from './components/Homepage/PrivateSessions.jsx'
 import { Route, Routes } from 'react-router-dom'
 import MediaPage from './components/Contentpage/Mediapage.jsx'
 import AdminPage from './components/Adminpage/AdminPage.jsx'
-import MemberManagement from './components/Adminpage/Member overview/MemberManagement.jsx'
 import ContentManagement from './components/Adminpage/Content overview/ContentManagement.jsx'
 import EventManagement from './components/Adminpage/Event overview/EventManagement.jsx'
 import ExtendedMenu from './components/Adminpage/Menu overview/ExtendedMenu.jsx'
@@ -26,7 +25,6 @@ function App() {
                 <Route path="contact" element={<Contact />} />
                 <Route path="eventSignups" element={<EventSignups />} />
                 <Route path="adminMenu" element={<ExtendedMenu />} />
-                <Route path="memberManagement" element={<MemberManagement />} />
                 <Route
                     path="contentManagement"
                     element={<ContentManagement />}

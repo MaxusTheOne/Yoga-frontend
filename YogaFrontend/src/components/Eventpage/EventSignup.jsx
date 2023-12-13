@@ -5,8 +5,10 @@ export default function EventSignUp({ matchingEvent }) {
     EventSignUp.propTypes
 
     const [email, setEmail] = useState('')
-    const [noMatch, setNoMatch] = useState(false)
     const [signedUp, setSignedUp] = useState(false)
+
+    //State to check if the email used for sign up is a member email
+    const [noMatch, setNoMatch] = useState(false)
 
     async function associateUserWithEvent(userSignedUp) {
         const data = userSignedUp
@@ -45,6 +47,8 @@ export default function EventSignUp({ matchingEvent }) {
                 return data.userId
             } else {
                 console.error('Error retrieving user ID:', data.error)
+
+                //If no match is found the state is set to true and an error message if displayed for the user
                 setNoMatch(true)
                 setEmail('')
                 return null
@@ -60,6 +64,8 @@ export default function EventSignUp({ matchingEvent }) {
         event.preventDefault()
 
         const user = await getUserIdByEmail(email)
+
+        //Object for the backend to input in our junction table that associates users with events
         const userSignedUp = {
             eventId: matchingEvent.id,
             userId: user,
@@ -92,12 +98,14 @@ export default function EventSignUp({ matchingEvent }) {
                     >
                         Submit
                     </button>
+                    {/* Displaying an error message if no user is found */}
                     {noMatch && (
                         <p className="event-signup-error">
-                            No user found, sign up as user or type correct
+                            No user found, sign up as a user or type the correct
                             email.
                         </p>
                     )}
+                    {/* Displaying a success message if the sign-up is successful */}
                     {signedUp && (
                         <p className="event-signup-success">
                             Sign up successful, you can close this window now.

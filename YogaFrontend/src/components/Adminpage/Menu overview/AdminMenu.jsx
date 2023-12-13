@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
 
+//Menu component WITHOUT logout button for styling purposes there are 2 components that are quite similar
 export default function AdminMenu() {
+    //This is line is just here to prevent error messages
     AdminMenu.propTypes
 
     return (

@@ -3,6 +3,7 @@ import SignUpDialog from './SignUp/SignUpDialog'
 import DropdownMenu from './DropdownMenu'
 import NavBarHomePage from './NavBarHomepage'
 
+//Header only for homepage which includes buttons (in the navbar) that scroll to certain components within the page
 export default function HeaderHomepage({ scrollToFAQ, scrollToHIH }) {
     //This line below is simply to avoid error messages within the code
     HeaderHomepage.propTypes

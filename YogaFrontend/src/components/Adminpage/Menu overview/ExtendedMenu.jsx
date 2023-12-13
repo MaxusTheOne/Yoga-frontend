@@ -3,6 +3,7 @@ import Header from '../../Homepage/Header'
 import Footer from '../../Homepage/Footer'
 import AnimatedPage from '../../Homepage/AnimatedPage'
 
+//Menu component WITH logout button for styling purposes there are 2 components that are quite similar
 export default function ExtendedMenu() {
     return (
         <>
@@ -24,6 +25,7 @@ export default function ExtendedMenu() {
                         </NavLink>
                     </ul>
                 </div>
+                {/* Clicking this navlink effectively logs you out of the admin overview and returns you to the login page */}
                 <NavLink to="/admin">
                     <div className="logout-button-container">
                         <button className="logout-button">Logout</button>

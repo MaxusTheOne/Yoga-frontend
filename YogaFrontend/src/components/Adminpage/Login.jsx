@@ -5,11 +5,12 @@ export default function Login({ checkLogin }) {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    // State for handling login errors
     const [errors, setErrors] = useState(null)
 
     function handleEnterKeyPress(event) {
         if (event.key === 'Enter') {
-            // Call the handleLogin function when Enter key is pressed
+            // Call the handleLogin function if Enter key is pressed
             handleLogin()
         }
     }
@@ -75,6 +76,7 @@ export default function Login({ checkLogin }) {
             <button className="login-button" onClick={handleLogin}>
                 Login
             </button>
+            {/* Display error message if login fails */}
             {errors && <p className="login-error-text">Invalid login</p>}
         </div>
     )
