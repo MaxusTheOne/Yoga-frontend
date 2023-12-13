@@ -12,9 +12,7 @@ import ExtendedMenu from './components/Adminpage/Menu overview/ExtendedMenu.jsx'
 import SeeAllMembers from './components/Adminpage/Member overview/SeeAllMembers.jsx'
 import EventSignups from './components/Adminpage/Event overview/EventSignups.jsx'
 import Contact from './components/Homepage/Contact.jsx'
-
 import SeeAllContent from './components/Adminpage/Content overview/SeeAllContent.jsx'
-// import "./homepage.css";
 
 function App() {
     return (
