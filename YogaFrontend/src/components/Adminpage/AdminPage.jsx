@@ -3,7 +3,7 @@ import AnimatedPage from '../Homepage/AnimatedPage'
 import Footer from '../Homepage/Footer'
 import Header from '../Homepage/Header'
 import Login from './Login'
-import AdminMenu from './Menu overview/AdminMenu'
+import AdminMenu from './MenuOverview/AdminMenu'
 
 // AdminPage component for managing administrator access
 export default function AdminPage() {
