@@ -6,7 +6,7 @@
 
 If you want to run it on your local backend (ignore this step to use our Azure hosted site), follow these steps:
 
-1. Clone this repository to your local machine, and open the file
+1. Clone this repository to your local machine, and open the folder
 
 2. Change the `VITE_BACKEND_ENDPOINT` in the `.env` file to:
 
