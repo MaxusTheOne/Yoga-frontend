@@ -4,7 +4,9 @@
 
 ## Running Locally
 
-If you want to run it on your local backend (ignore this step to use our Azure hosted site), follow these steps:
+You can ignore these steps if you want to use our Azure hosted site.
+
+If you want to run it on your local backend, follow these steps:
 
 1. Clone this repository to your local machine, and open the folder
 
