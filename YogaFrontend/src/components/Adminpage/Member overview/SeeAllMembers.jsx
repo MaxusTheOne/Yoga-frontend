@@ -77,6 +77,7 @@ export default function SeeAllMembers() {
         }
     }
 
+    // useEffect hook to fetch data when the component mounts
     useEffect(() => {
         fetchMediaFromDatabase()
     }, [])
@@ -87,6 +88,7 @@ export default function SeeAllMembers() {
         } else return <span className="not-paid-member">Guest</span>
     }
 
+    // Create an array of MemberCard components based on user data
     const userList = userInfo.map((user) => (
         <MemberCard
             key={user.id}
