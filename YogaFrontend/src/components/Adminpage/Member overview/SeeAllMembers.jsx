@@ -21,8 +21,10 @@ export default function SeeAllMembers() {
     }
 
     async function handleEditMemberStatus(user) {
+        //Check current member status
         if (user.memberStatus == 0)
             try {
+                //If user is not an active member, promote them
                 await fetch(
                     import.meta.env.VITE_BACKEND_ENDPOINT +
                         `/users/${user.id}/promote`,
@@ -33,10 +35,12 @@ export default function SeeAllMembers() {
 
                 fetchMediaFromDatabase()
             } catch (error) {
+                //Error handling
                 console.log('Error fetching events:', error)
             }
         else {
             try {
+                //If user is an active member, demote them
                 await fetch(
                     import.meta.env.VITE_BACKEND_ENDPOINT +
                         `/users/${user.id}/demote`,
@@ -47,12 +51,14 @@ export default function SeeAllMembers() {
 
                 fetchMediaFromDatabase()
             } catch (error) {
+                //Error handling
                 console.log('Error fetching events:', error)
             }
         }
     }
 
     async function handleDelete(user) {
+        //See if the user has a user.id and therefore is an actual user
         if (user.id) {
             try {
                 await fetch(
@@ -63,6 +69,7 @@ export default function SeeAllMembers() {
                 )
                 fetchMediaFromDatabase()
             } catch (error) {
+                //Error handling
                 console.error('Error deleting media:', error)
             }
         } else {
