@@ -6,4 +6,5 @@ change the VITE_BACKEND_ENDPOINT in the .env variable to
 http://localhost:3000 Or what else you have set ur localhost to
 
 Save, navigate to the YogaFronted dir in your terminal.
+Run npm install
 and then run: npm run dev
