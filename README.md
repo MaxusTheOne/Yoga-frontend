@@ -18,10 +18,11 @@ If you want to run it on your local backend (ignore this step to use our Azure h
 
 3. Navigate to the `YogaFrontend` directory in your terminal.
 
-4. Run the following command:
+4. Run the following commands:
 
     ```bash
+    npm install
     npm run dev
     ```
 
-Now, your frontend should be running locally. Visit [http://localhost:3000](http://localhost:3000) in your browser to access the local version.
+Now, your frontend should be running locally on the link displayed in your terminal. Visit the link in your browser to access the local version.
