@@ -31,3 +31,7 @@ If you want to run it on your local backend, follow these steps:
     ```
 
 Now, your frontend should be running locally on the link displayed in your terminal. Visit the link in your browser to access the local version.
+
+6. (Admin login):
+   Username: Marcela
+   Password: admin123
